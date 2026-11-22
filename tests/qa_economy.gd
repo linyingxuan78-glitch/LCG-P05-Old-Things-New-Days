@@ -86,6 +86,14 @@ func _run() -> void:
     _expect(shop.get("day"), 2, "day rolls over", failures)
     _expect(shop.get("day_sales"), 0, "daily sales reset", failures)
 
+    # Do not terminate SceneTree while the test still owns the instantiated shop.
+    # Release scene and loaded resources before asking Godot to exit.
+    root.remove_child(shop)
+    shop.free()
+    shop = null
+    scene = null
+    await process_frame
+
     if failures.size() > 0:
         for failure in failures:
             push_error("QA FAILED: " + failure)

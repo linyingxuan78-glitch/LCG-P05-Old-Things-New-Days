@@ -1,0 +1,37 @@
+name: Diagnostic - All 23 Godot suites after Xvfb import
+
+on:
+  push:
+    paths:
+      - ".github/workflows/godot_xvfb_23_suites_diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test_23_suites:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Checkout current repaired game
+        uses: actions/checkout@v4
+      - name: Set up exact Godot 4.4.1
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: false
+      - name: Run separate Xvfb GL import, main-scene smoke and all 23 suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          GODOT_BIN="$(command -v godot)" python3 tools/diagnose_native_after_xvfb_import.py
+      - name: Preserve complete diagnostics (including failed test evidence)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-xvfb-import-23-suite-logs
+          path: documentation/native_diagnostic_xvfb/
+          retention-days: 14
+          if-no-files-found: error

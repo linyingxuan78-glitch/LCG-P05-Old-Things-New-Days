@@ -26,7 +26,8 @@ func _run() -> void:
     # Old saves have no consignment_stock or history. New-game defaults must be intact.
     shop.call("_new_game")
     var initial_liabilities: Array = shop.get("consignment_stock")
-    _expect(initial_liabilities.size(), 9, "consignment array size", problems)
+    # Product inventory is now 27 SKUs on nine physical shelves; v0.12 assumed only 9 SKUs.
+    _expect(initial_liabilities.size(), 27, "consignment array size", problems)
     _expect((shop.get("daily_history") as Array).size(), 0, "clean ledger", problems)
 
     # At zero cash and no inventory the player must not be trapped permanently.

@@ -31,7 +31,7 @@ jobs:
           godot --version
           command -v xvfb-run
           set +e
-          timeout 180 xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --editor --import --quit --rendering-driver opengl3 > documentation/xvfb_import_logs/editor_import.log 2>&1
+          timeout 180 xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --editor --import --quit --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 > documentation/xvfb_import_logs/editor_import.log 2>&1
           status=$?
           set -e
           echo "$status" > documentation/xvfb_import_logs/exit_code.txt

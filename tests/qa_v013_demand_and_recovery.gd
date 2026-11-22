@@ -28,7 +28,8 @@ func _run() -> void:
     _check(int(shop.call("_featured_category")) == 0, "Day 1 must feature Vintage Tech", issues)
     _check(bool(shop.call("_is_featured_product", 0)), "Radio must belong to today's category", issues)
     _check(not bool(shop.call("_is_featured_product", 1)), "Books must not be hot on day 1", issues)
-    _check(str(shop.call("_demand_message")).contains("TOMORROW"), "Demand forecast not visible", issues)
+    # The on-screen forecast uses NEXT rather than the old TOMORROW label.
+    _check(str(shop.call("_demand_message")).contains("NEXT: Home & Books"), "Demand forecast not visible", issues)
     shop.set("day", 2)
     _check(int(shop.call("_featured_category")) == 1, "Day 2 must feature Home & Books", issues)
     shop.set("day", 3)

@@ -37,3 +37,5 @@ jobs:
           if-no-files-found: error
 
 # Rerun regression diagnostics after save/parser/splash checks and economy scene cleanup.
+
+# Re-run all suites after silent-QA-only OGG playback lifecycle fix.

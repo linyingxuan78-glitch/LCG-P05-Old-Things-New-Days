@@ -1,0 +1,73 @@
+name: Register repaired Kenney textures and run Godot QA
+
+on:
+  push:
+    paths:
+      - "staging/texture_registration_request.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lcg-p05-texture-registration
+  cancel-in-progress: false
+
+jobs:
+  repair_and_test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - name: Check out current game project
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate restored texture hashes, update provenance and scan GLB external references
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/register_restored_textures_v0169.py
+          python tools/check_ci_pipeline.py
+          python tools/static_preflight.py
+          python tools/sync_release_notices.py
+          python tools/check_creator_provenance_v0166.py
+          python tools/selftest_acceptance_runner.py
+      - name: Commit texture provenance and documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add licenses/USED_ASSET_PROVENANCE.csv licenses/PLAYER_THIRD_PARTY_NOTICES.txt tools/check_creator_provenance_v0166.py documentation/TEXTURE_RECOVERY_V0169.md
+          if [ -f staging/texture_registration_request.txt ]; then
+            git rm staging/texture_registration_request.txt
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "fix(assets): repair Kenney GLB texture URIs and source ledger"
+            git push origin HEAD:main
+          fi
+      - name: Install official Godot 4.4.1
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: true
+      - name: Run actual native import and 23 QA suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --version
+          GODOT_BIN="$(command -v godot)" bash tools/run_native_acceptance.sh
+      - name: Upload native logs even if Godot detects more errors
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-texture-repair-native-logs
+          path: |
+            documentation/native_run_logs/
+            documentation/TEXTURE_RECOVERY_V0169.md
+            documentation/CURRENT_RIGHTS_AUDIT.json
+          if-no-files-found: warn
+          retention-days: 14

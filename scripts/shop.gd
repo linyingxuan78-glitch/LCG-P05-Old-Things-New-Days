@@ -944,23 +944,29 @@ func _apply_audio() -> void:
         audio_stock.volume_db = linear_to_db(maxf(0.001, sfx_volume * master_volume * 0.26))
 
 func _play_click() -> void:
-    if audio_click != null:
+    # Native headless QA validates stream availability but cannot verify audible playback.
+    # Do not leave live OGG playback objects behind when the test SceneTree exits.
+    if audio_click != null and not qa_mode:
         audio_click.play()
 
 func _play_sale() -> void:
-    if audio_sale != null:
+    if audio_sale != null and not qa_mode:
         audio_sale.play()
 
 func _play_stock_sound() -> void:
-    if audio_stock != null and audio_stock.stream != null:
+    if audio_stock != null and audio_stock.stream != null and not qa_mode:
         audio_stock.play()
 
 func _play_entry_bell() -> void:
-    if audio_entry_bell != null and audio_entry_bell.stream != null:
+    if audio_entry_bell != null and audio_entry_bell.stream != null and not qa_mode:
         audio_entry_bell.play()
 
 func _update_footsteps(delta: float, is_moving: bool) -> void:
     # Audio is driven by actual floor movement and respects the existing SFX slider.
+    # Headless QA has no real playback hardware; streams are still loaded and validated.
+    if qa_mode:
+        footstep_elapsed = 0.0
+        return
     if not is_moving or footstep_streams.is_empty():
         footstep_elapsed = 0.0
         return
@@ -2213,7 +2219,9 @@ func _enter_game() -> void:
     head.rotation = Vector3.ZERO
     footstep_elapsed = 0.0
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-    if audio_music != null and not audio_music.playing:
+    # Automated gameplay QA is silent to avoid retaining active OGG playbacks at exit.
+    # Actual gameplay audio (qa_mode=false) is unchanged.
+    if audio_music != null and not audio_music.playing and not qa_mode:
         audio_music.play()
     _refresh_ui()
     _refresh_tutorial_ui()

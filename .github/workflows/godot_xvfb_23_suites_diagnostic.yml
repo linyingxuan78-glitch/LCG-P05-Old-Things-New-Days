@@ -35,3 +35,5 @@ jobs:
           path: documentation/native_diagnostic_xvfb/
           retention-days: 14
           if-no-files-found: error
+
+# Rerun regression diagnostics after save/parser/splash checks and economy scene cleanup.

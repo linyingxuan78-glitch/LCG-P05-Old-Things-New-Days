@@ -1,0 +1,1 @@
+Texture registration and Godot native QA requested by project owner. The five verified PNG blobs were staged through GitHub; see pinned-source asset audit.

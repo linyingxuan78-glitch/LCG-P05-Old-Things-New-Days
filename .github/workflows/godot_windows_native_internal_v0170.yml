@@ -1,0 +1,93 @@
+# INTERNAL QA ONLY: no itch.io uploads, releases, Pages, or public store publishing.
+# Independent Windows verification because Linux dummy/Vulkan importer is not a valid Windows GPU proxy.
+name: LCG P05 Windows 4.4.1 verification and gated internal EXE
+
+on:
+  push:
+    paths:
+      - ".github/workflows/godot_windows_native_internal_v0170.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows_native_validation:
+    runs-on: windows-2022
+    timeout-minutes: 50
+    steps:
+      - name: Check out complete game source
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install exact Godot 4.4.1 and Windows export templates
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: true
+      - name: Inspect Godot binary and run source / provenance gates
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Write-Host "Godot PATH and version:"
+          Get-Command godot -ErrorAction Stop | Format-List Name,Source,CommandType
+          godot --version
+          if ($LASTEXITCODE -ne 0) { throw 'Godot --version failed' }
+          python tools/check_ci_pipeline.py
+          if ($LASTEXITCODE -ne 0) { throw 'CI preflight failed' }
+          python tools/static_preflight.py
+          if ($LASTEXITCODE -ne 0) { throw 'Static preflight failed' }
+          python tools/sync_release_notices.py
+          if ($LASTEXITCODE -ne 0) { throw 'Credits media registry failed' }
+          python tools/check_creator_provenance_v0166.py
+          if ($LASTEXITCODE -ne 0) { throw 'Creator provenance failed' }
+          python tools/selftest_acceptance_runner.py
+          if ($LASTEXITCODE -ne 0) { throw 'Acceptance runner integrity failed' }
+      - name: Independently verify real Windows resource import, scene startup and 23 QA scripts
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          python tools/windows_native_acceptance_v0170.py
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+      - name: Preserve Windows engine validation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_WINDOWS_NATIVE_VALIDATION_LOGS
+          path: documentation/windows_ci_diagnostics/
+          if-no-files-found: warn
+          retention-days: 14
+
+      # Strict Windows-specific gate above must have exited 0 before internal export.
+      # This still reruns the project's original Windows acceptance script.
+      - name: Attempt gated Windows INTERNAL TEST ONLY build (no storefront publishing)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $cmd = Get-Command godot -ErrorAction Stop
+          $env:GODOT_BIN = $cmd.Source
+          & ./tools/build_windows_release.ps1
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+      - name: Preserve build and licence snapshot logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_WINDOWS_EXPORT_LOGS
+          path: |
+            documentation/WINDOWS_EXPORT_RESULT.txt
+            documentation/WINDOWS_EXPORT_LOG.txt
+            documentation/native_run_logs/
+            licenses/GODOT_BINARY_DEPENDENCIES.txt
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Store INTERNAL TEST ONLY EXE only when both native and release builder checks pass
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_INTERNAL_TEST_ONLY
+          path: dist/LCG-P05_INTERNAL_TEST_ONLY.exe
+          if-no-files-found: error
+          retention-days: 7

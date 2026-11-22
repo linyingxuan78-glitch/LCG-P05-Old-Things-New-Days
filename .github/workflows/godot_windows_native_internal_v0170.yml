@@ -32,10 +32,15 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          Write-Host "Godot PATH and version:"
-          Get-Command godot -ErrorAction Stop | Format-List Name,Source,CommandType
-          godot --version
-          if ($LASTEXITCODE -ne 0) { throw 'Godot --version failed' }
+          # The GitHub action's 'godot' alias targets the GUI binary, whose Windows
+          # CLI exit behavior cannot be used to certify Godot --version or script exit codes.
+          $console = Join-Path $env:USERPROFILE 'godot\Godot_v4.4.1-stable_win64_console.exe'
+          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) { throw "Godot 4.4.1 console executable missing: $console" }
+          $env:GODOT_BIN = $console
+          "GODOT_BIN=$console" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          Write-Host "Testing console executable: $console"
+          & $console --version
+          if ($LASTEXITCODE -ne 0) { throw 'Godot 4.4.1 console --version failed' }
           python tools/check_ci_pipeline.py
           if ($LASTEXITCODE -ne 0) { throw 'CI preflight failed' }
           python tools/static_preflight.py
@@ -67,8 +72,7 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $cmd = Get-Command godot -ErrorAction Stop
-          $env:GODOT_BIN = $cmd.Source
+          if (-not $env:GODOT_BIN -or -not (Test-Path -LiteralPath $env:GODOT_BIN -PathType Leaf)) { throw 'GODOT_BIN not set to Windows console binary' }
           & ./tools/build_windows_release.ps1
           if ($LASTEXITCODE -ne 0) { exit 1 }
       - name: Preserve build and licence snapshot logs

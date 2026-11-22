@@ -610,7 +610,7 @@ func _create_world() -> void:
     counter_sign.name = "CounterInteractHint"
     counter_sign.text = "[E]  $  SHOP DESK"
     counter_sign.position = Vector3(4.0, 2.08, 5.3)
-    counter_sign.billboard = true
+    counter_sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
     counter_sign.font_size = 36
     counter_sign.pixel_size = 0.005
     counter_sign.modulate = Color("f4e5c8")
@@ -2909,7 +2909,7 @@ func _spawn_customer() -> void:
     shopper_reaction = Label3D.new()
     shopper_reaction.name = "CustomerReactionSymbol"
     shopper_reaction.position = Vector3(0.0, 2.45, 0.0)
-    shopper_reaction.billboard = true
+    shopper_reaction.billboard = BaseMaterial3D.BILLBOARD_ENABLED
     shopper_reaction.font_size = 64
     shopper_reaction.pixel_size = 0.005
     shopper_reaction.modulate = Color("f6e4b0")

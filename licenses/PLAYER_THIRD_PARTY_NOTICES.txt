@@ -17,6 +17,12 @@ BUNDLED THIRD-PARTY MEDIA (author / source set / declared license)
   https://poly.pizza/bundle/Pretty-park-set-G2WINPAG9S
 - Kay Lousberg — Restaurant Bits — CC0 1.0 (creator listing) (1 media file(s))
   https://poly.pizza/bundle/Restaurant-Bits-ejkcnWf78Q
+- Kenney — Building Kit — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/building/Textures/colormap.png
+- Kenney — City Kit (Suburban) — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/city-suburban/Textures/colormap.png
+- Kenney — Factory Kit — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/factory/Textures/colormap.png
 - Kenney — Furniture Kit — CC0 1.0 (31 media file(s))
   https://kenney.nl/assets/furniture-kit
 - Kenney — Furniture Kit — CC0 1.0 derivative / project-authored composition (25 media file(s))
@@ -39,14 +45,23 @@ BUNDLED THIRD-PARTY MEDIA (author / source set / declared license)
   https://kenney.nl
 - Kenney — Kenney ui — CC0 1.0 (1 media file(s))
   https://kenney.nl
-- Kenney — Mini Characters — CC0 1.0 (4 media file(s))
+- Kenney — Mini Arcade — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/mini-arcade/Textures/colormap.png
+- Kenney — Mini Characters — CC0 1.0 (7 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/mini-characters/Textures/colormap.png
   https://kenney.nl/assets/mini-characters
 - Kenney — Mini Characters — CC0 1.0 derivative / project-authored composition (1 media file(s))
   https://kenney.nl/assets/mini-characters
 - Kenney — Mini Characters 2.0 — CC0 1.0 (3 media file(s))
   https://kenney.nl/assets/mini-characters
+- Kenney — Mini Market colormap (Mini Shop compatibility substitute) — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/mini-market/Textures/colormap.png
 - Kenney — Mini Shop 2.1 — CC0 1.0 (5 media file(s))
   https://kenney.nl/assets/mini-shop
+- Kenney — Prototype Kit — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/prototype/Textures/colormap.png
+- Kenney — Retro Urban Kit — CC0 1.0 (1 media file(s))
+  https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/retro-urban/Textures/roof.png
 - Kenney — Retro Urban Kit 2.0 — CC0 1.0 (1 media file(s))
   https://kenney.nl/assets/retro-urban-kit
 - Kenney — UI Audio — CC0 1.0 (4 media file(s))
@@ -59,7 +74,7 @@ PROJECT-AUTHORED / SOURCE-DERIVED MEDIA
 Derived previews retain their underlying creator and license in the register.
 
 DETAILED RECORD
-115 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
+125 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
 Licenses and originals are retained in the project as documented; no claim that every source is copyright-exclusive.
 
 GAME ENGINE

@@ -3,7 +3,7 @@ name: Import verified LCG-P05 v0.16.9 archive
 on:
   push:
     paths:
-      - "staging/lcg_p05_zip_part_*.b64"
+      - "staging/**"
   workflow_dispatch:
 
 permissions:
@@ -40,7 +40,7 @@ jobs:
                   rel=pathlib.PurePosixPath(member.filename)
                   if rel.is_absolute() or ".." in rel.parts or ".git" in rel.parts:
                       raise SystemExit("Unsafe entry: " + member.filename)
-                  if member.is_dir():
+                  if rel.as_posix().startswith(".github/workflows/"):\n                      continue  # GitHub Actions token cannot add workflow files.\n                  if member.is_dir():
                       continue
                   dest=root.joinpath(*rel.parts)
                   dest.parent.mkdir(parents=True,exist_ok=True)

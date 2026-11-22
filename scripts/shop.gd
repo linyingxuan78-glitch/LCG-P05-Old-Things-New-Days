@@ -2698,7 +2698,9 @@ func _advance_splash(delta: float) -> void:
         var fade_out: float = clampf(splash_remaining / BRAND_FADE_OUT_SECONDS, 0.0, 1.0)
         splash_logo.modulate.a = minf(fade_in, fade_out)
         # Always static and non-flashing; no rotation or particle strobe.
-    if splash_remaining <= 0.0:
+    # Float additions (0.25 + 0.75 + 0.64 + 0.16) can leave a sub-millisecond remainder.
+    # Closing at an epsilon preserves the 1.8s timing promise in the actual game.
+    if splash_remaining <= 0.0001:
         _skip_splash()
 
 func _process(delta: float) -> void:
@@ -3194,7 +3196,12 @@ func _write_save_safely(path: String, data: Dictionary) -> bool:
 func _read_save_data(path: String) -> Dictionary:
     if not FileAccess.file_exists(path):
         return {}
-    var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+    # JSON.parse_string logs engine ERROR for deliberately corrupt saves.
+    # Instance parsing returns ERR_PARSE_ERROR without turning safe recovery into a false engine failure.
+    var parser: JSON = JSON.new()
+    if parser.parse(FileAccess.get_file_as_string(path)) != OK:
+        return {}
+    var parsed: Variant = parser.data
     if not (parsed is Dictionary):
         return {}
     var data: Dictionary = parsed

@@ -1,0 +1,52 @@
+name: Diagnostic - Godot 4.4.1 3D import with software display
+
+on:
+  push:
+    paths:
+      - ".github/workflows/godot_xvfb_import_diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  xvfb_import:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: false
+      - name: Run actual GL compatibility import under Xvfb with Mesa software rendering
+        shell: bash
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          GODOT_DISABLE_CRASH_HANDLER: "1"
+        run: |
+          set -euo pipefail
+          mkdir -p documentation/xvfb_import_logs
+          godot --version
+          command -v xvfb-run
+          set +e
+          timeout 180 xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --editor --import --quit --rendering-driver opengl3 > documentation/xvfb_import_logs/editor_import.log 2>&1
+          status=$?
+          set -e
+          echo "$status" > documentation/xvfb_import_logs/exit_code.txt
+          echo "Godot Xvfb import exit code: $status"
+          grep -nE '(ERROR:|SCRIPT ERROR:|Parse Error:|double free|corruption)' documentation/xvfb_import_logs/editor_import.log | tail -n 30 || true
+          test "$status" -eq 0
+          if grep -qE '(^|[[:space:]])(ERROR:|SCRIPT ERROR:|Parse Error:)' documentation/xvfb_import_logs/editor_import.log; then
+            echo 'Godot still emitted errors.'
+            exit 1
+          fi
+          echo "PASS: Xvfb GL renderer import"
+      - name: Keep diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-godot-xvfb-import-logs
+          path: documentation/xvfb_import_logs/
+          retention-days: 14

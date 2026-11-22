@@ -3,7 +3,7 @@ name: Import verified LCG-P05 v0.16.9 archive
 on:
   push:
     paths:
-      - "staging/**"
+      - "staging/lcg_p05_zip_part_*.b64"
   workflow_dispatch:
 
 permissions:

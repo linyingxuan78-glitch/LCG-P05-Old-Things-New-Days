@@ -40,7 +40,9 @@ jobs:
                   rel=pathlib.PurePosixPath(member.filename)
                   if rel.is_absolute() or ".." in rel.parts or ".git" in rel.parts:
                       raise SystemExit("Unsafe entry: " + member.filename)
-                  if rel.as_posix().startswith(".github/workflows/"):\n                      continue  # GitHub Actions token cannot add workflow files.\n                  if member.is_dir():
+                  if rel.as_posix().startswith(".github/workflows/"):
+                      continue  # GitHub Actions token cannot add workflow files.
+                  if member.is_dir():
                       continue
                   dest=root.joinpath(*rel.parts)
                   dest.parent.mkdir(parents=True,exist_ok=True)

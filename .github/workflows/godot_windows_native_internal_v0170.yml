@@ -35,7 +35,17 @@ jobs:
           # The GitHub action's 'godot' alias targets the GUI binary, whose Windows
           # CLI exit behavior cannot be used to certify Godot --version or script exit codes.
           $console = Join-Path $env:USERPROFILE 'godot\Godot_v4.4.1-stable_win64_console.exe'
-          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) { throw "Godot 4.4.1 console executable missing: $console" }
+          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) {
+            # setup-godot's cache can contain only the GUI .exe, omitting the companion console .exe.
+            # Recover BOTH official files from the exact upstream Godot 4.4.1 archive.
+            $archive = Join-Path $env:RUNNER_TEMP 'Godot_v4.4.1-stable_win64.exe.zip'
+            $uri = 'https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip'
+            Write-Host 'Restoring missing console companion from official Godot 4.4.1 release ZIP'
+            Invoke-WebRequest -Uri $uri -OutFile $archive -TimeoutSec 180
+            if ((Get-Item -LiteralPath $archive).Length -lt 1000000) { throw 'Official download is too small' }
+            Expand-Archive -LiteralPath $archive -DestinationPath (Join-Path $env:USERPROFILE 'godot') -Force
+          }
+          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) { throw "Console companion still missing after archive recovery: $console" }
           $env:GODOT_BIN = $console
           "GODOT_BIN=$console" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           Write-Host "Testing console executable: $console"

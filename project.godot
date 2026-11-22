@@ -8,6 +8,11 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/description="A first-person resale shop management game prototype with 27 sellable finds, finite supplier quotas, occasional shop events, visual prompts, optional resident offers, animated shoppers, an optional community finale accessible menus, non-flashing 3D stock targets, proximity shelf placement, healthy-play session reminders, opt-in family time prompts, optional local privacy guide and pictographic category icons and 27 individual model-derived product cards."
 
+; Avoid known headless first-import thread races in Godot 4.4.1.
+; Preserves all original GLB and PNG assets; affects editor import scheduling only.
+[editor]
+import/use_multiple_threads=false
+
 [display]
 window/size/viewport_width=1280
 window/size/viewport_height=720

@@ -1,0 +1,114 @@
+# Development QA only. No public release or deployment.
+name: LCG P05 native Godot QA
+
+on:
+  push:
+    paths:
+      - ".github/workflows/godot_native_qa.yml"
+      - "project.godot"
+      - "main.tscn"
+      - "scripts/**"
+      - "tests/**"
+      - "tools/**"
+      - "assets/**"
+      - "licenses/**"
+  workflow_dispatch:
+    inputs:
+      attempt_windows_exe:
+        description: 'After native QA passes, attempt Windows INTERNAL TEST ONLY EXE'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  native_qa:
+    name: Godot 4.4.1 import and 23 native suites
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Check out Godot project
+        uses: actions/checkout@v4
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate files and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/check_ci_pipeline.py
+          python tools/static_preflight.py
+          python tools/sync_release_notices.py
+          python tools/check_creator_provenance_v0166.py
+          python tools/selftest_acceptance_runner.py
+      - name: Install Godot 4.4.1 plus export templates
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: true
+      - name: Run real Godot import, scene boot, and 23 suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --version
+          GODOT_BIN="$(command -v godot)" bash tools/run_native_acceptance.sh
+      - name: Upload QA logs even if tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-native-qa-logs
+          path: |
+            documentation/native_run_logs/
+            documentation/CI_PIPELINE_STATIC_CHECK_v0169.json
+            documentation/CURRENT_RIGHTS_AUDIT.json
+            documentation/STATIC_QA_CURRENT.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  windows_internal_exe:
+    name: Optional Windows INTERNAL TEST ONLY export
+    needs: native_qa
+    if: github.event_name == 'workflow_dispatch' && inputs.attempt_windows_exe == true
+    runs-on: windows-2022
+    timeout-minutes: 55
+    steps:
+      - name: Check out Godot project
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Godot 4.4.1 and Windows templates
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: true
+      - name: Run gated internal Windows build
+        shell: pwsh
+        run: |
+          & ./tools/build_windows_release.ps1
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+      - name: Upload internal build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-windows-internal-logs
+          path: |
+            documentation/WINDOWS_EXPORT_RESULT.txt
+            documentation/WINDOWS_EXPORT_LOG.txt
+            documentation/native_run_logs/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Upload internal EXE if build succeeds
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_INTERNAL_TEST_ONLY
+          path: dist/LCG-P05_INTERNAL_TEST_ONLY.exe
+          if-no-files-found: error
+          retention-days: 7

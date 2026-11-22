@@ -1,0 +1,48 @@
+name: Diagnostic - Godot resource ownership at exit
+
+on:
+  push:
+    paths:
+      - ".github/workflows/godot_resource_leak_diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resource_diagnostics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: false
+      - name: Import models with Mesa OpenGL compatibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p documentation/leak_debug
+          export LIBGL_ALWAYS_SOFTWARE=1
+          xvfb-run -a -s "-screen 0 1280x720x24" \
+            godot --path . --editor --import --quit --audio-driver Dummy \
+              --rendering-method gl_compatibility --rendering-driver opengl3 \
+              > documentation/leak_debug/import.log 2>&1
+      - name: Run verbose tests and preserve full actual leak objects
+        shell: bash
+        run: |
+          set -u
+          for name in qa_economy qa_smoke qa_v0162_picture_catalog_and_safe_close; do
+            godot --verbose --headless --path . --script "res://tests/${name}.gd" > "documentation/leak_debug/${name}.log" 2>&1
+            printf '%s status=%s\n' "$name" "$?"
+            grep -A 25 -B 4 -E 'resources still in use|ObjectDB instances leaked|Resource still in use|Leaked instance' "documentation/leak_debug/${name}.log" | tail -n 100 || true
+          done
+      - name: Keep full diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcg-p05-godot-resource-ownership-debug
+          path: documentation/leak_debug/
+          retention-days: 14

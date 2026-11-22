@@ -1,0 +1,12 @@
+{
+  "project": "LCG P05 Godot native",
+  "version": "0.14",
+  "static_preflight": "EXECUTED",
+  "godot_engine_found": false,
+  "godot_editor_import": "NOT_RUN",
+  "godot_runtime": "NOT_RUN",
+  "godot_unit_tests": "NOT_RUN",
+  "graphics_display_test": "NOT_RUN",
+  "windows_exe": "NOT_BUILT",
+  "commercial_release": "NOT_APPROVED"
+}

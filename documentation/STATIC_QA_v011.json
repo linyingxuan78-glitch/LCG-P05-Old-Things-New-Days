@@ -1,0 +1,25 @@
+{
+  "version": "v0.11",
+  "validation": "static / resource checks only; Godot runtime unavailable",
+  "checks": {
+    "project_file_exists": true,
+    "main_scene_exists": true,
+    "nine_product_definitions": true,
+    "twenty_glb_models": true,
+    "eight_audio_files": true,
+    "two_brand_png": true,
+    "three_godot_qa_scripts": true,
+    "legacy_save_compatibility": true,
+    "customer_checkout_path": true,
+    "customer_checkout_before_sale": true,
+    "closing_cleanup": true,
+    "closing_state_persisted": true,
+    "thirdparty_licenses": true,
+    "literal_resources_present": true,
+    "product_models_present": true,
+    "studio_logo_present": true,
+    "no_duplicate_functions": true
+  },
+  "result": "PASS",
+  "notes": "This is not a Godot parser, gameplay test or Windows executable validation."
+}

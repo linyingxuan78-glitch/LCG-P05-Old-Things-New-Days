@@ -1,0 +1,7 @@
+path,source_archive,original_path,asset_label,use,sha256,license
+assets/third_party_kenney/city_suburban/planter.glb,kenney_city-kit-suburban_20.zip,Models/GLB format/planter.glb,Suburban planter,Exterior window dressing,a876e87d908f0397dcaf94b7705835447825c4c5b39195319535415386542c17,Kenney CC0 License.txt in source archive
+assets/third_party_kenney/factory/box-small.glb,kenney_factory-kit_3.0.zip,Models/GLB format/box-small.glb,Stock carton,Near existing backroom stock,fd2ea1ac4f24a9515dc9c53a4a589a8897c824fa5865771799f965a252f684f0,Kenney CC0 License.txt in source archive
+assets/third_party_kenney/mini_arcade/cash-register.glb,kenney_mini-arcade.zip,Models/GLB format/cash-register.glb,Cash register,Cashier counter,51d57ddbc623921a54782c40add49664072b192d66b0fa7c16f18f0fb0185c8f,Kenney CC0 License.txt in source archive
+assets/third_party_kenney/building/column-thin.glb,kenney_building-kit.zip,Models/GLB format/column-thin.glb,Storefront columns,Frame window edges,37cfd995746888acfd15d6f226f7ddda83257707b6d21793f38fbe851a958daf,Kenney CC0 License.txt in source archive
+assets/third_party_kenney/prototype/crate.glb,kenney_prototype-kit.zip,Models/GLB format/crate.glb,Generic storage crate,Near backroom storage,7dec224fbdd2297524c56fe3b4fa79fe6c5854f4b699a9e2e2c21ce6f008738c,Kenney CC0 License.txt in source archive
+assets/third_party_kenney/ui/cursor_toon.png,kenney_cursor-pack.zip,PNG/Basic/Default/pointer_toon_a.png,Cartoon cursor,UI navigation,f30a941771cd01739500813942d1ed50b555dc73ca397053aca5beabafbaf30e,Kenney CC0 License.txt in source archive

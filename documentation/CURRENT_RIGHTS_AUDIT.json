@@ -1,0 +1,22 @@
+{
+  "type": "static-asset-provenance-and-credits-check-only",
+  "status": "PASS",
+  "media_files": 115,
+  "ledger_rows": 115,
+  "errors": [],
+  "warnings": [
+    "CC0 music source page exists but raw original archive member was not independently verified: assets/audio/A Brand New Wisdom.ogg",
+    "CC0 music source page exists but raw original archive member was not independently verified: assets/audio/Just Saying Tho.ogg",
+    "CC0 music source page exists but raw original archive member was not independently verified: assets/audio/Swinging Sweet.ogg",
+    "CC0 music source page exists but raw original archive member was not independently verified: assets/audio/Winter Dust.ogg",
+    "Brand origin user-confirmed; trademark and public launch review still pending: assets/branding/lcg_icon.png",
+    "Brand origin user-confirmed; trademark and public launch review still pending: assets/branding/lcg_logo.png"
+  ],
+  "credits_synced": true,
+  "known_release_gates_still_open": [
+    "Godot runtime/export not executed",
+    "Godot 4.4.1 exact-binary snapshot pending until native builder runs",
+    "official similarity mark search pending; itch account ownership user-confirmed",
+    "legal review is not automatic"
+  ]
+}

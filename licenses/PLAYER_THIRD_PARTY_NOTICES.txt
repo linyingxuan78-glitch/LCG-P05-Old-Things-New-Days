@@ -1,0 +1,72 @@
+OLD THINGS, NEW DAYS · LCG-P05 INTERNAL PROTOTYPE — OPTIONAL CREDITS AND NOTICES
+This notice is generated from licenses/USED_ASSET_PROVENANCE.csv.
+It describes media included in this project, not endorsement by its creators.
+
+PROJECT CREDIT
+Little Cozy Games is the owner-identified existing itch.io publisher of Tidy Little Home, Little Repair Workshop, PAPER WORKS and RingBop.
+The original studio logo was generated with ChatGPT at the project owner’s direction, per owner testimony; this is not a trademark registration certificate.
+Third-party media, Godot Engine, and independently licensed components are excluded from this ownership claim.
+Existing studio name/logo are preserved for internal testing; public mark confusion review still required.
+
+BUNDLED THIRD-PARTY MEDIA (author / source set / declared license)
+- hernandack — Short Loops Background Music — CC0 1.0 (4 media file(s))
+  https://opengameart.org/content/short-loops-background-music-pack
+- Isa Lousberg — Homely House Set — CC0 1.0 (creator listing) (4 media file(s))
+  https://poly.pizza/bundle/Homely-House-Set-zECUN0FUzz
+- Isa Lousberg — Pretty park set — CC0 1.0 (creator listing) (2 media file(s))
+  https://poly.pizza/bundle/Pretty-park-set-G2WINPAG9S
+- Kay Lousberg — Restaurant Bits — CC0 1.0 (creator listing) (1 media file(s))
+  https://poly.pizza/bundle/Restaurant-Bits-ejkcnWf78Q
+- Kenney — Furniture Kit — CC0 1.0 (31 media file(s))
+  https://kenney.nl/assets/furniture-kit
+- Kenney — Furniture Kit — CC0 1.0 derivative / project-authored composition (25 media file(s))
+  https://kenney.nl/assets/furniture-kit
+- Kenney — Furniture Kit 2.0 — CC0 1.0 (1 media file(s))
+  https://kenney.nl/assets/furniture-kit
+- Kenney — Impact Sounds — CC0 1.0 (4 media file(s))
+  https://kenney.nl/assets/impact-sounds
+- Kenney — Interface Sounds 1.0 — CC0 1.0 (1 media file(s))
+  https://kenney.nl/assets/interface-sounds
+- Kenney — Kenney building — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Kenney city_suburban — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Kenney factory — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Kenney mini_arcade — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Kenney prototype — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Kenney ui — CC0 1.0 (1 media file(s))
+  https://kenney.nl
+- Kenney — Mini Characters — CC0 1.0 (4 media file(s))
+  https://kenney.nl/assets/mini-characters
+- Kenney — Mini Characters — CC0 1.0 derivative / project-authored composition (1 media file(s))
+  https://kenney.nl/assets/mini-characters
+- Kenney — Mini Characters 2.0 — CC0 1.0 (3 media file(s))
+  https://kenney.nl/assets/mini-characters
+- Kenney — Mini Shop 2.1 — CC0 1.0 (5 media file(s))
+  https://kenney.nl/assets/mini-shop
+- Kenney — Retro Urban Kit 2.0 — CC0 1.0 (1 media file(s))
+  https://kenney.nl/assets/retro-urban-kit
+- Kenney — UI Audio — CC0 1.0 (4 media file(s))
+  https://kenney.nl/assets/ui-audio
+- Kenney — UI Pack 2.0 — CC0 1.0 (2 media file(s))
+  https://kenney.nl/assets/ui-pack
+
+PROJECT-AUTHORED / SOURCE-DERIVED MEDIA
+16 project-authored or third-party-derived media files are itemized in the provenance register.
+Derived previews retain their underlying creator and license in the register.
+
+DETAILED RECORD
+115 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
+Licenses and originals are retained in the project as documented; no claim that every source is copyright-exclusive.
+
+GAME ENGINE
+Godot Engine — MIT license.
+The full engine notice is in licenses/GODOT_ENGINE_MIT_LICENSE_NOTICE.txt and accessible in this game's optional Credits screen.
+Official source: https://godotengine.org/license/
+
+RELEASE DISCLAIMER
+Not yet a commercial release, and the rights audit is not a substitute for independent legal review.
+Godot engine components are accessible via the optional ENGINE COMPONENTS view. Public title and mark review and native QA remain pending; no retail release.

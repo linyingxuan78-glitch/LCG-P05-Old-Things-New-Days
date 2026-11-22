@@ -1,0 +1,18 @@
+{
+  "project_version": "0.16.9",
+  "type": "developer-internal CI handoff",
+  "code_added": [
+    ".github/workflows/godot_native_qa.yml",
+    "tools/check_ci_pipeline.py",
+    "AGENTS.md"
+  ],
+  "test_suite_count": 23,
+  "qa_mode_init_order_fixes": 20,
+  "local_godot_available": false,
+  "local_engine_fetch_error": "DNS resolution unavailable for github.com in current container",
+  "native_import_test_status": "NOT RUN",
+  "github_actions_status": "NOT RUN",
+  "windows_exe_status": "NOT GENERATED",
+  "media_provenance_records": 115,
+  "public_release_approved": false
+}

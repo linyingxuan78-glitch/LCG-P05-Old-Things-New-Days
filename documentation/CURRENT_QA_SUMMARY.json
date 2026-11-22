@@ -1,0 +1,24 @@
+{
+  "build": "v0.15.8",
+  "status": "STATIC CHECKS PASSED; GODOT NATIVE ENGINE NOT INSTALLED/NOT TESTED",
+  "engine_runtime": "NOT RUN",
+  "windows_executable": "NOT EXPORTED",
+  "media_files_in_assets": 79,
+  "native_QA_suites": 13,
+  "changes": [
+    "four low-frequency daily shop events, persisted with cooldown",
+    "one optional bargain per day, cash/stock/revenue settlement",
+    "customer feedback counters and saved day records",
+    "non-repeating consecutive appearance selection among six NPC models",
+    "four non-flashing picture cues and optional compact HUD"
+  ],
+  "pending": [
+    "Godot parser/import and runtime tests",
+    "real rendered animation and collision quality",
+    "photo-sensitivity analysis of actual gameplay video",
+    "language and low-literacy player testing",
+    "Windows embedded-resource executable and distribution verification"
+  ],
+  "source_code_sha256": "981ab6fb36a47baf3608067baf82ef39da92113f2e1dfd950c1dd80e99257f81",
+  "notes_v0158": "Source modified; 15 Godot QA scripts exist but engine unavailable. Flash, contrast, literacy, motion and screen reader usability remain unverified."
+}

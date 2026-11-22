@@ -1,0 +1,13 @@
+area,expected_control,current_status,release_gate
+Core identity,No in-game registration or ID for offline shop,IN_SOURCE_VERIFY,Check shipped package does not add account SDK
+SDK / analytics,No third-party telemetry or ad tracking by default,IN_SOURCE_VERIFY,Re-audit all compiled libraries and network requests
+Privacy notice,Readable opt-in notice in title/pause,IN_SOURCE_UNTESTED,Real-device UI and legal content review
+Local data erasure,Double-confirm removal of local save and backup,IN_SOURCE_UNTESTED,Test deleting save/backup on device and inspect all remaining locations
+Playtime history,Local-only counter clear with settings retained,IN_SOURCE_UNTESTED,Real-device persistence and reset QA
+Child privacy,Age-appropriate defaults and minimum data collection,PARTIAL,Legal review for target countries and store age classification
+Low literacy,Distinct category icons with captions,PARTIAL,User test product selection with non-readers and localization
+Photosensitive comfort,No intended flashes and reduced motion mode,PARTIAL,Analyze captured gameplay video and real device settings
+Player-to-player safety,No public chat or UGC in current version,NOT_APPLICABLE_OFFLINE,If online features added add moderation and report/block workflows
+Accounts & payments,No in-game account or IAP in current version,NOT_APPLICABLE_OFFLINE,Reassess storefront account checkout and parental permissions
+Godot native QA,Run all 18 actual QA suites plus visual smoke test,BLOCKED_MISSING_ENGINE,Must pass before release
+Windows export,Standalone playable game with embedded resources,NOT_DONE,Export and verify on target hardware

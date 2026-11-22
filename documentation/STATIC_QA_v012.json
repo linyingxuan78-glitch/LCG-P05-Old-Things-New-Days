@@ -1,0 +1,89 @@
+{
+  "version": "v0.12",
+  "source": "v0.11 Godot project in conversation",
+  "validation_type": "STATIC / file signatures / lexical structure only. Godot parser and runtime UNAVAILABLE.",
+  "checks": {
+    "balanced delimiters & quoted strings": {
+      "passed": true,
+      "details": "[]"
+    },
+    "no duplicate declared functions": {
+      "passed": true,
+      "details": "81 functions, 81 unique"
+    },
+    "required v0.12 functions": {
+      "passed": true,
+      "details": "[]"
+    },
+    "consignment settled on actual sale": {
+      "passed": true,
+      "details": "event-source check"
+    },
+    "inability to request new consignment when stock remains": {
+      "passed": true,
+      "details": "event-source check"
+    },
+    "pause blocks customer updates and movement": {
+      "passed": true,
+      "details": "event-source check"
+    },
+    "legacy save path retained": {
+      "passed": true,
+      "details": "v0.9/v0.10/v0.11 shared save path"
+    },
+    "legacy consignment/history default migration": {
+      "passed": true,
+      "details": "event-source check"
+    },
+    "internal name kept, no final trademark claim": {
+      "passed": true,
+      "details": ""
+    },
+    "Godot main scene and config": {
+      "passed": true,
+      "details": ""
+    },
+    "Godot regression scripts": {
+      "passed": true,
+      "details": ""
+    },
+    "20 CC0 glb included": {
+      "passed": true,
+      "details": "20"
+    },
+    "GLB v2 headers": {
+      "passed": true,
+      "details": "20 tested"
+    },
+    "8 OGG audio files included": {
+      "passed": true,
+      "details": "8"
+    },
+    "OGG capture headers": {
+      "passed": true,
+      "details": ""
+    },
+    "PNG images load": {
+      "passed": true,
+      "details": "2 verified; []"
+    },
+    "studio brand files": {
+      "passed": true,
+      "details": ""
+    },
+    "license source documents present": {
+      "passed": true,
+      "details": "4"
+    },
+    "every product model available": {
+      "passed": true,
+      "details": "['books', 'kitchenBlender', 'kitchenCoffeeMachine', 'lampRoundTable', 'pottedPlant', 'radio', 'speakerSmall', 'televisionVintage', 'toaster']"
+    },
+    "literal resource references resolve": {
+      "passed": true,
+      "details": "[]"
+    }
+  },
+  "errors": [],
+  "script_sha256": "721eff24f99618aea80fc99e8bfc87e90f62d9ddc4235fc3c92404a8d448b95f"
+}

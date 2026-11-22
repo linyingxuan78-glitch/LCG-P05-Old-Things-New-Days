@@ -1,0 +1,9 @@
+{
+  "scope": "OFFLINE CI SOURCE CHECK ONLY -- cloud jobs have NOT run",
+  "status": "PASS",
+  "suites_registered": 23,
+  "linux_cases": 23,
+  "windows_cases": 23,
+  "workflow_file": ".github/workflows/godot_native_qa.yml",
+  "errors": []
+}

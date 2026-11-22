@@ -1,0 +1,16 @@
+{
+  "project": "LCG P05 Godot native v0.10",
+  "date": "2026-11-16",
+  "status": "static checks only; Godot binary absent, no engine compile test",
+  "checks": {
+    "glb_count": 20,
+    "ogg_count": 8,
+    "png_count": 2,
+    "product_count": 9,
+    "gdscript_functions": 65,
+    "file_count": 46,
+    "qa_scripts": 2
+  },
+  "issues": [],
+  "pass": true
+}

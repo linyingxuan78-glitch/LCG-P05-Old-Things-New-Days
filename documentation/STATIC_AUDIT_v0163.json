@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "STATIC ONLY; no Godot engine test or power-loss QA executed",
+  "checks": {
+    "same_save_path": true,
+    "staged_write_exists": true,
+    "no_main_truncate_before_verification": true,
+    "checks_staged_json_validity": true,
+    "backup_only_from_valid_primary": true,
+    "windows_replacement_only_after_backup_check": true,
+    "resume_pending_primary_backup": true,
+    "main_menu_knows_pending": true,
+    "manual_save_failure_explained": true,
+    "qa_guard_main_save_path": true,
+    "delete_all_local_saves": true,
+    "isolated_qa_does_not_use_real_save": true,
+    "isolated_qa_cleans_up": true,
+    "native_qa_marker_registered": true,
+    "all_previous_19_qa_suites_retained": true,
+    "version_consistent": true,
+    "source_game_still_has_27_goods": true,
+    "privacy_and_healthy_play_still_present": true,
+    "115_asset_records_still_untouched": true
+  },
+  "media_count": 115,
+  "registered_count": 115,
+  "native_suite_files": 23,
+  "failures": []
+}

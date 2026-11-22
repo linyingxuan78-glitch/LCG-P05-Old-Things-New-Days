@@ -1,0 +1,27 @@
+{
+  "verification": "STATIC ONLY, NOT GODOT ENGINE",
+  "passed": 19,
+  "total": 19,
+  "checks": {
+    "twenty-seven goods": true,
+    "daily random events retained": true,
+    "negotiations retained": true,
+    "readable picture guides retained": true,
+    "six characters anti-repeat": true,
+    "physical cashier counter E": true,
+    "head-placed feedback markers": true,
+    "alternative help requires real stock": true,
+    "help no forced transaction": true,
+    "bargains and help both available": true,
+    "help timeout stays at checkout": true,
+    "save compatibility": true,
+    "customer feedback retained": true,
+    "shop credit optional": true,
+    "community finale retained": true,
+    "14 QA scripts and preserved v0156 QA": true,
+    "no remote runtime game assets": true,
+    "all media bytes have original hashes": true,
+    "all 79 media declarations retained": true
+  },
+  "audited_media_count": 115
+}

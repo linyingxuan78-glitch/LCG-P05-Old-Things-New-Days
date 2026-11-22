@@ -1,1 +1,0 @@
-Verified 24-part archive is ready. Import workflow will verify checksum, unpack the Godot project, remove this staging folder, and commit game sources. Godot QA workflow will be uploaded separately by the connected app.

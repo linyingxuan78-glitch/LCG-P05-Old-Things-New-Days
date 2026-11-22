@@ -1,0 +1,10 @@
+{
+  "build": "v0.14.7",
+  "archive_integrity": "PASS",
+  "curated_assets_verified": 10,
+  "uploaded_packs_checked": 10,
+  "native_engine_runtime": "NOT EXECUTED (executable absent)",
+  "visual_and_windows_export": "NOT VERIFIED",
+  "gameplay_engine_qa": "NOT VERIFIED",
+  "safe_to_delete_old_source_versions": "Only after newer source archive stored; old archives retained in Drive Trash recoverably"
+}

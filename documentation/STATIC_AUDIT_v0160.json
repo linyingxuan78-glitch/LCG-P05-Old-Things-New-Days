@@ -1,0 +1,28 @@
+{
+  "scope": "STATIC-ONLY: not a Godot run, child-wellbeing outcome trial, photosensitivity test, or certification",
+  "passed": 21,
+  "total": 21,
+  "checks": {
+    "health module loaded in one Godot shop project": true,
+    "title health menu": true,
+    "pause family-health menu": true,
+    "pause+escape modal does not leak movement": true,
+    "break choices are adjustable, off included": true,
+    "daily choices are adjustable, off included": true,
+    "hydration cue implemented without flashing or forced game exit": true,
+    "daily cue fires once until day rollover": true,
+    "foreground focus counted and suspended delta capped": true,
+    "shop economy also stops on window focus loss": true,
+    "no age identity or account required": true,
+    "local health prefs distinct from gameplay save": true,
+    "exit/return reminder does not reward engagement": true,
+    "guardian limitation disclosed": true,
+    "new native QA wired both OS runners": true,
+    "previous 16 QA suites retained": true,
+    "base 27 products unaffected": true,
+    "MVP community finale retained": true,
+    "save path remains the v09 path for compatibility": true,
+    "source research and safety caveats documented": true,
+    "all 79 media files retained with matching provenance": true
+  }
+}

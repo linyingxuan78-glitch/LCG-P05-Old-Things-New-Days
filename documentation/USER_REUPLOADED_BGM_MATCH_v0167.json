@@ -1,0 +1,40 @@
+{
+  "checked_date": "2026-11-22",
+  "tracks": {
+    "Winter Dust.ogg": {
+      "uploaded_name": "Winter Dust.ogg",
+      "game_path": "assets/audio/Winter Dust.ogg",
+      "sha256": "8c0da93d35ddfb3c8e4cc01ce4ba6611fb407eec4b6c23f17a691ad7dc0f1fe0",
+      "bytes": 468597,
+      "upload_matches_project": true,
+      "external_author_download_hash_verified": false
+    },
+    "A Brand New Wisdom.ogg": {
+      "uploaded_name": "A Brand New Wisdom.ogg",
+      "game_path": "assets/audio/A Brand New Wisdom.ogg",
+      "sha256": "99d0095c328d598f5fb1bca9fbb4a518112bbf676dc662f0c0c6edfee88d788c",
+      "bytes": 265389,
+      "upload_matches_project": true,
+      "external_author_download_hash_verified": false
+    },
+    "Just Saying Tho.ogg": {
+      "uploaded_name": "Just Saying Tho.ogg",
+      "game_path": "assets/audio/Just Saying Tho.ogg",
+      "sha256": "687aa35987b89797af14735348c5b2f1b766ac0ba528dc001746aaf4ca1cc82f",
+      "bytes": 397509,
+      "upload_matches_project": true,
+      "external_author_download_hash_verified": false
+    },
+    "Swinging Sweet.ogg": {
+      "uploaded_name": "Swinging Sweet.ogg",
+      "game_path": "assets/audio/Swinging Sweet.ogg",
+      "sha256": "5a22466a7ec28c324324217aff836809ccbc9e2489cc22ebf72725f4bfd320bb",
+      "bytes": 405170,
+      "upload_matches_project": true,
+      "external_author_download_hash_verified": false
+    }
+  },
+  "license_source": "https://opengameart.org/content/short-loops-background-music-pack",
+  "artist": "hernandack",
+  "scope": "uploaded local files vs bundled game assets only"
+}

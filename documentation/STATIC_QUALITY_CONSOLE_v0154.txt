@@ -1,0 +1,14 @@
+PASS 27 product definitions 27
+PASS every product model bundled 26 product references
+PASS daily supplier quota persisted 
+PASS oversized shelf props scale down 
+PASS visitor yaw turns smoothly 
+PASS walk animation loops without repeated one-shot restarting 
+PASS front-left aisle detour present 
+PASS old save SKU count accepted 
+PASS shared shelf stock capped when loading old files 
+PASS asset hashes and provenance 75 registered; invalid: []
+PASS all six character GLBs have required clips 6 GLBs, 192 animations
+PASS animation keyframe time streams valid 10914 input keyframes; errors: []
+PASS GLB products fit per-slot shelf display dimensions []
+RESULT 13/13 static checks (not Godot engine tests)

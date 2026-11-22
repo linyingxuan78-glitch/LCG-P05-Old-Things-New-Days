@@ -1,0 +1,12 @@
+PASS single offer decision fields
+PASS offer based on unlocked merchandise
+PASS cash and carrying validations
+PASS accounts for spending
+PASS does not bypass stocking
+PASS offer persists across saves
+PASS old saves receive a new offer
+PASS fresh offer each new day
+PASS modal pauses gameplay clock and animation
+PASS headless QA defined
+PASS no new third-party media imported
+11/11 source checks passed; native Godot not run

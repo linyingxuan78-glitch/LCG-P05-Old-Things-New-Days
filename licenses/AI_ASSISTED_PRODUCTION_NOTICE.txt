@@ -1,0 +1,7 @@
+PRODUCTION ACKNOWLEDGEMENT — OPTIONAL CREDITS
+
+Developed and published under the Little Cozy Games studio name.
+Parts of the design exploration, writing, artwork and development code were made with assistance from ChatGPT (OpenAI).
+No affiliation, sponsorship or endorsement by OpenAI is claimed.
+
+The original game elements and the third-party assets are subject to their respective legal rights and licences. This acknowledgement does not grant new rights, register any trade mark, or replace source-attribution and engine-licence notices.

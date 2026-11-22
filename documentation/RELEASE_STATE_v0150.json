@@ -1,0 +1,12 @@
+{
+  "build": "v0.15.0",
+  "type": "Godot source project",
+  "native_engine": "UNTESTED - Godot executable missing",
+  "windows_exe": "NOT EXPORTED",
+  "media_files_in_project": 60,
+  "new_files_added": 7,
+  "new_assets_sha256_verified": true,
+  "first_raw_batch_packs": 9,
+  "total_uploaded_raw_archives": 39,
+  "archive_license_safeguard": "art.zip, pixel-pack.zip, and artdump.png not bundled"
+}

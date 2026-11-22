@@ -1,0 +1,16 @@
+{
+  "build": "v0.16.6",
+  "status": "HOLD_PLATFORM_LEGAL_NATIVE_QA",
+  "scope": "Commercial public release only. Internal source archival and private QA may continue.",
+  "requirements": {
+    "official_game_title_search_evidence": "WORKING_NAME_OLD_THINGS_NEW_DAYS_EXACT_WEB_SEARCH_NO_OBVIOUS_SAME_TITLE_OFFICIAL_TRADEMARK_PENDING",
+    "studio_name_rights_and_marketplace_identity": "USER_CONFIRMED_OWNER_OF_ITCH_PROFILE_FOUR_MATCHING_GAMES_MARK_SEARCH_PENDING",
+    "logo_artwork_origin_and_mark_review": "USER_CONFIRMED_CHATGPT_GENERATED_AT_DIRECTION_MARK_SIMILARITY_SEARCH_PENDING",
+    "original_music_binary_source_or_documented_fallback_decision": "OGA_AUTHOR_CC0_PAGES_AND_4_DIRECT_FILE_URLS_VERIFIED_EXACT_SOURCE_BYTES_NOT_COMPARED",
+    "exact_export_engine_component_notices_generated": "PENDING",
+    "godot_runtime_and_windows_export_verified": "PENDING",
+    "age_rating_and_platform_distribution_review": "PENDING",
+    "final_real_player_quality_and_accessibility_checks": "PENDING"
+  },
+  "disclaimer": "Existing studio identity and AI-assisted logo origin are owner-affirmed, not outsider conflicts. Full trademark registration/similarity and final QA remain pending. Online search is not legal clearance."
+}

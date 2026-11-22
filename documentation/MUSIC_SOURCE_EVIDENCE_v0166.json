@@ -1,0 +1,50 @@
+{
+  "build": "v0.16.6",
+  "provenance_standard": "public CC0 creator and original track links; raw source hashes untested",
+  "music": [
+    {
+      "file": "assets/audio/A Brand New Wisdom.ogg",
+      "sha256": "99d0095c328d598f5fb1bca9fbb4a518112bbf676dc662f0c0c6edfee88d788c",
+      "local_bytes": 265389,
+      "artist": "hernandack",
+      "source_page": "https://opengameart.org/content/short-loops-background-music-pack",
+      "author_page": "https://hernandack.itch.io/short-background-music-loops-pack",
+      "direct_ogg_url": "https://opengameart.org/sites/default/files/A%20Brand%20New%20Wisdom.ogg",
+      "license_label_on_OGA": "CC0 1.0",
+      "verification": "artist, filename, approximate displayed size and CC0 public page confirmed; no direct byte hash of original server file"
+    },
+    {
+      "file": "assets/audio/Just Saying Tho.ogg",
+      "sha256": "687aa35987b89797af14735348c5b2f1b766ac0ba528dc001746aaf4ca1cc82f",
+      "local_bytes": 397509,
+      "artist": "hernandack",
+      "source_page": "https://opengameart.org/content/short-loops-background-music-pack",
+      "author_page": "https://hernandack.itch.io/short-background-music-loops-pack",
+      "direct_ogg_url": "https://opengameart.org/sites/default/files/Just%20Saying%20Tho.ogg",
+      "license_label_on_OGA": "CC0 1.0",
+      "verification": "artist, filename, approximate displayed size and CC0 public page confirmed; no direct byte hash of original server file"
+    },
+    {
+      "file": "assets/audio/Swinging Sweet.ogg",
+      "sha256": "5a22466a7ec28c324324217aff836809ccbc9e2489cc22ebf72725f4bfd320bb",
+      "local_bytes": 405170,
+      "artist": "hernandack",
+      "source_page": "https://opengameart.org/content/short-loops-background-music-pack",
+      "author_page": "https://hernandack.itch.io/short-background-music-loops-pack",
+      "direct_ogg_url": "https://opengameart.org/sites/default/files/Swinging%20Sweet_0.ogg",
+      "license_label_on_OGA": "CC0 1.0",
+      "verification": "artist, filename, approximate displayed size and CC0 public page confirmed; no direct byte hash of original server file"
+    },
+    {
+      "file": "assets/audio/Winter Dust.ogg",
+      "sha256": "8c0da93d35ddfb3c8e4cc01ce4ba6611fb407eec4b6c23f17a691ad7dc0f1fe0",
+      "local_bytes": 468597,
+      "artist": "hernandack",
+      "source_page": "https://opengameart.org/content/short-loops-background-music-pack",
+      "author_page": "https://hernandack.itch.io/short-background-music-loops-pack",
+      "direct_ogg_url": "https://opengameart.org/sites/default/files/Winter%20Dust_0.ogg",
+      "license_label_on_OGA": "CC0 1.0",
+      "verification": "artist, filename, approximate displayed size and CC0 public page confirmed; no direct byte hash of original server file"
+    }
+  ]
+}

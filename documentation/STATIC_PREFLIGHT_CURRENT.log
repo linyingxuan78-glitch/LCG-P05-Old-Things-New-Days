@@ -1,0 +1,28 @@
+{
+  "verification": "STATIC ONLY - GODOT ENGINE NOT RUN",
+  "status": "PASS",
+  "errors": [],
+  "checks": {
+    "project_main_scene": true,
+    "nine_goods": true,
+    "demand_cycle": true,
+    "category_per_product": true,
+    "featured_sales_tracked": true,
+    "can_resume_closed_day_once": true,
+    "uses_save_backup": true,
+    "respects_qa_mode": true,
+    "has_six_qa_scripts": true,
+    "keeps_save_compatibility": true,
+    "event_driven_tutorial": true,
+    "replay_and_skip": true,
+    "replayable_controls_help": true,
+    "persisted_accessibility": true,
+    "tutorial_in_save_payload": true,
+    "cc0_licenses": true
+  },
+  "model_count": 20,
+  "ogg_count": 8,
+  "resource_references_checked": 40,
+  "gd_scripts_balance_checked": 9,
+  "sha256_gameplay_script": "41314ee46c953d5dd16ce4f779dfaacaa4c27dec2eaa14e2e723aa96206c2509"
+}

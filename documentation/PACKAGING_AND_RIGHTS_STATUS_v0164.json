@@ -1,0 +1,37 @@
+{
+  "version": "0.16.4",
+  "finding": "Godot source project is assembled with local resources; NOT a Windows one-click EXE",
+  "media_registered": 115,
+  "media_in_project": 115,
+  "explicit_resource_paths_checked": 65,
+  "unresolved_explicit_paths": [],
+  "media_source_hashes_verified": true,
+  "legal_notices": {
+    "full_engine_MIT": true,
+    "generated_player_notice": true,
+    "optional_UI_loads_notices": true,
+    "export_preset_includes_text": true,
+    "engine_dependencies_copyright_final": "PENDING"
+  },
+  "one_file_packaging": {
+    "export_embed_pck_requested": true,
+    "actual_EXE_created": false,
+    "actual_windows_clean_PC_test": false
+  },
+  "native_engine": {
+    "installed": false,
+    "import_and_qa": "BLOCKED_ENGINE_NOT_INSTALLED"
+  },
+  "rights_gate_negative_cases": {
+    "unregistered_asset_detected": true,
+    "stale_credits_detected": true
+  },
+  "unresolved_release_risks": [
+    "Godot native import/20 QA suites",
+    "Actual Windows EXE export and embedded PCK validation",
+    "Godot engine dependency copyright notices for exact release build",
+    "Studio mark and trademark final review",
+    "Third-party original sources with absent archive member identifiers",
+    "Windows device usability/accessibility/photosensitivity and player tests"
+  ]
+}

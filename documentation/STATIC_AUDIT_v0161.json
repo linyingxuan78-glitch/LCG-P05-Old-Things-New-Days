@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "verification": "OFFLINE STRUCTURAL CHECKS ONLY. NO GODOT, HUMAN ACCESSIBILITY, OR LEGAL VALIDATION.",
+  "checks": {
+    "version_same_in_project_and_ui": true,
+    "privacy_optional_in_title_and_pause": true,
+    "privacy_ui_source_is_local_control": true,
+    "save_deletion_title_only": true,
+    "save_deletion_confirmed": true,
+    "erase_both_shop_save_and_backup": true,
+    "no_destructive_qa": true,
+    "history_reset_separate_from_shop_progress": true,
+    "original_game_save_path_retained": true,
+    "original_healthy_preferences_path_retained": true,
+    "six_category_icons_referenced": true,
+    "third_party_sdk_paths_not_added": true,
+    "no_explicit_external_api_constructors": true,
+    "registry_count_85": true,
+    "every_media_has_source_and_valid_hash": true,
+    "no_duplicate_asset_registry_paths": true,
+    "prior_79_media_entries_preserved": true,
+    "six_unique_original_icon_shapes": true,
+    "three_page_catalog_preserved": true,
+    "prior_hud_and_safety_controls_preserved": true,
+    "offline_native_tests_registered": true,
+    "documents_and_sdk_gate_present": true
+  },
+  "metrics": {
+    "media_count": 115,
+    "registered_count": 115
+  },
+  "failures": []
+}

@@ -1,0 +1,5 @@
+EXIT CODE: 2
+BLOCKED_ENGINE_NOT_INSTALLED: Godot 4 executable not available in this runtime.
+The Godot project was NOT imported, parsed by Godot, run, or exported.
+Use GODOT_BIN=/absolute/path/to/godot to point to an existing official Godot editor binary.
+

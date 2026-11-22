@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "OFFLINE SOURCE/RESOURCE AUDIT ONLY; DOES NOT EXECUTE GODOT OR WINDOWS OS EVENTS",
+  "checks": {
+    "brand_and_project_version_match": true,
+    "official_window_close_notification": true,
+    "all_exit_paths_guarded": true,
+    "qa_save_failure_hook_is_qa_only": true,
+    "initial_save_failure_warned": true,
+    "splash_fade_same_style_and_duration": true,
+    "reduced_motion_bypass": true,
+    "qa_suite_registered_on_all_platforms": true,
+    "no_new_unregistered_media": true,
+    "media_count_115_and_sha256": true,
+    "mathematical_fade_envelope": true,
+    "no_new_third_party_sdk": true
+  },
+  "media_count": 115,
+  "registered_count": 115,
+  "native_test_suites": 23,
+  "failures": []
+}

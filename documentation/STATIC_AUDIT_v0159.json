@@ -1,0 +1,27 @@
+{
+  "scope": "STATIC STRUCTURAL AUDIT AND INDEPENDENT GEOMETRY SANITY ONLY; GODOT NATIVE, VISUAL AND PHOTOSENSITIVITY NOT TESTED",
+  "checks": {
+    "single persistent source scene": true,
+    "game version correctly identified": true,
+    "existing 27 sellable item entries retained": true,
+    "prior save path retained": true,
+    "physical nine shelf positions retained": true,
+    "proximity horizontal only": true,
+    "shelf target only with carried goods": true,
+    "no precise crosshair requirement for nearby correct shelf": true,
+    "counter interaction precedence": true,
+    "non-flashing 3d arrow guide": true,
+    "contextual pictogram with one keycap": true,
+    "context cue opt-out": true,
+    "tutorial still skip and replay": true,
+    "no visual flashing timer in new context code": true,
+    "native QA added and runner mapped": true,
+    "exactly 16 native QA scripts": true,
+    "data/license audit retained": true,
+    "documentation records outstanding native testing": true,
+    "all 79 existing media retained & sha256 match": true,
+    "geometry examples: nearby accepted, across shop rejected": true
+  },
+  "passed": 20,
+  "total": 20
+}

@@ -1,0 +1,47 @@
+{
+  "version": "0.16.8",
+  "delivery_type": "Godot 4 native development ZIP; Windows EXE not generated",
+  "tests_executed": {
+    "python_static_preflight": "PASS; 23 GDScript files structural check",
+    "python_picture_ui_audit": "Previously passed on v0.16.2; archive content remains",
+    "mock_runner_modes": "4/4 PASS (runner logic only; MOCK)",
+    "godot_editor_import": "BLOCKED_ENGINE_NOT_INSTALLED (official 4.4.1 download not available here)",
+    "godot_native_qa": "0/23 executed (BLOCKED_ENGINE_NOT_INSTALLED)",
+    "windows_export": "NOT BUILT",
+    "native_save_recovery_qa": "NOT EXECUTED; no Godot runtime available",
+    "python_save_static_audit": "PASS; 19/19 source and provenance checks",
+    "photosensitivity": "NOT TESTED",
+    "desktop_save_and_close": "CODE CHANGED; Godot runtime QA pending",
+    "brand_fade_envelope": "CODE CHANGED; Godot runtime QA pending"
+  },
+  "goods": 27,
+  "shop_displays": 9,
+  "customer_appearances": 6,
+  "native_test_suites_included": 23,
+  "media": {
+    "original_unchanged": 85,
+    "new_product_preview_cards": 27,
+    "new_ui_icons": 3,
+    "total": 115
+  },
+  "source_save_path": "user://lcg_p05_shop_v09.json",
+  "date": "2026-11-22",
+  "warnings": [
+    "Still requires Godot editor and export templates to produce standalone Windows build",
+    "Character animation and NPC pathing not visually verified",
+    "Accessibility and photosensitivity safety not certified",
+    "Product icon visibility at 720p/1080p needs human testing",
+    "Window X / Alt+F4 fail-safe and title fade behavior need Windows display testing."
+  ],
+  "save_durability": "Staged .pending write, verified .bak, recovery fallback, deletion clears staged recovery",
+  "release_ready": false,
+  "rights_sync": {
+    "media_count": 115,
+    "player_credits_generated_from_register": true,
+    "engine_mit_full_notice_included": true,
+    "final_godot_third_party_notices": "PENDING",
+    "brand_trademark_clearance": "PENDING",
+    "engine_runtime": "NOT INSTALLED"
+  },
+  "native_windows_export": "BLOCKED: no Godot engine/export templates; developer build script prepared"
+}

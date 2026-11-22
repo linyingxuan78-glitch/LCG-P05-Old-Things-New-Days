@@ -1,0 +1,8 @@
+﻿source_archive,source_inside_zip,project_path,visual_role,position_xyz,scale,test_status
+Homely House Set.undefined-zip.zip,Bench A/bench_A.fbx,res://assets/third_party/homely_house/bench_A.fbx,商店外长椅,"(-5.8, 0.0, 11.3)",1.3,static file present; Godot native import pending
+Homely House Set.undefined-zip.zip,Doormat/doormat.fbx,res://assets/third_party/homely_house/doormat.fbx,商店门垫,"(0.0, 0.05, 9.1)",1.4,static file present; Godot native import pending
+Homely House Set.undefined-zip.zip,Mailbox/mailbox.fbx,res://assets/third_party/homely_house/mailbox.fbx,店外邮筒,"(6.8, 0.03, 11.0)",1.3,static file present; Godot native import pending
+Homely House Set.undefined-zip.zip,Package/package.fbx,res://assets/third_party/homely_house/package.fbx,店内货物纸包,"(7.5, 0.06, -6.4)",1.4,static file present; Godot native import pending
+Pretty park set.undefined-zip.zip,Bush/bush.fbx,res://assets/third_party/pretty_park/bush.fbx,街边绿植,"(7.5, 0.0, 13.0)",1.6,static file present; Godot native import pending
+Pretty park set.undefined-zip.zip,Flower A/flower_A.fbx,res://assets/third_party/pretty_park/flower_A.fbx,街边花卉,"(-7.5, 0.0, 12.4)",1.4,static file present; Godot native import pending
+Restaurant Bits.undefined-zip.zip,Crate/crate.fbx,res://assets/third_party/restaurant_bits/crate.fbx,商店货箱,"(7.4, 0.02, -5.5)",1.6,static file present; Godot native import pending

@@ -1,0 +1,155 @@
+{
+  "version": "0.16.8",
+  "scope": "Offline/static and runner simulation ONLY; no native Godot or Windows EXE",
+  "checks": [
+    {
+      "name": "static_preflight",
+      "exit_code": 0,
+      "last_lines": [
+        "  \"resource_references_checked\": 93,",
+        "  \"gd_scripts_balance_checked\": 28,",
+        "  \"sha256_gameplay_script\": \"a96342db51f7c532ba8a57ad043bac7c4bf2c4c482b462298ba4e1a885798cec\"",
+        "}"
+      ]
+    },
+    {
+      "name": "brand_ident_provenance",
+      "exit_code": 0,
+      "last_lines": [
+        "BRAND INTRO 0167 STATIC PASS: script markers, BGM hashes, original logo and documentation. Not an engine or visual test."
+      ]
+    },
+    {
+      "name": "safe_exit_intro",
+      "exit_code": 0,
+      "last_lines": [
+        "  \"registered_count\": 115,",
+        "  \"native_test_suites\": 23,",
+        "  \"failures\": []",
+        "}"
+      ]
+    },
+    {
+      "name": "legacy_quality",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS all six character GLBs have required clips 6 GLBs, 192 animations",
+        "PASS animation keyframe time streams valid 10914 input keyframes; errors: []",
+        "PASS GLB products fit per-slot shelf display dimensions []",
+        "RESULT 13/13 static checks (not Godot engine tests)"
+      ]
+    },
+    {
+      "name": "trade_in",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS modal pauses gameplay clock and animation",
+        "PASS headless QA defined",
+        "PASS no new third-party media imported",
+        "11/11 source checks passed; native Godot not run"
+      ]
+    },
+    {
+      "name": "customer_help",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS no remote runtime game assets",
+        "PASS all media bytes have original hashes",
+        "PASS all 79 media declarations retained",
+        "RESULT: 19/19 source & file checks"
+      ]
+    },
+    {
+      "name": "accessibility",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS new genuine Godot script registered",
+        "PASS fifteen original native QA suites still included",
+        "PASS 79 media bytes and hashes unchanged",
+        "RESULT 14/14 static checks"
+      ]
+    },
+    {
+      "name": "healthy_play",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS save path remains the v09 path for compatibility",
+        "PASS source research and safety caveats documented",
+        "PASS all 79 media files retained with matching provenance",
+        "RESULT 21/21 static checks"
+      ]
+    },
+    {
+      "name": "privacy",
+      "exit_code": 0,
+      "last_lines": [
+        "    \"registered_count\": 115",
+        "  },",
+        "  \"failures\": []",
+        "}"
+      ]
+    },
+    {
+      "name": "picture_catalog",
+      "exit_code": 0,
+      "last_lines": [
+        "  \"media_count\": 115,",
+        "  \"provenance_count\": 115,",
+        "  \"errors\": []",
+        "}"
+      ]
+    },
+    {
+      "name": "save_integrity",
+      "exit_code": 0,
+      "last_lines": [
+        "  \"registered_count\": 115,",
+        "  \"native_suite_files\": 23,",
+        "  \"failures\": []",
+        "}"
+      ]
+    },
+    {
+      "name": "creator_provenance",
+      "exit_code": 0,
+      "last_lines": [
+        "  \"checked_media_records\": 115,",
+        "  \"owner_brand_files\": 2,",
+        "  \"errors\": []",
+        "}"
+      ]
+    },
+    {
+      "name": "license_sync",
+      "exit_code": 0,
+      "last_lines": [
+        "{\"status\": \"PASS\", \"media\": 115, \"ledger\": 115, \"errors\": [], \"warning_count\": 6}"
+      ]
+    },
+    {
+      "name": "raw_provenance",
+      "exit_code": 0,
+      "last_lines": [
+        "    \"missing_archives\": 0,",
+        "    \"errors\": 0",
+        "  }",
+        "}"
+      ]
+    },
+    {
+      "name": "runner_simulation",
+      "exit_code": 0,
+      "last_lines": [
+        "PASS runner simulation: wrong_marker, exit=1",
+        "PASS runner simulation: error, exit=1",
+        "PASS runner simulation: nonzero, exit=1",
+        "PASS: all four runner-control simulations. No native Godot tests were run."
+      ]
+    }
+  ],
+  "passed": 15,
+  "total": 15,
+  "native_godot_test_suites_written": 23,
+  "native_godot_tests_executed": 0,
+  "windows_exe_generated": false
+}

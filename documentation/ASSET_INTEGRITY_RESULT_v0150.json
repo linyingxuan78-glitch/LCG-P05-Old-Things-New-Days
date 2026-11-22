@@ -1,0 +1,25 @@
+{
+  "project": "/mnt/data/LCG_P05_Current",
+  "bundle_media_files": 60,
+  "new_selected_media": 7,
+  "uploaded_packs_total": 39,
+  "uploaded_packs_used_at_least_one": 17,
+  "missing_local_resource_refs": [],
+  "core_20_models_exact_hash_match": 20,
+  "all_new_assets_hashed": true,
+  "unused_packs": 22,
+  "runtime_media_referenced": 53,
+  "bundle_only_media": 7,
+  "manifest_rows_sha256_verified": 60,
+  "unreferenced_media_paths": [
+    "assets/audio/ui_4.ogg",
+    "assets/audio/Winter Dust.ogg",
+    "assets/audio/ui_2.ogg",
+    "assets/audio/A Brand New Wisdom.ogg",
+    "assets/audio/Just Saying Tho.ogg",
+    "assets/audio/ui_1.ogg",
+    "assets/branding/lcg_icon.png"
+  ],
+  "godot_runtime": "NOT TESTED (Godot 4 binary not available)",
+  "windows_exe": "NOT GENERATED"
+}

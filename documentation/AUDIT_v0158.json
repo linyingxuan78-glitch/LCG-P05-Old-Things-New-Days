@@ -1,0 +1,21 @@
+{
+  "scope": "STATIC SOURCE AND ASSET AUDIT ONLY; NO GODOT NATIVE EXECUTION OR PHOTOSENSITIVITY CERTIFICATION",
+  "checks": {
+    "five player-action tutorial steps": true,
+    "short picture-led step prompts": true,
+    "tutorial below static guide": true,
+    "pictogram shape and text states": true,
+    "help has scroll control": true,
+    "seven persisted accessibility toggles": true,
+    "default reduced motion": true,
+    "user toggles soft lights and camera": true,
+    "no changes to save location": true,
+    "27 items still in shop catalog": true,
+    "source disclosures and disclaimer": true,
+    "new genuine Godot script registered": true,
+    "fifteen original native QA suites still included": true,
+    "79 media bytes and hashes unchanged": true
+  },
+  "passed": 14,
+  "total": 14
+}

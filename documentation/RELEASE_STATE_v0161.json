@@ -1,0 +1,27 @@
+{
+  "game": "Little Cozy Games LCG-P05",
+  "version": "0.16.1",
+  "artifact_type": "Godot 4 source project, not standalone executable",
+  "content": {
+    "products": 27,
+    "product_categories": 6,
+    "shop_shelves": 9,
+    "character_visuals": 6,
+    "registered_media_files": 85,
+    "native_qa_scripts": 18
+  },
+  "new_features": [
+    "optional privacy/family safety notice from title and pause",
+    "local session history reset",
+    "title-only double-confirm local shop save + backup deletion",
+    "six original pictographic category icons in purchasing catalog",
+    "third party SDK/release integration gate"
+  ],
+  "static_preflight": "PASS",
+  "privacy_static_audit": "PASS 22/22",
+  "qa_runner_mock": "PASS four control scenarios, simulated only",
+  "godot_native_validation": "BLOCKED: no Godot executable installed; tests NOT run",
+  "executable_export": "NOT DONE",
+  "accessibility_or_child_privacy_certified": false,
+  "notes": "High-privacy offline source design; platform-specific legal compliance not established. Local JSON is not encrypted."
+}

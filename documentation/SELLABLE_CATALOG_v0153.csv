@@ -1,0 +1,28 @@
+﻿index,item_name,category,shelf_zone,supplier_cost_base,sale_price_start,sales_unlock,condition,model,asset_origin
+0,Retro Radio,Vintage Tech,0,original,original,existing,Good,bundled base models,existing CC0 manifest
+1,Old Book Set,Home & Books,1,original,original,existing,Good,bundled base models,existing CC0 manifest
+2,Table Lamp,Home & Books,2,original,original,existing,Good,bundled base models,existing CC0 manifest
+3,Vintage Television,Vintage Tech,3,original,original,existing,Good,bundled base models,existing CC0 manifest
+4,Ceramic-Style Plant,Home & Books,4,original,original,existing,Good,bundled base models,existing CC0 manifest
+5,Classic Toaster,Kitchen Finds,5,original,original,existing,Good,bundled base models,existing CC0 manifest
+6,Coffee Machine,Kitchen Finds,6,original,original,existing,Good,bundled base models,existing CC0 manifest
+7,Small Speaker,Vintage Tech,7,original,original,existing,Good,bundled base models,existing CC0 manifest
+8,Vintage Blender,Kitchen Finds,8,original,original,existing,Good,bundled base models,existing CC0 manifest
+9,Compact Laptop,Vintage Tech,0,24,54,8,Good,expanded/laptop,Kenney CC0
+10,Comic Book Bundle,Home & Books,1,6,17,3,Well-Loved,books,Kenney CC0
+11,Square Desk Lamp,Home & Books,2,12,28,3,Excellent,expanded/lampSquareTable,Kenney CC0
+12,Modern Television,Vintage Tech,3,28,67,12,Good,expanded/televisionModern,Kenney CC0
+13,Small Indoor Plant,Home & Books,4,8,21,3,Good,expanded/plantSmall2,Kenney CC0
+14,Microwave Oven,Kitchen Finds,5,18,44,8,Good,expanded/kitchenMicrowave,Kenney CC0
+15,Wooden Side Table,Small Furniture,6,19,43,8,Well-Loved,expanded/sideTable,Kenney CC0
+16,Travel Suitcase,Clothes & Travel,7,11,29,3,Good,expanded/item-luggage,Kenney CC0
+17,Mini Fridge,Kitchen Finds,8,27,65,12,Excellent,expanded/kitchenFridgeSmall,Kenney CC0
+18,Computer Keyboard,Vintage Tech,0,7,20,3,Good,expanded/computerKeyboard,Kenney CC0
+19,Teddy Bear,Toys & Collectibles,1,6,18,3,Well-Loved,expanded/bear,Kenney CC0
+20,Floor Lamp,Home & Books,2,15,37,8,Good,expanded/lampRoundFloor,Kenney CC0
+21,Retro Computer Screen,Vintage Tech,3,15,36,8,Good,computerScreen,Kenney CC0
+22,Soft Cushion,Home & Books,4,4,12,0,Excellent,expanded/pillow,Kenney CC0
+23,Standing Coat Rack,Small Furniture,5,15,36,8,Good,expanded/coatRackStanding,Kenney CC0
+24,Rounded Wooden Chair,Small Furniture,6,18,44,8,Well-Loved,expanded/chairRounded,Kenney CC0
+25,Folded Clothes Bundle,Clothes & Travel,7,9,24,3,Good,procedural/foldedClothes,Native geometry
+26,Round Rug,Home & Books,8,13,32,8,Well-Loved,expanded/rugRound,Kenney CC0

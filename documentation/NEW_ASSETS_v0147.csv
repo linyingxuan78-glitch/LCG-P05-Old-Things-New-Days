@@ -1,0 +1,11 @@
+path,source_archive,source_path,purpose,sha256,license
+assets/curated_v0147/mini_shop/clothing-rack.glb,kenney_mini-shop_2.1.zip,Models/GLB format/clothing-rack.glb,Clothing rack near left wall,a47848287c346260088495d26449123d13b7c30a1ef424dde814b85f2239ac59,Kenney / CC0
+assets/curated_v0147/mini_shop/mannequin.glb,kenney_mini-shop_2.1.zip,Models/GLB format/mannequin.glb,Vintage fashion display,441d2c67e7ef81ef06f6429b371478d5667b702a3a7d40c705fd21951cf8b881,Kenney / CC0
+assets/curated_v0147/mini_shop/shopping-basket.glb,kenney_mini-shop_2.1.zip,Models/GLB format/shopping-basket.glb,Reusable shopper basket,933bcb44ac1e556c2fb97cf9619616284f264d3339368b6f5e5bc9cd934461db,Kenney / CC0
+assets/curated_v0147/mini_shop/shelf-bags.glb,kenney_mini-shop_2.1.zip,Models/GLB format/shelf-bags.glb,Accessories shelf,a3367a9cf5eb59d4c653d12a5c2e22f074e4f4a2a22745bb1b4cf03b180e6d54,Kenney / CC0
+assets/curated_v0147/mini_shop/hand-truck.glb,kenney_mini-shop_2.1.zip,Models/GLB format/hand-truck.glb,Backroom logistics prop,cf0a82712237091e792973592d3ab0d6aef2db4a985c59c26446aed4b5919296,Kenney / CC0
+assets/curated_v0147/furniture/coatRackStanding.glb,kenney_furniture-kit.zip,Models/GLTF format/coatRackStanding.glb,Secondhand coats corner,d8231c22dab63ceb9fc8678f6c8ceafc62afa8726b51a73b4ce349043d3cdc91,Kenney / CC0
+assets/curated_v0147/audio/footstep_wood_000.ogg,kenney_impact-sounds.zip,Audio/footstep_wood_000.ogg,Player wood footstep A,5f1c252942a220d658121bd9417448cd19649ded9fff2ff15f6e50899373ce8e,Kenney / CC0
+assets/curated_v0147/audio/footstep_wood_001.ogg,kenney_impact-sounds.zip,Audio/footstep_wood_001.ogg,Player wood footstep B,e4f68e1c9fd55b4dc8ca89ed2bbab6f200171bc54bdc18aa96b80d8e7336f462,Kenney / CC0
+assets/curated_v0147/audio/impactBell_heavy_000.ogg,kenney_impact-sounds.zip,Audio/impactBell_heavy_000.ogg,Customer arrival bell,94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f,Kenney / CC0
+assets/curated_v0147/audio/impactGeneric_light_000.ogg,kenney_impact-sounds.zip,Audio/impactGeneric_light_000.ogg,Item stocking sound,f0e982611e97512fee5f777986b67e8b435434b601f94992ec044f7e89fb5acb,Kenney / CC0

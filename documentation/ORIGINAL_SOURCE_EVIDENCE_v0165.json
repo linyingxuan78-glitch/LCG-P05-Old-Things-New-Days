@@ -1,0 +1,772 @@
+{
+  "type": "source-byte-evidence; not rights clearance",
+  "build": "v0.16.6",
+  "archive_dir_assumption": "Original user-provided ZIP archive folder; not shipped with game",
+  "direct_verified": [
+    {
+      "path": "assets/audio/ui_1.ogg",
+      "original_zip": "kenney_ui-audio.zip",
+      "zip_member": "Preview.ogg",
+      "sha256": "0430586fc3e1045c44c1f9173d288545aa87aca210d497e7626d6187bc0eefe7"
+    },
+    {
+      "path": "assets/audio/ui_2.ogg",
+      "original_zip": "kenney_ui-audio.zip",
+      "zip_member": "Audio/click1.ogg",
+      "sha256": "59175ac17cd49a68dd736285738441287636112a84a6f7ce0d89921bda5a5360"
+    },
+    {
+      "path": "assets/audio/ui_3.ogg",
+      "original_zip": "kenney_ui-audio.zip",
+      "zip_member": "Audio/click2.ogg",
+      "sha256": "c394b46bc6737f7f7edfbfa3031ce621b7a43d498d456d6198364eee9cd3e306"
+    },
+    {
+      "path": "assets/audio/ui_4.ogg",
+      "original_zip": "kenney_ui-audio.zip",
+      "zip_member": "Audio/click3.ogg",
+      "sha256": "e3e7fc7ccd9c5cfdf77bffa05aee10d4973812076c76dc889ba2b16ea434127f"
+    },
+    {
+      "path": "assets/curated_v0147/audio/footstep_wood_000.ogg",
+      "original_zip": "kenney_impact-sounds.zip",
+      "zip_member": "Audio/footstep_wood_000.ogg",
+      "sha256": "5f1c252942a220d658121bd9417448cd19649ded9fff2ff15f6e50899373ce8e"
+    },
+    {
+      "path": "assets/curated_v0147/audio/footstep_wood_001.ogg",
+      "original_zip": "kenney_impact-sounds.zip",
+      "zip_member": "Audio/footstep_wood_001.ogg",
+      "sha256": "e4f68e1c9fd55b4dc8ca89ed2bbab6f200171bc54bdc18aa96b80d8e7336f462"
+    },
+    {
+      "path": "assets/curated_v0147/audio/impactBell_heavy_000.ogg",
+      "original_zip": "kenney_impact-sounds.zip",
+      "zip_member": "Audio/impactBell_heavy_000.ogg",
+      "sha256": "94b8bb5f2d43ab65e4bcc32b28562416e9bc2c51d9fd4be1e333660ee52f977f"
+    },
+    {
+      "path": "assets/curated_v0147/audio/impactGeneric_light_000.ogg",
+      "original_zip": "kenney_impact-sounds.zip",
+      "zip_member": "Audio/impactGeneric_light_000.ogg",
+      "sha256": "f0e982611e97512fee5f777986b67e8b435434b601f94992ec044f7e89fb5acb"
+    },
+    {
+      "path": "assets/curated_v0147/furniture/coatRackStanding.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/coatRackStanding.glb",
+      "sha256": "d8231c22dab63ceb9fc8678f6c8ceafc62afa8726b51a73b4ce349043d3cdc91"
+    },
+    {
+      "path": "assets/curated_v0147/mini_shop/clothing-rack.glb",
+      "original_zip": "kenney_mini-shop_2.1.zip",
+      "zip_member": "Models/GLB format/clothing-rack.glb",
+      "sha256": "a47848287c346260088495d26449123d13b7c30a1ef424dde814b85f2239ac59"
+    },
+    {
+      "path": "assets/curated_v0147/mini_shop/hand-truck.glb",
+      "original_zip": "kenney_mini-shop_2.1.zip",
+      "zip_member": "Models/GLB format/hand-truck.glb",
+      "sha256": "cf0a82712237091e792973592d3ab0d6aef2db4a985c59c26446aed4b5919296"
+    },
+    {
+      "path": "assets/curated_v0147/mini_shop/mannequin.glb",
+      "original_zip": "kenney_mini-shop_2.1.zip",
+      "zip_member": "Models/GLB format/mannequin.glb",
+      "sha256": "441d2c67e7ef81ef06f6429b371478d5667b702a3a7d40c705fd21951cf8b881"
+    },
+    {
+      "path": "assets/curated_v0147/mini_shop/shelf-bags.glb",
+      "original_zip": "kenney_mini-shop_2.1.zip",
+      "zip_member": "Models/GLB format/shelf-bags.glb",
+      "sha256": "a3367a9cf5eb59d4c653d12a5c2e22f074e4f4a2a22745bb1b4cf03b180e6d54"
+    },
+    {
+      "path": "assets/curated_v0147/mini_shop/shopping-basket.glb",
+      "original_zip": "kenney_mini-shop_2.1.zip",
+      "zip_member": "Models/GLB format/shopping-basket.glb",
+      "sha256": "933bcb44ac1e556c2fb97cf9619616284f264d3339368b6f5e5bc9cd934461db"
+    },
+    {
+      "path": "assets/models/bookcaseOpen.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/bookcaseOpen.glb",
+      "sha256": "750702218d68c062b15dfef6ab06a4014d1cfa8bd05f02e57c53b7e13bec157c"
+    },
+    {
+      "path": "assets/models/books.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/books.glb",
+      "sha256": "b8dc56e5d29f6fc1f4727fccb1b9642627fee9942c48060a00034e98df02701c"
+    },
+    {
+      "path": "assets/models/cardboardBoxClosed.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/cardboardBoxClosed.glb",
+      "sha256": "4af079dca52960912764574950f0549ff2ae1224b3db1528718629473a2d5d81"
+    },
+    {
+      "path": "assets/models/chair.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/chair.glb",
+      "sha256": "c8a11eec93e89e31250ba91afc1b8d56c3bec7ae86640fd1239f595ff4180883"
+    },
+    {
+      "path": "assets/models/character-female-a.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-female-a.glb",
+      "sha256": "10e4f70e4279913b4f78134c9eeb699a11091cd4b452ecccf9d2b27b32206320"
+    },
+    {
+      "path": "assets/models/character-female-c.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-female-c.glb",
+      "sha256": "163ed5cb5b130177a64724efd9cf4f681fd73d7072f4f9b83ed584307dad870a"
+    },
+    {
+      "path": "assets/models/character-male-a.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-male-a.glb",
+      "sha256": "c1cba637e1d946822df07385fabf9d1bc55255ce19e0e8f7124d767e03987126"
+    },
+    {
+      "path": "assets/models/computerScreen.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/computerScreen.glb",
+      "sha256": "5942cbad29a2d2b956619569926e81d50a4174403d592fece6556e57632dc643"
+    },
+    {
+      "path": "assets/models/desk.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/desk.glb",
+      "sha256": "0164fe828f028b321730fb8c74502e353583f751be74da1682d42fff7d3c5a42"
+    },
+    {
+      "path": "assets/models/kitchenBlender.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenBlender.glb",
+      "sha256": "f471defb5b2b1cf3b949a1a8aaef0a8b727afe662b0815068cf4e963325a3c1f"
+    },
+    {
+      "path": "assets/models/kitchenCoffeeMachine.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenCoffeeMachine.glb",
+      "sha256": "063f582c6fa0f00a9f24e3393dac2295491c4becdaf5513c893ab1a2826b6ec3"
+    },
+    {
+      "path": "assets/models/lampRoundTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampRoundTable.glb",
+      "sha256": "75bb644caaa3da003b4fcad7a931722dd61cd2858aab70cf660021d5061fa1b2"
+    },
+    {
+      "path": "assets/models/plantSmall1.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/plantSmall1.glb",
+      "sha256": "2b9c022feb47be857b2c4fdc29f36522766ba9b70c578c31d7c05d71b4377d15"
+    },
+    {
+      "path": "assets/models/pottedPlant.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/pottedPlant.glb",
+      "sha256": "5b760eda2766f75fda36b2c5df652a1662f82981ef64cd8fa7fe7bcd386b3a15"
+    },
+    {
+      "path": "assets/models/radio.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/radio.glb",
+      "sha256": "1ba93d6ba6f049750853b4652b92f286f2898e527695a0705b75cc7615897fed"
+    },
+    {
+      "path": "assets/models/rugRectangle.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/rugRectangle.glb",
+      "sha256": "a989d2d59c04e3071e0c90388b113a9a8f339ce1814ef984c51cb6dcd7c8e0eb"
+    },
+    {
+      "path": "assets/models/speakerSmall.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/speakerSmall.glb",
+      "sha256": "34db09984703282822f3f57fc9a31bfdfa6a8f6bf8251893d0c907e7ee6601b2"
+    },
+    {
+      "path": "assets/models/tableCoffee.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/tableCoffee.glb",
+      "sha256": "e38bea760fbd514efbb75528d09b4752c91af44677bbb97e6d4386c263525179"
+    },
+    {
+      "path": "assets/models/televisionVintage.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/televisionVintage.glb",
+      "sha256": "eb144cc8fb1e7f761e3665226e4266c8868679421d21d6548f24d2abad7c67cf"
+    },
+    {
+      "path": "assets/models/toaster.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/toaster.glb",
+      "sha256": "38c1fb7b122be9997758c8ee855d87f28014cf282f24d66d39f4e8d8b236d2af"
+    },
+    {
+      "path": "assets/selected_v015/audio/click_001.ogg",
+      "original_zip": "kenney_interface-sounds.zip",
+      "zip_member": "Audio/click_001.ogg",
+      "sha256": "ccfb7fa0cccdd9faec0eb16033c732b1e308d139d80f799161495d58f7adcdb9"
+    },
+    {
+      "path": "assets/selected_v015/characters/character-female-b.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-female-b.glb",
+      "sha256": "3a0e6c3e431ae9d2016c2c9a91ec3abe8bb45243016a5cae80cbde0b61f8f2a9"
+    },
+    {
+      "path": "assets/selected_v015/characters/character-female-d.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-female-d.glb",
+      "sha256": "788767a12ed89cea1c6b2617be1a9b7ddd999e9ed283baaac7cddfbe69720ccf"
+    },
+    {
+      "path": "assets/selected_v015/characters/character-male-b.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/character-male-b.glb",
+      "sha256": "81464391ab3291bc78d23c33d5a5313cfab43469285a8e1f02b974aecbd4f943"
+    },
+    {
+      "path": "assets/selected_v015/ui/icon_checkmark.png",
+      "original_zip": "kenney_ui-pack.zip",
+      "zip_member": "PNG/Green/Default/icon_checkmark.png",
+      "sha256": "577dcc143406ab58aa9766482cc9d5e9265a519fd961f9f35fa7468ced87c5d2"
+    },
+    {
+      "path": "assets/selected_v015/ui/icon_circle.png",
+      "original_zip": "kenney_ui-pack.zip",
+      "zip_member": "PNG/Green/Default/icon_circle.png",
+      "sha256": "9fd4ba15cb8ceea667d35fdae11d8413fb139abf2314bcdbb8a506722924051f"
+    },
+    {
+      "path": "assets/selected_v015/urban/detail-awning-wide.glb",
+      "original_zip": "kenney_retro-urban-kit.zip",
+      "zip_member": "Models/GLB format/detail-awning-wide.glb",
+      "sha256": "77ea699e4d3c668d909e549e236766feaa8c4d3438ef66234a5d81b46fef5821"
+    },
+    {
+      "path": "assets/third_party/homely_house/bench_A.fbx",
+      "original_zip": "Homely House Set.undefined-zip.zip",
+      "zip_member": "Bench A/bench_A.fbx",
+      "sha256": "2e3d4d0c0283120ec9fa2ae9c53b811b6a61fa7ac474c15f497a55465b658fd7"
+    },
+    {
+      "path": "assets/third_party/homely_house/doormat.fbx",
+      "original_zip": "Homely House Set.undefined-zip.zip",
+      "zip_member": "Doormat/doormat.fbx",
+      "sha256": "ff055616f452102ac6e26bfcb50a1bf229d7fb011485e0e29a7aa00f0d925170"
+    },
+    {
+      "path": "assets/third_party/homely_house/mailbox.fbx",
+      "original_zip": "Homely House Set.undefined-zip.zip",
+      "zip_member": "Mailbox/mailbox.fbx",
+      "sha256": "6218e43b253dc02cbdf83b8386d20cf55b21a4a9a434de824a5348f708019999"
+    },
+    {
+      "path": "assets/third_party/homely_house/package.fbx",
+      "original_zip": "Homely House Set.undefined-zip.zip",
+      "zip_member": "Package/package.fbx",
+      "sha256": "c5f0a275c25c59a8e0c1cbdf581a07748c60723331c2d2bf898528c5255182e8"
+    },
+    {
+      "path": "assets/third_party/pretty_park/bush.fbx",
+      "original_zip": "Pretty park set.undefined-zip.zip",
+      "zip_member": "Bush/bush.fbx",
+      "sha256": "9ea22543e0b2bad19fa6c58ac613527728953368e72f68e2a85e4464f73f769b"
+    },
+    {
+      "path": "assets/third_party/pretty_park/flower_A.fbx",
+      "original_zip": "Pretty park set.undefined-zip.zip",
+      "zip_member": "Flower A/flower_A.fbx",
+      "sha256": "67a32c15a8962b1370e71b810288309c53126e7b01b7854a48d8038de594e384"
+    },
+    {
+      "path": "assets/third_party/restaurant_bits/crate.fbx",
+      "original_zip": "Restaurant Bits.undefined-zip.zip",
+      "zip_member": "Crate/crate.fbx",
+      "sha256": "670b4bd9eb4c1474fb6748be3c55dfd5876459c67ba424987268fe00e9f387b9"
+    },
+    {
+      "path": "assets/third_party_kenney/building/column-thin.glb",
+      "original_zip": "kenney_building-kit.zip",
+      "zip_member": "Models/GLB format/column-thin.glb",
+      "sha256": "37cfd995746888acfd15d6f226f7ddda83257707b6d21793f38fbe851a958daf"
+    },
+    {
+      "path": "assets/third_party_kenney/city_suburban/planter.glb",
+      "original_zip": "kenney_city-kit-suburban_20.zip",
+      "zip_member": "Models/GLB format/planter.glb",
+      "sha256": "a876e87d908f0397dcaf94b7705835447825c4c5b39195319535415386542c17"
+    },
+    {
+      "path": "assets/third_party_kenney/factory/box-small.glb",
+      "original_zip": "kenney_factory-kit_3.0.zip",
+      "zip_member": "Models/GLB format/box-small.glb",
+      "sha256": "fd2ea1ac4f24a9515dc9c53a4a589a8897c824fa5865771799f965a252f684f0"
+    },
+    {
+      "path": "assets/third_party_kenney/mini_arcade/cash-register.glb",
+      "original_zip": "kenney_mini-arcade.zip",
+      "zip_member": "Models/GLB format/cash-register.glb",
+      "sha256": "51d57ddbc623921a54782c40add49664072b192d66b0fa7c16f18f0fb0185c8f"
+    },
+    {
+      "path": "assets/third_party_kenney/prototype/crate.glb",
+      "original_zip": "kenney_prototype-kit.zip",
+      "zip_member": "Models/GLB format/crate.glb",
+      "sha256": "7dec224fbdd2297524c56fe3b4fa79fe6c5854f4b699a9e2e2c21ce6f008738c"
+    },
+    {
+      "path": "assets/third_party_kenney/ui/cursor_toon.png",
+      "original_zip": "kenney_cursor-pack.zip",
+      "zip_member": "PNG/Basic/Default/pointer_toon_a.png",
+      "sha256": "f30a941771cd01739500813942d1ed50b555dc73ca397053aca5beabafbaf30e"
+    },
+    {
+      "path": "assets/expanded_v0153/laptop.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/laptop.glb",
+      "sha256": "5fa8a1f4a71ab8d82ef64da77a6973ffd350c6d4557516069a4ffd4bb8d808af"
+    },
+    {
+      "path": "assets/expanded_v0153/lampSquareTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampSquareTable.glb",
+      "sha256": "70ec9211af336b1ef3b4da32590b8737b4facf219348c22e6533a1e898cdb13d"
+    },
+    {
+      "path": "assets/expanded_v0153/televisionModern.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/televisionModern.glb",
+      "sha256": "d89519ad0a5f28b5b0dccb0d83209dccf610cda959578238dd21bbf9e219cfc6"
+    },
+    {
+      "path": "assets/expanded_v0153/plantSmall2.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/plantSmall2.glb",
+      "sha256": "d7c8ff42c66dd4f9238a73570549813d1ca6c5f6f661d7af9cb764c4fce314b9"
+    },
+    {
+      "path": "assets/expanded_v0153/kitchenMicrowave.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenMicrowave.glb",
+      "sha256": "dd6a6c919f4bebc6e2080fe419262cf97a0d6461ead3f3998aa3c9edf4d2bd27"
+    },
+    {
+      "path": "assets/expanded_v0153/sideTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/sideTable.glb",
+      "sha256": "8227810584f7d37582e4e9ec821c56f1dc54b99c88a8dc74242ea3b7402bc472"
+    },
+    {
+      "path": "assets/expanded_v0153/item-luggage.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/item-luggage.glb",
+      "sha256": "52a43232de521a4131ca0ae2d6956962d55b72e768470834ba5982801557dcca"
+    },
+    {
+      "path": "assets/expanded_v0153/kitchenFridgeSmall.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenFridgeSmall.glb",
+      "sha256": "35dab7f63711623be321bfd82072f4ab29fe8006aac9371c6e6b78df2e02f5ed"
+    },
+    {
+      "path": "assets/expanded_v0153/computerKeyboard.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/computerKeyboard.glb",
+      "sha256": "9d9135789de2120e9f41ce3f0a56dd1b15f40adcc7888739bb842a2d820da322"
+    },
+    {
+      "path": "assets/expanded_v0153/bear.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/bear.glb",
+      "sha256": "fd87c08f81dcd652b1f7f61afae9d1f040fa1322ac4ddda6f543ed423b954aed"
+    },
+    {
+      "path": "assets/expanded_v0153/lampRoundFloor.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampRoundFloor.glb",
+      "sha256": "50fe1b5b588edf15bfa9cc880f71a02a4fda6036350b24733d0ef4de5cc5e908"
+    },
+    {
+      "path": "assets/expanded_v0153/pillow.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/pillow.glb",
+      "sha256": "6fae7c190d0b676ef3efd35e5178cef21dffb5c80e1257d8b537ad424da0e5f6"
+    },
+    {
+      "path": "assets/expanded_v0153/coatRackStanding.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/coatRackStanding.glb",
+      "sha256": "d8231c22dab63ceb9fc8678f6c8ceafc62afa8726b51a73b4ce349043d3cdc91"
+    },
+    {
+      "path": "assets/expanded_v0153/chairRounded.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/chairRounded.glb",
+      "sha256": "53f4933ec547179c499f04dbda1231cf44b83ec82c7f4ab981cdf680aee5c973"
+    },
+    {
+      "path": "assets/expanded_v0153/rugRound.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/rugRound.glb",
+      "sha256": "c4cdc8f51ed2dbfb853b147521ed40e995307392fd3b19045b2203ea50f376db"
+    }
+  ],
+  "derived_verified": [
+    {
+      "path": "assets/product_previews_v0162/product_00.png",
+      "preview_sha256": "a3700295b91e89ab4363c1cfc7225dd0442efde6137623995e651a0ec0328ca3",
+      "derived_from": "assets/models/radio.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/radio.glb",
+      "source_model_sha256": "1ba93d6ba6f049750853b4652b92f286f2898e527695a0705b75cc7615897fed"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_01.png",
+      "preview_sha256": "99ac4fe82acd6cc162244afb4115449b1e4a3fab17179f2d6a98bf4cbab7e89c",
+      "derived_from": "assets/models/books.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/books.glb",
+      "source_model_sha256": "b8dc56e5d29f6fc1f4727fccb1b9642627fee9942c48060a00034e98df02701c"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_02.png",
+      "preview_sha256": "8935ba6984f00f4c68d0fde30183ad458a9b587d8480f086f52910de5d313fae",
+      "derived_from": "assets/models/lampRoundTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampRoundTable.glb",
+      "source_model_sha256": "75bb644caaa3da003b4fcad7a931722dd61cd2858aab70cf660021d5061fa1b2"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_03.png",
+      "preview_sha256": "f5c2339c3c764660ffddbd9369b1d3636a0c438dbbb5094bd71b254632f0c183",
+      "derived_from": "assets/models/televisionVintage.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/televisionVintage.glb",
+      "source_model_sha256": "eb144cc8fb1e7f761e3665226e4266c8868679421d21d6548f24d2abad7c67cf"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_04.png",
+      "preview_sha256": "b8dc75019ee573df4e61c73daf27686dd2686f3fb79e16886db058b865c6e41e",
+      "derived_from": "assets/models/pottedPlant.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/pottedPlant.glb",
+      "source_model_sha256": "5b760eda2766f75fda36b2c5df652a1662f82981ef64cd8fa7fe7bcd386b3a15"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_05.png",
+      "preview_sha256": "529bb6aece4a2f72cc64a6bdc3a830129edb2921c8f753f0c90a27ee0b78144d",
+      "derived_from": "assets/models/toaster.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/toaster.glb",
+      "source_model_sha256": "38c1fb7b122be9997758c8ee855d87f28014cf282f24d66d39f4e8d8b236d2af"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_06.png",
+      "preview_sha256": "3587fa1131a287bbb527e8aceba9434e1ef764856de4c5782a2e8c527be3f633",
+      "derived_from": "assets/models/kitchenCoffeeMachine.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenCoffeeMachine.glb",
+      "source_model_sha256": "063f582c6fa0f00a9f24e3393dac2295491c4becdaf5513c893ab1a2826b6ec3"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_07.png",
+      "preview_sha256": "44aa50d61ddc5878a5ad043dea92f489891da9ee5678131e652c654b26966428",
+      "derived_from": "assets/models/speakerSmall.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/speakerSmall.glb",
+      "source_model_sha256": "34db09984703282822f3f57fc9a31bfdfa6a8f6bf8251893d0c907e7ee6601b2"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_08.png",
+      "preview_sha256": "c8cbabbf484c174137e4105e793b8b7a505050e6ec3fef8afe5939869c06422c",
+      "derived_from": "assets/models/kitchenBlender.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenBlender.glb",
+      "source_model_sha256": "f471defb5b2b1cf3b949a1a8aaef0a8b727afe662b0815068cf4e963325a3c1f"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_09.png",
+      "preview_sha256": "164dcb993ceeee99293d069892929cfb7e76413b9610cbed46a05fb355835cd4",
+      "derived_from": "assets/expanded_v0153/laptop.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/laptop.glb",
+      "source_model_sha256": "5fa8a1f4a71ab8d82ef64da77a6973ffd350c6d4557516069a4ffd4bb8d808af"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_10.png",
+      "preview_sha256": "31cde0253d87f5f3d677a84fe70cec9eb1fc5260d902068d8a6e3786aa174dec",
+      "derived_from": "assets/models/books.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/books.glb",
+      "source_model_sha256": "b8dc56e5d29f6fc1f4727fccb1b9642627fee9942c48060a00034e98df02701c"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_11.png",
+      "preview_sha256": "54fcf47d21a1bee9328d8f71fc8acf7295a91382e96f93cfe4af711d3e9e2d74",
+      "derived_from": "assets/expanded_v0153/lampSquareTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampSquareTable.glb",
+      "source_model_sha256": "70ec9211af336b1ef3b4da32590b8737b4facf219348c22e6533a1e898cdb13d"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_12.png",
+      "preview_sha256": "197f89c9a849c71cc7958200185b61d1c905aeaf2e567270e44191b4e8a5bd3c",
+      "derived_from": "assets/expanded_v0153/televisionModern.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/televisionModern.glb",
+      "source_model_sha256": "d89519ad0a5f28b5b0dccb0d83209dccf610cda959578238dd21bbf9e219cfc6"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_13.png",
+      "preview_sha256": "c8158f0f5466b86161965a704d16213c6dc4f92ce0d74d75546846bcf4e9f40d",
+      "derived_from": "assets/expanded_v0153/plantSmall2.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/plantSmall2.glb",
+      "source_model_sha256": "d7c8ff42c66dd4f9238a73570549813d1ca6c5f6f661d7af9cb764c4fce314b9"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_14.png",
+      "preview_sha256": "24af72e63d861c5e5c615c1f4e8ad816dacb952a75120f13a477f6040cf6c8f9",
+      "derived_from": "assets/expanded_v0153/kitchenMicrowave.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenMicrowave.glb",
+      "source_model_sha256": "dd6a6c919f4bebc6e2080fe419262cf97a0d6461ead3f3998aa3c9edf4d2bd27"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_15.png",
+      "preview_sha256": "291d1e432ac90a6cb87dd58c13881565c926e517f7b381565ede19803038e942",
+      "derived_from": "assets/expanded_v0153/sideTable.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/sideTable.glb",
+      "source_model_sha256": "8227810584f7d37582e4e9ec821c56f1dc54b99c88a8dc74242ea3b7402bc472"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_16.png",
+      "preview_sha256": "f8485b9710f7d3a4ee7ca0b7a3edf3c1885964c92aa4e87cc81546bf0b867de9",
+      "derived_from": "assets/expanded_v0153/item-luggage.glb",
+      "original_zip": "kenney_mini-characters.zip",
+      "zip_member": "Models/GLB format/item-luggage.glb",
+      "source_model_sha256": "52a43232de521a4131ca0ae2d6956962d55b72e768470834ba5982801557dcca"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_17.png",
+      "preview_sha256": "f848256ce40061d3696b9788b4f9de1c25180fd316f82aef942a3bba5dffcea8",
+      "derived_from": "assets/expanded_v0153/kitchenFridgeSmall.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/kitchenFridgeSmall.glb",
+      "source_model_sha256": "35dab7f63711623be321bfd82072f4ab29fe8006aac9371c6e6b78df2e02f5ed"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_18.png",
+      "preview_sha256": "2eafb65b42be33f8ae7cae1ae0521f7a5eb59e9c3f1326a2f1eb3b2a9d6250b3",
+      "derived_from": "assets/expanded_v0153/computerKeyboard.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/computerKeyboard.glb",
+      "source_model_sha256": "9d9135789de2120e9f41ce3f0a56dd1b15f40adcc7888739bb842a2d820da322"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_19.png",
+      "preview_sha256": "080eaab2b38887da3415597c189eca284cbab5fc29ba04e2c0658b6cdcb235d0",
+      "derived_from": "assets/expanded_v0153/bear.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/bear.glb",
+      "source_model_sha256": "fd87c08f81dcd652b1f7f61afae9d1f040fa1322ac4ddda6f543ed423b954aed"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_20.png",
+      "preview_sha256": "d16a04ecf66209623dc40b3ad59e2f9f8fbde01a2c9e1127b2175fd4589b283c",
+      "derived_from": "assets/expanded_v0153/lampRoundFloor.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/lampRoundFloor.glb",
+      "source_model_sha256": "50fe1b5b588edf15bfa9cc880f71a02a4fda6036350b24733d0ef4de5cc5e908"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_21.png",
+      "preview_sha256": "275d3c9a82d10f34184824182c21ac1a521927f76039e356d7a48227c497fd2a",
+      "derived_from": "assets/models/computerScreen.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/computerScreen.glb",
+      "source_model_sha256": "5942cbad29a2d2b956619569926e81d50a4174403d592fece6556e57632dc643"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_22.png",
+      "preview_sha256": "09ea7a32825cb68c6beaeb02667a9ce1ccc56d388af09fb5ac595b978c0723df",
+      "derived_from": "assets/expanded_v0153/pillow.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/pillow.glb",
+      "source_model_sha256": "6fae7c190d0b676ef3efd35e5178cef21dffb5c80e1257d8b537ad424da0e5f6"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_23.png",
+      "preview_sha256": "bd9c7c832b7378c9fdd4d47c963aa6579e0a2b48b90d8cee779e80b263900851",
+      "derived_from": "assets/expanded_v0153/coatRackStanding.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/coatRackStanding.glb",
+      "source_model_sha256": "d8231c22dab63ceb9fc8678f6c8ceafc62afa8726b51a73b4ce349043d3cdc91"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_24.png",
+      "preview_sha256": "69b3b225b2fa3ea43ac040670a62f206b9b15d1e4563b32d0b797c30219e6a0e",
+      "derived_from": "assets/expanded_v0153/chairRounded.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/chairRounded.glb",
+      "source_model_sha256": "53f4933ec547179c499f04dbda1231cf44b83ec82c7f4ab981cdf680aee5c973"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_26.png",
+      "preview_sha256": "89c03bace767c6bb132dd32f7204bad98455ecbefad63055207dcf8f507792c4",
+      "derived_from": "assets/expanded_v0153/rugRound.glb",
+      "original_zip": "kenney_furniture-kit.zip",
+      "zip_member": "Models/GLTF format/rugRound.glb",
+      "source_model_sha256": "c4cdc8f51ed2dbfb853b147521ed40e995307392fd3b19045b2203ea50f376db"
+    }
+  ],
+  "original_archive_unavailable": [],
+  "music_source_page_only": [
+    {
+      "path": "assets/audio/A Brand New Wisdom.ogg",
+      "sha256": "99d0095c328d598f5fb1bca9fbb4a518112bbf676dc662f0c0c6edfee88d788c",
+      "source_url": "https://opengameart.org/content/short-loops-background-music-pack",
+      "archive_member": "not independently verified"
+    },
+    {
+      "path": "assets/audio/Just Saying Tho.ogg",
+      "sha256": "687aa35987b89797af14735348c5b2f1b766ac0ba528dc001746aaf4ca1cc82f",
+      "source_url": "https://opengameart.org/content/short-loops-background-music-pack",
+      "archive_member": "not independently verified"
+    },
+    {
+      "path": "assets/audio/Swinging Sweet.ogg",
+      "sha256": "5a22466a7ec28c324324217aff836809ccbc9e2489cc22ebf72725f4bfd320bb",
+      "source_url": "https://opengameart.org/content/short-loops-background-music-pack",
+      "archive_member": "not independently verified"
+    },
+    {
+      "path": "assets/audio/Winter Dust.ogg",
+      "sha256": "8c0da93d35ddfb3c8e4cc01ce4ba6611fb407eec4b6c23f17a691ad7dc0f1fe0",
+      "source_url": "https://opengameart.org/content/short-loops-background-music-pack",
+      "archive_member": "not independently verified"
+    }
+  ],
+  "brand_owner_attested": [
+    {
+      "path": "assets/branding/lcg_icon.png",
+      "sha256": "97790e8f7d18a0ff8ba68bc9779ee794335ff9bb98aa57a97cfc2527aaca173f",
+      "public_use": "Owner-confirmed AI origin. Private playtest permitted; market trademark clearance pending"
+    },
+    {
+      "path": "assets/branding/lcg_logo.png",
+      "sha256": "003add8e35b194cf128b64757f1127ed37df97017cd3e42fc6bf6c2fcad8b29e",
+      "public_use": "Owner-confirmed AI origin. Private playtest permitted; market trademark clearance pending"
+    }
+  ],
+  "project_artwork": [
+    {
+      "path": "assets/ui_guides/guide_0.png",
+      "sha256": "292dfe2c8392d27e9e292c2bd23e45ce2d3e12c2169e7d6d4bd8e5e59b584a62",
+      "claimed_source": "LCG-P05 authored in this development update"
+    },
+    {
+      "path": "assets/ui_guides/guide_1.png",
+      "sha256": "1bc0b12f95b710b9c08f079f9ababb2223b44ef35c5eff50ea60dab4ecb5e028",
+      "claimed_source": "LCG-P05 authored in this development update"
+    },
+    {
+      "path": "assets/ui_guides/guide_2.png",
+      "sha256": "8fb1fe432a2a8121d3a94663074a3b6162a52354896e85a5dcd1b9bea39006ba",
+      "claimed_source": "LCG-P05 authored in this development update"
+    },
+    {
+      "path": "assets/ui_guides/guide_3.png",
+      "sha256": "54a683869e3f300380c36a6761bb27dfd20fc5aee78f545ea6ee6118d92dca72",
+      "claimed_source": "LCG-P05 authored in this development update"
+    },
+    {
+      "path": "assets/comfort_icons/category_0.png",
+      "sha256": "7dda084a1f9efd99767cf92e28fc33cc680850dc9997af5fb8cf70d2e7be0df9",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/comfort_icons/category_1.png",
+      "sha256": "54caef733b8d01e621f7e95c70bdac37892ee71325879f5aa82b9479da70e1a0",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/comfort_icons/category_2.png",
+      "sha256": "ead60f84afba90b311556e59fe0b97321e8b026004d8b23fbbb79c17bf6a4a1b",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/comfort_icons/category_3.png",
+      "sha256": "31313a47225cf00653c55009c805ffc6d5223a9dd97e5b5354866db1393900be",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/comfort_icons/category_4.png",
+      "sha256": "a8a758a0e80160b0c9bf9f5ef2d6943aa5f791be092939dcdff2f2b20ec6d705",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/comfort_icons/category_5.png",
+      "sha256": "0b4505afd292b3fe615d7dc945b2927f5fa472a58ee7504040e722986c05c9b7",
+      "claimed_source": "LCG original source (code-generated)"
+    },
+    {
+      "path": "assets/product_previews_v0162/product_25.png",
+      "sha256": "4bf4ddd4962b77294992629e0e795de4a1a6334cfee6381f46936c516dbcb90b",
+      "claimed_source": "Project-generated procedural shape"
+    },
+    {
+      "path": "assets/ui_symbols_v0162/buy.png",
+      "sha256": "238690693916d0ff4bde023b2c89a8ad162254dcf0d134be84ed9612d0a03aed",
+      "claimed_source": "None — project-generated vector icon"
+    },
+    {
+      "path": "assets/ui_symbols_v0162/shelf.png",
+      "sha256": "19f426bd0d26807798c55a2f41004acec6a2854992b8d3a42c6b08a2ca478433",
+      "claimed_source": "None — project-generated vector icon"
+    },
+    {
+      "path": "assets/ui_symbols_v0162/bundle.png",
+      "sha256": "f0c8cb67db086d6b29cb99d9452728bfe7dd9647998a39df5a3eaf32577b3975",
+      "claimed_source": "None — project-generated vector icon"
+    }
+  ],
+  "errors": [],
+  "archive_sha256": {
+    "kenney_ui-audio.zip": "946fc23a63d535d693eb31b2eabb80c8c28d6351e2186b344ceb71b2cb1d5eb6",
+    "kenney_impact-sounds.zip": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
+    "kenney_furniture-kit.zip": "e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0",
+    "kenney_mini-shop_2.1.zip": "51f1fafb0f5efdc7aec3af57138665a12aee5610d47bf4108cd8d4bd044a57a2",
+    "kenney_mini-characters.zip": "add348e98ab9e23d9973c4740ef2c5cceb229c742106aca2d56b30a8f1241bb7",
+    "kenney_interface-sounds.zip": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
+    "kenney_ui-pack.zip": "a8a14a234911eb648c062622915c93e79e94e97cb7f9f375a70f6617f1174318",
+    "kenney_retro-urban-kit.zip": "19201cbcb0d90080dfc33b54f5b4be2089de927c2a23274180798e7166d6b6ca",
+    "Homely House Set.undefined-zip.zip": "f2274cf94d251891496dd9897b33fef59f72e6a476ef706f23cae3134a723a2b",
+    "Pretty park set.undefined-zip.zip": "8a3c1634a60913bb359f2c3cf3745e62fcebf2208e8ecf2f4e6e99ab4259e75f",
+    "Restaurant Bits.undefined-zip.zip": "765e6f3712ae86d6f1e0d95686cabf28cf6a683a2aec40a74daba0c25180054c",
+    "kenney_building-kit.zip": "2740ef5772fb5fb3d7aab881db22d129f6b68afe711b1a79e6d5e9e19cf3eec6",
+    "kenney_city-kit-suburban_20.zip": "5869c35cf30b1c87bdb2d197b6d325eebadd2ef08ea27f04797e8e08d77a9a39",
+    "kenney_factory-kit_3.0.zip": "7e31fb2308e90304672bd15cd18fa9d9f02c03731a8cbc57a8e3e1c181dfb0a7",
+    "kenney_mini-arcade.zip": "2acfe5cb44d392e834f77cf5488528c7cd45427cdf5fb941ce99856276158c19",
+    "kenney_prototype-kit.zip": "213b522fb12bcc9b9ac66c4f7581f7c74623293272212e40a70c39936ad3da95",
+    "kenney_cursor-pack.zip": "baa87634f3cfd294b0c83e70222053aab2f56d19f78eca4067b9b38a555269cc"
+  },
+  "summary": {
+    "total_media": 115,
+    "exact_original_zip_copies": 69,
+    "derivatives_with_verified_parent": 26,
+    "third_party_music_missing_raw_original_zip": 4,
+    "owner_attested_brand_files_pending_trademark_review": 2,
+    "original_local_art": 14,
+    "missing_archives": 0,
+    "errors": 0
+  }
+}

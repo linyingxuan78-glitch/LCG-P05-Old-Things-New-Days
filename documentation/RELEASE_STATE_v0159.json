@@ -1,0 +1,16 @@
+{
+  "game": "Little Cozy Games LCG-P05 Shop Lab",
+  "development_version": "0.15.9",
+  "archive_name": "LCG_P05_LATEST_Godot_Project.zip",
+  "release_ready": false,
+  "godot_native_import_executed": false,
+  "real_world_visual_acceptance": false,
+  "windows_exe_exported": false,
+  "latest_only_cloud_overwrite_required": true,
+  "source_gameplay_script_sha256": "d7fadf47e838884166d34d59edf0b732a5e0638db0fae42f8661dd700b02e4a2",
+  "media_registered": 79,
+  "native_qa_scripts_available": 16,
+  "native_qa_scripts_executed": 0,
+  "new_feature": "nonflashing in-world shelf target + nearby E stock action + adaptive pictogram cue",
+  "known_limitation": "Godot binary unavailable; source and media audits do not prove playability or photosensitivity safety."
+}

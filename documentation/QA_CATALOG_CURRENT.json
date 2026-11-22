@@ -1,0 +1,163 @@
+{
+  "verification": "STATIC SIMULATION ONLY; NATIVE GODOT NOT AVAILABLE",
+  "status": "PASS",
+  "catalogue_skus": 27,
+  "existing_original_skus": 9,
+  "new_sellable_skus": 18,
+  "display_units": 9,
+  "stock_slots_per_display": 6,
+  "shop_desk_pages": 3,
+  "category_count": 6,
+  "source_packs_uploaded_total": 41,
+  "media_files_provenance_sha256_verified": 75,
+  "new_glb_assets": 15,
+  "new_procedural_garment_styles": 1,
+  "new_model_bounds_m": [
+    {
+      "sku": 9,
+      "name": "Compact Laptop",
+      "scaled_size_m_xyz": [
+        0.475,
+        0.291,
+        0.432
+      ]
+    },
+    {
+      "sku": 11,
+      "name": "Square Desk Lamp",
+      "scaled_size_m_xyz": [
+        0.216,
+        0.522,
+        0.216
+      ]
+    },
+    {
+      "sku": 12,
+      "name": "Modern Television",
+      "scaled_size_m_xyz": [
+        0.479,
+        0.318,
+        0.09
+      ]
+    },
+    {
+      "sku": 13,
+      "name": "Small Indoor Plant",
+      "scaled_size_m_xyz": [
+        0.189,
+        0.28,
+        0.189
+      ]
+    },
+    {
+      "sku": 14,
+      "name": "Microwave Oven",
+      "scaled_size_m_xyz": [
+        0.493,
+        0.306,
+        0.391
+      ]
+    },
+    {
+      "sku": 15,
+      "name": "Wooden Side Table",
+      "scaled_size_m_xyz": [
+        0.47,
+        0.338,
+        0.194
+      ]
+    },
+    {
+      "sku": 16,
+      "name": "Travel Suitcase",
+      "scaled_size_m_xyz": [
+        0.17,
+        0.363,
+        0.446
+      ]
+    },
+    {
+      "sku": 17,
+      "name": "Mini Fridge",
+      "scaled_size_m_xyz": [
+        0.323,
+        0.45,
+        0.219
+      ]
+    },
+    {
+      "sku": 18,
+      "name": "Computer Keyboard",
+      "scaled_size_m_xyz": [
+        0.593,
+        0.058,
+        0.248
+      ]
+    },
+    {
+      "sku": 19,
+      "name": "Teddy Bear",
+      "scaled_size_m_xyz": [
+        0.46,
+        0.531,
+        0.292
+      ]
+    },
+    {
+      "sku": 20,
+      "name": "Floor Lamp",
+      "scaled_size_m_xyz": [
+        0.111,
+        0.628,
+        0.128
+      ]
+    },
+    {
+      "sku": 22,
+      "name": "Soft Cushion",
+      "scaled_size_m_xyz": [
+        0.357,
+        0.344,
+        0.137
+      ]
+    },
+    {
+      "sku": 23,
+      "name": "Standing Coat Rack",
+      "scaled_size_m_xyz": [
+        0.355,
+        1.001,
+        0.355
+      ]
+    },
+    {
+      "sku": 24,
+      "name": "Rounded Wooden Chair",
+      "scaled_size_m_xyz": [
+        0.26,
+        0.591,
+        0.26
+      ]
+    },
+    {
+      "sku": 26,
+      "name": "Round Rug",
+      "scaled_size_m_xyz": [
+        0.478,
+        0.005,
+        0.478
+      ]
+    }
+  ],
+  "supplier_rotation_available_skus_new_only_by_day": {
+    "day_1": 14,
+    "day_2": 13,
+    "day_3": 13,
+    "day_4": 14,
+    "day_5": 14,
+    "day_6": 13,
+    "day_7": 13
+  },
+  "previous_save_compatibility": "legacy nine-entry arrays accepted and expanded in _load_game (not native tested)",
+  "notes": "Passed source structure and media checks only; gameplay and 3D visuals remain unverified"
+}

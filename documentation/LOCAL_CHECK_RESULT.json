@@ -1,0 +1,15 @@
+{
+  "engine_installed": false,
+  "native_execution": "BLOCKED",
+  "static_patch_checks": "PASS",
+  "script_sha256": "76480fd9bd294f2f6a0d2268673daf20bfd8da0a1f526b37129751d9ab8a2b8f",
+  "test_script_count": 7,
+  "runner_invoked": true,
+  "runner_exit_code": 2,
+  "reason": "No Godot binary installed; official download blocked by inaccessible network host.",
+  "native_scene_parse": "NOT_RUN",
+  "engine_import": "NOT_RUN",
+  "godot_QA_scripts": "NOT_RUN",
+  "static_preflight": "PASS",
+  "zip_integrity": "PASS"
+}

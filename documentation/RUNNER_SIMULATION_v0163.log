@@ -1,0 +1,5 @@
+PASS runner simulation: pass, exit=0
+PASS runner simulation: wrong_marker, exit=1
+PASS runner simulation: error, exit=1
+PASS runner simulation: nonzero, exit=1
+PASS: all four runner-control simulations. No native Godot tests were run.

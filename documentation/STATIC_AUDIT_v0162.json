@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "STATIC SOURCE/IMAGE/HASH CHECK ONLY; Godot 4 engine runtime NOT executed, accessibility NOT certified",
+  "checks": {
+    "all_115_media_files_registered": true,
+    "all_registered_hashes_match": true,
+    "all_old_85_assets_preserved": true,
+    "27_separate_product_pictures": true,
+    "27_ui_picture_preloads": true,
+    "picture_and_category_cue_in_each_row": true,
+    "buy_stock_bulk_action_icons": true,
+    "pictures_have_readable_content": true,
+    "manual_close_requires_confirmation": true,
+    "confirm_can_be_cancelled": true,
+    "confirm_stops_game_clock": true,
+    "camera_speed_is_adjustable": true,
+    "camera_speed_persisted": true,
+    "existing_game_content_preserved": true,
+    "no_external_game_sdk_added": true,
+    "native_test_integrated": true,
+    "version_alignment": true
+  },
+  "media_count": 115,
+  "provenance_count": 115,
+  "errors": []
+}

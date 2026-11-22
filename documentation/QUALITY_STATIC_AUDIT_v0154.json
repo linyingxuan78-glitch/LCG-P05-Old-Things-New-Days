@@ -1,0 +1,73 @@
+{
+  "kind": "STATIC_AND_GLTF_INSPECTION_ONLY",
+  "godot_engine_run": false,
+  "total_checks": 13,
+  "passed": 13,
+  "checks": [
+    {
+      "check": "27 product definitions",
+      "passed": true,
+      "detail": "27"
+    },
+    {
+      "check": "every product model bundled",
+      "passed": true,
+      "detail": "26 product references"
+    },
+    {
+      "check": "daily supplier quota persisted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "oversized shelf props scale down",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "visitor yaw turns smoothly",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "walk animation loops without repeated one-shot restarting",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "front-left aisle detour present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "old save SKU count accepted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "shared shelf stock capped when loading old files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "asset hashes and provenance",
+      "passed": true,
+      "detail": "115 registered; invalid: []"
+    },
+    {
+      "check": "all six character GLBs have required clips",
+      "passed": true,
+      "detail": "6 GLBs, 192 animations"
+    },
+    {
+      "check": "animation keyframe time streams valid",
+      "passed": true,
+      "detail": "10914 input keyframes; errors: []"
+    },
+    {
+      "check": "GLB products fit per-slot shelf display dimensions",
+      "passed": true,
+      "detail": "[]"
+    }
+  ]
+}

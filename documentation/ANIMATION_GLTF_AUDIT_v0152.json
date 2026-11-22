@@ -1,0 +1,84 @@
+{
+  "status": "STATIC_GLB_METADATA_ONLY",
+  "models": [
+    {
+      "model": "assets/models/character-male-a.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "c1cba637e1d946822df07385fabf9d1bc55255ce19e0e8f7124d767e03987126"
+    },
+    {
+      "model": "assets/models/character-female-c.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "163ed5cb5b130177a64724efd9cf4f681fd73d7072f4f9b83ed584307dad870a"
+    },
+    {
+      "model": "assets/models/character-female-a.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "10e4f70e4279913b4f78134c9eeb699a11091cd4b452ecccf9d2b27b32206320"
+    },
+    {
+      "model": "assets/selected_v015/characters/character-male-b.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "81464391ab3291bc78d23c33d5a5313cfab43469285a8e1f02b974aecbd4f943"
+    },
+    {
+      "model": "assets/selected_v015/characters/character-female-d.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "788767a12ed89cea1c6b2617be1a9b7ddd999e9ed283baaac7cddfbe69720ccf"
+    },
+    {
+      "model": "assets/selected_v015/characters/character-female-b.glb",
+      "total_clips": 32,
+      "commercially_relevant_clips": [
+        "emote-no",
+        "idle",
+        "interact-left",
+        "interact-right",
+        "pick-up",
+        "walk"
+      ],
+      "sha256": "3a0e6c3e431ae9d2016c2c9a91ec3abe8bb45243016a5cae80cbde0b61f8f2a9"
+    }
+  ],
+  "runtime_playback_verified": false
+}

@@ -1,0 +1,63 @@
+name: Import verified LCG-P05 v0.16.9 archive
+
+on:
+  push:
+    paths:
+      - "staging/lcg_p05_zip_part_*.b64"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-source:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out the staged archive
+        uses: actions/checkout@v4
+      - name: Verify checksum and unpack source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64, hashlib, io, os, pathlib, shutil, zipfile
+          root=pathlib.Path(".")
+          parts=sorted(root.glob("staging/lcg_p05_zip_part_*.b64"))
+          if len(parts) != 24:
+              raise SystemExit(f"Expected 24 parts, found {len(parts)}")
+          joined="".join(p.read_text(encoding="ascii") for p in parts)
+          data=base64.b64decode(joined,validate=True)
+          actual=hashlib.sha256(data).hexdigest()
+          expected="c4ebf7a05b1e573b6e4af981c0b914ffb27272207f46811211e301c746752d07"
+          if actual != expected:
+              raise SystemExit("Archive SHA-256 mismatch: " + actual)
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              if z.testzip() is not None:
+                  raise SystemExit("Corrupted ZIP")
+              for member in z.infolist():
+                  rel=pathlib.PurePosixPath(member.filename)
+                  if rel.is_absolute() or ".." in rel.parts or ".git" in rel.parts:
+                      raise SystemExit("Unsafe entry: " + member.filename)
+                  if member.is_dir():
+                      continue
+                  dest=root.joinpath(*rel.parts)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(z.read(member))
+              print(f"Verified and unpacked {len(z.namelist())} ZIP entries")
+          shutil.rmtree(root / "staging")
+          PY
+      - name: Commit imported source (no release or deployment)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No source changes"
+            exit 0
+          fi
+          git commit -m "chore: import verified LCG-P05 Godot v0.16.9 source"
+          git push origin HEAD:main

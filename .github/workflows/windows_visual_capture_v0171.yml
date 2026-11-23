@@ -8,6 +8,7 @@ on:
       - "tools/ci_capture_viewport_v0171.gd"
       - "scripts/shop.gd"
       - "tests/qa_v0161_privacy_and_pictograms.gd"
+      - "documentation/windows_visual_previews/.gitignore"
   workflow_dispatch:
 
 permissions:

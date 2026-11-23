@@ -1,7 +1,12 @@
 # Little Cozy Games · Old Things, New Days · LCG-P05 v0.16.9 — 当前唯一最新版
 
-> **状态：Godot 4 开发工程，不是 Windows 可双击运行的商业成品。**
-> 已通过源码／资源／打包离线检查；**尚未在 Godot 引擎内启动、渲染、完成 QA、导出 EXE**。
+> **最新状态（2026-11-23）：Godot 4.4.1 Windows INTERNAL TEST ONLY EXE 已成功构建。** Windows 原生资源导入、主场景启动、23/23 QA 与来源登记（132 项）均通过。
+> 已在 Windows 云端的无源码临时目录执行 EXE 无界面独立启动检查：退出码 0、零 Godot ERROR。**实际有人操作的画面、音效、键鼠、碰撞与存档测试仍 NOT TESTED**，并未公开发行。
+>
+> **内部试玩版：** [GitHub Actions 下载（压缩包）](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703/artifacts/14780550862) · [全部通过的构建证据](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703)。
+> **当前交接与下一步：** [Windows 内部测试报告](documentation/WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md)。
+>
+> **以下各小节保留 v0.16.2–v0.16.9 当时的历史开发记录。旧段落中“尚未运行 QA、尚未导出 EXE、115 项素材”的描述已被 2026-11-23 的实际 CI 结果取代。**
 
 ## 玩家将会体验什么？
 

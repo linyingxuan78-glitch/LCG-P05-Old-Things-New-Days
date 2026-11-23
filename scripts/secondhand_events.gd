@@ -46,7 +46,7 @@ var action_icon: TextureRect
 var heading: Label
 var explanation: Label
 var outcome: Label
-var stats: Label
+var stat_labels: Array[Label] = []
 var first: Button
 var second: Button
 var done_button: Button
@@ -92,8 +92,11 @@ func _build_ui() -> void:
         icon_node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
         icon_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
         panel.add_child(icon_node)
-    stats = shop.call("_text", panel, Vector2(281, 212), Vector2(454, 46), 24, Color("f3e8c5")) as Label
-    stats.autowrap_mode = TextServer.AUTOWRAP_OFF
+    # Three numeric boxes are anchored to their own pictograms.
+    for i in range(3):
+        var number_label: Label = shop.call("_text", panel, Vector2(281 + i * 157, 212), Vector2(108, 46), 23, Color("f3e8c5")) as Label
+        number_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+        stat_labels.append(number_label)
     first = shop.call("_button", panel, "OPTION 1", Vector2(34, 294), Vector2(327, 111), Callable(self, "_choose").bind(0)) as Button
     second = shop.call("_button", panel, "OPTION 2", Vector2(388, 294), Vector2(327, 111), Callable(self, "_choose").bind(1)) as Button
     for control in [first, second]:
@@ -189,6 +192,7 @@ func open() -> void:
     desk.visible = false
     panel.visible = true
     panel_choice_consumed = false
+    shop.call("_refresh_tutorial_ui")
     _refresh_panel()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     shop.call("_focus_menu_controls", panel)
@@ -202,7 +206,7 @@ func _refresh_panel() -> void:
     explanation.text = str(entry["prompt"])
     item_picture.texture = load("res://assets/product_previews_v0162/product_%02d.png" % int(entry["sku"])) as Texture2D
     action_icon.texture = _icon(str(entry["picture"]))
-    stats.text = "$%d          %d/%d          %d/%d" % [int(shop.get("cash")),backroom_boxes,MAX_BACKROOM,goodwill,MAX_GOODWILL]
+    _refresh_stats()
     first.visible = true
     second.visible = true
     outcome.visible = false
@@ -214,6 +218,13 @@ func _refresh_panel() -> void:
         buttons[i].tooltip_text = str(data["hint"])
         buttons[i].disabled = not _can_choose(str(entry["id"]), i)
     done_button.text = "BACK"
+
+func _refresh_stats() -> void:
+    if stat_labels.size() != 3:
+        return
+    stat_labels[0].text = "$%d" % int(shop.get("cash"))
+    stat_labels[1].text = "%d/%d" % [backroom_boxes, MAX_BACKROOM]
+    stat_labels[2].text = "%d/%d" % [goodwill, MAX_GOODWILL]
 
 func _has_shelf_space(index: int) -> bool:
     return int(shop.call("_shelf_inventory_count", int(shop.call("_product_shelf", index)))) < 6
@@ -329,7 +340,7 @@ func _choose(option: int) -> void:
         handled = true
     outcome_summary = result
     panel_choice_consumed = true
-    stats.text = "$%d          %d/%d          %d/%d" % [int(shop.get("cash")),backroom_boxes,MAX_BACKROOM,goodwill,MAX_GOODWILL]
+    _refresh_stats()
     first.visible = false
     second.visible = false
     explanation.text = "STORE RESULT"

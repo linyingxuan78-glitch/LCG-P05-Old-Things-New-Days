@@ -32,6 +32,7 @@ func _run() -> void:
             _check(row.has("icon") and (row["icon"] as TextureRect) != null, "catalog pictogram node missing", errors)
     # Visual regression: four captions must stay below their icon row and above event text.
     var picture_labels: Array = shop.get("pictogram_labels")
+    var picture_icons: Array = shop.get("pictogram_icons")
     var event_label: Label = shop.get("pictogram_event") as Label
     _check(picture_labels.size() == 4, "expected four status caption labels", errors)
     _check(event_label != null, "pictogram event label missing", errors)
@@ -41,6 +42,14 @@ func _run() -> void:
             _check(caption_label != null and caption_label.text.contains("\n"), "status label must be split across two readable lines", errors)
             if caption_label != null:
                 _check(caption_label.position.y + caption_label.size.y < event_label.position.y, "status label overlaps event banner", errors)
+    _check(picture_icons.size() == 4, "expected four fixed-size guide icons", errors)
+    if picture_icons.size() == 4 and picture_labels.size() == 4:
+        for icon_index in range(4):
+            var badge: TextureRect = picture_icons[icon_index] as TextureRect
+            var caption: Label = picture_labels[icon_index] as Label
+            if badge != null and caption != null:
+                _check(badge.size.x <= 45.0 and badge.size.y <= 45.0, "guide pictogram exceeds 42px drawing slot", errors)
+                _check(badge.position.y + badge.size.y < caption.position.y, "pictogram overlaps its status caption", errors)
     var title_panel: Panel = shop.get("title_ui") as Panel
     var exit_button: Button = null
     if title_panel != null:

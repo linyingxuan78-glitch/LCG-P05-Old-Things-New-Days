@@ -12,6 +12,7 @@ const SAVE_PENDING_SUFFIX: String = ".pending" # Crash-safe staged write; not an
 const SETTINGS_PATH: String = "user://lcg_p05_audio_settings.json"
 const HEALTHY_PLAY_SCRIPT: Script = preload("res://scripts/healthy_play.gd")
 const PRIVACY_SAFETY_SCRIPT: Script = preload("res://scripts/privacy_safety.gd")
+const SECONDHAND_EVENTS_SCRIPT: Script = preload("res://scripts/secondhand_events.gd")
 const ENGINE_NOTICES_SCRIPT: Script = preload("res://scripts/engine_notices.gd")
 const SHELF_CAPACITY: int = 6
 const CONSIGNMENT_PRODUCT_INDEX: int = 1 # Old Book Set: supplier-funded recovery stock.
@@ -212,6 +213,8 @@ var shop_environment: Environment
 
 var healthy_play: Control
 var privacy_safety: Control
+var secondhand_events: Control
+var story_entry_button: Button
 var playing: bool = false
 var player: CharacterBody3D
 var camera: Camera3D
@@ -403,6 +406,8 @@ func _reset_model() -> void:
         prices.append(int(product["base"]))
         supplier_remaining.append(_daily_supplier_quota(i))
     _roll_resident_offer()
+    if secondhand_events != null:
+        secondhand_events.call("reset_state")
 
 func _box(parent: Node3D, location: Vector3, dimensions: Vector3, color: Color, name_tag: String = "", solid: bool = false, metallic: float = 0.0) -> Node3D:
     var holder: Node3D
@@ -798,6 +803,8 @@ func _day_event_description() -> String:
 
 func _customer_arrival_time() -> float:
     var interval: float = rng.randf_range(6.5, 11.0)
+    if secondhand_events != null:
+        interval *= float(secondhand_events.call("visitor_interval_factor"))
     if day_event_id == "rain":
         return interval * 1.45
     if day_event_id == "neighbour_tip":
@@ -1031,6 +1038,11 @@ func _create_ui() -> void:
     privacy_safety = PRIVACY_SAFETY_SCRIPT.new() as Control
     privacy_safety.call("configure", self)
     ui_root.add_child(privacy_safety)
+    secondhand_events = SECONDHAND_EVENTS_SCRIPT.new() as Control
+    secondhand_events.call("configure", self)
+    ui_root.add_child(secondhand_events)
+    secondhand_events.set("entry_button", story_entry_button)
+    secondhand_events.call("refresh_entry")
     hud_ui.visible = false
 
 func _create_context_action_hint(parent: Node) -> void:
@@ -1327,8 +1339,15 @@ func _create_desk_ui(parent: Node) -> void:
     desk_ui = _panel(parent, Vector2(168, 28), Vector2(942, 662), Color(0.06,0.125,0.115,0.98))
     _center_panel(desk_ui)
     var title := _text(desk_ui, Vector2(24, 16), Vector2(730, 38), 29, Color("f6ede0"))
-    title.text = "STORE DESK · 27 GOODS"
-    title.size.x = 310.0
+    title.text = "STORE DESK"
+    title.size.x = 188.0
+    story_entry_button = _button(desk_ui, "SORT -", Vector2(218, 17), Vector2(116, 39), func(): secondhand_events.call("open"))
+    story_entry_button.icon = preload("res://assets/ui_story_icons/sort.svg")
+    story_entry_button.add_theme_constant_override("icon_max_width", 31)
+    story_entry_button.add_theme_constant_override("h_separation", 3)
+    story_entry_button.add_theme_font_size_override("font_size", 15)
+    story_entry_button.set_meta("ui_original_font_size", 15)
+    story_entry_button.tooltip_text = "Picture-first, optional shop sorting activity"
     var resident_button := _button(desk_ui, "LOCAL OFFER", Vector2(341, 17), Vector2(105, 39), _open_resident_offer)
     resident_button.add_theme_font_size_override("font_size", 15)
     resident_button.set_meta("ui_original_font_size", 15)
@@ -2248,6 +2267,8 @@ func _show_title() -> void:
     community_finale_ui.visible = false
     resident_offer_ui.visible = false
     customer_bargain_ui.visible = false
+    if secondhand_events != null and secondhand_events.call("is_open"):
+        (secondhand_events.get("panel") as Panel).visible = false
     new_game_confirm_ui.visible = false
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -2289,6 +2310,8 @@ func _enter_game() -> void:
     community_finale_ui.visible = false
     resident_offer_ui.visible = false
     customer_bargain_ui.visible = false
+    if secondhand_events != null and secondhand_events.call("is_open"):
+        (secondhand_events.get("panel") as Panel).visible = false
     desk_ui.visible = false
     report_ui.visible = false
     ledger_ui.visible = false
@@ -2308,7 +2331,7 @@ func _enter_game() -> void:
     _refresh_tutorial_ui()
 
 func _toggle_desk() -> void:
-    if not playing or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible:
+    if not playing or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible or (secondhand_events != null and bool(secondhand_events.call("is_open"))) or (secondhand_events != null and bool(secondhand_events.call("is_open"))):
         return
     desk_ui.visible = not desk_ui.visible
     if desk_ui.visible:
@@ -2611,6 +2634,8 @@ func _refresh_ui() -> void:
         (row["bulk"] as Button).tooltip_text = "Three items on the shared display, 10%% off supplier total: $%d" % _bulk_price(i)
         (row["label"] as Label).tooltip_text = "Item %02d: %s. Image shows its game model; BUY purchases it; STOCK places it." % [i + 1, str(PRODUCTS[i]["name"])]
     _refresh_tutorial_ui()
+    if secondhand_events != null:
+        secondhand_events.call("refresh_entry")
     if desk_upgrade_button != null:
         if display_level < DISPLAY_LEVEL_PRICES.size():
             var cost: int = DISPLAY_LEVEL_PRICES[display_level]
@@ -2697,6 +2722,11 @@ func _unhandled_input(event: InputEvent) -> void:
             _decline_customer_bargain()
             get_viewport().set_input_as_handled()
         return
+    if secondhand_events != null and bool(secondhand_events.call("is_open")):
+        if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+            secondhand_events.call("_close")
+            get_viewport().set_input_as_handled()
+        return
     if resident_offer_ui != null and resident_offer_ui.visible:
         if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
             _close_resident_offer()
@@ -2754,7 +2784,7 @@ func _unhandled_input(event: InputEvent) -> void:
         Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-    if not playing or desk_ui.visible or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible or not DisplayServer.window_is_focused() or (healthy_play != null and bool(healthy_play.call("is_open"))) or (privacy_safety != null and bool(privacy_safety.call("is_open"))):
+    if not playing or desk_ui.visible or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible or (secondhand_events != null and bool(secondhand_events.call("is_open"))) or not DisplayServer.window_is_focused() or (healthy_play != null and bool(healthy_play.call("is_open"))) or (privacy_safety != null and bool(privacy_safety.call("is_open"))):
         return
     var motion := Vector3.ZERO
     if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP):
@@ -2798,9 +2828,9 @@ func _process(delta: float) -> void:
     # The world simulation pauses behind menus; keep the skeletal animation
     # on the same clock so shoppers do not walk in place while the day is frozen.
     if customer_animation_player != null and is_instance_valid(customer_animation_player):
-        var freeze_customer: bool = not DisplayServer.window_is_focused() or not playing or desk_ui.visible or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible
+        var freeze_customer: bool = not DisplayServer.window_is_focused() or not playing or desk_ui.visible or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible or (secondhand_events != null and bool(secondhand_events.call("is_open")))
         customer_animation_player.speed_scale = 0.0 if freeze_customer else 1.0
-    if not playing or not DisplayServer.window_is_focused() or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible:
+    if not playing or not DisplayServer.window_is_focused() or report_ui.visible or settings_ui.visible or paused or ledger_ui.visible or help_ui.visible or community_finale_ui.visible or resident_offer_ui.visible or customer_bargain_ui.visible or close_day_confirm_ui.visible or (secondhand_events != null and bool(secondhand_events.call("is_open"))):
         return
     if message_time > 0.0:
         message_time -= delta
@@ -3196,6 +3226,8 @@ func _advance_day() -> void:
     for i in range(PRODUCTS.size()):
         supplier_remaining.append(_daily_supplier_quota(i))
     _roll_resident_offer()
+    if secondhand_events != null:
+        secondhand_events.call("new_day", day, total_sales)
 
 func _close_report() -> void:
     if not report_ui.visible:
@@ -3227,7 +3259,8 @@ func _save_game() -> bool:
         "milestone":sold_milestone,"community_finale_seen":community_finale_seen,"music_volume":music_volume,"sfx_volume":sfx_volume,"master_volume":master_volume,
         "consignment_stock":consignment_stock.duplicate(),"day_consignment_paid":day_consignment_paid,"day_hot_sales":day_hot_sales,
         "tutorial_active":tutorial_active,"tutorial_step":tutorial_step,
-        "total_consignment_paid":total_consignment_paid,"daily_history":daily_history.duplicate(true)
+        "total_consignment_paid":total_consignment_paid,"daily_history":daily_history.duplicate(true),
+        "secondhand_events":secondhand_events.call("export_state") if secondhand_events != null else {}
     }
     return _write_save_safely(SAVE_PATH, payload)
 
@@ -3449,6 +3482,8 @@ func _load_game() -> bool:
         sfx_volume = clampf(float(data.get("sfx_volume",0.7)),0.0,1.0)
         master_volume = clampf(float(data.get("master_volume",0.75)),0.0,1.0)
     _apply_audio()
+    if secondhand_events != null:
+        secondhand_events.call("import_state", data.get("secondhand_events", {}), day, total_sales)
     # v0.12 and v0.13 can store a closed-day report immediately before
     # the user clicks CONTINUE. Resume safely into the following day instead
     # of closing the same date twice and awarding another report entry.

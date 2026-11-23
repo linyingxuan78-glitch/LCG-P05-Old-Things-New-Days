@@ -1,0 +1,86 @@
+# Developer-only rendered frame evidence. Does NOT publish a game build.
+name: W3 Windows visual capture 720p and 1080p (internal)
+
+on:
+  push:
+    paths:
+      - ".github/workflows/windows_visual_capture_v0171.yml"
+      - "tools/ci_capture_viewport_v0171.gd"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows_visual_frames:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    steps:
+      - name: Check out original game source
+        uses: actions/checkout@v4
+      - name: Set up Python for PNG verification
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Get official Godot 4.4.1 plus console companion
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: false
+      - name: Verify engine and import textures on native Windows
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $console = Join-Path $env:USERPROFILE 'godot\Godot_v4.4.1-stable_win64_console.exe'
+          if (-not (Test-Path -LiteralPath $console)) {
+            $archive = Join-Path $env:RUNNER_TEMP 'Godot_v4.4.1-stable_win64.exe.zip'
+            Invoke-WebRequest -Uri 'https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip' -OutFile $archive -TimeoutSec 180
+            Expand-Archive -LiteralPath $archive -DestinationPath (Join-Path $env:USERPROFILE 'godot') -Force
+          }
+          if (-not (Test-Path -LiteralPath $console)) { throw 'Godot 4.4.1 Windows console missing' }
+          "GODOT_CONSOLE=$console" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          New-Item -ItemType Directory -Path 'documentation/windows_visual_previews' -Force | Out-Null
+          & $console --version
+          if ($LASTEXITCODE -ne 0) { throw 'Godot Windows console version failed' }
+          & $console --path . --editor --import --quit --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 *>&1 |
+            Out-File -FilePath 'documentation/windows_visual_previews/import.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { throw 'Windows editor import returned nonzero' }
+          $log = Get-Content -LiteralPath 'documentation/windows_visual_previews/import.log' -Raw
+          if ($log -match '(?im)(^|\s)(ERROR:|SCRIPT ERROR:|Parse Error:)') { throw 'Editor import emitted Godot error lines' }
+      - name: Render real menu and shop screenshots (not headless)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & $env:GODOT_CONSOLE --path . --script res://tools/ci_capture_viewport_v0171.gd --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 *>&1 |
+            Out-File -FilePath 'documentation/windows_visual_previews/capture.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { throw 'Visual capture failed; inspect capture.log' }
+          $log = Get-Content -LiteralPath 'documentation/windows_visual_previews/capture.log' -Raw
+          if ($log -notmatch 'VISUAL QA CAPTURE PASSED:') { throw 'No explicit visual capture success marker' }
+          if ($log -match '(?im)(^|\s)(ERROR:|SCRIPT ERROR:|Parse Error:)') { throw 'Godot emitted errors during visual capture' }
+      - name: Validate three actual PNG files and dimensions
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          @'
+          from pathlib import Path
+          import struct
+          root=Path("documentation/windows_visual_previews")
+          for name,wh in [("menu_1280x720.png",(1280,720)),("shop_1280x720.png",(1280,720)),("shop_1920x1080.png",(1920,1080))]:
+              path=root/name
+              raw=path.read_bytes()
+              if len(raw)<5000:raise SystemExit(f"{name}: PNG too small: {len(raw)} bytes")
+              if not raw.startswith(b"\x89PNG\r\n\x1a\n"):raise SystemExit(f"{name}: invalid PNG signature")
+              dims=struct.unpack_from(">II",raw,16)
+              if dims!=wh:raise SystemExit(f"{name}: wrong dimensions {dims} expected {wh}")
+              print(f"CAPTURE VERIFIED: {name}, {dims[0]}x{dims[1]}, {len(raw)} bytes")
+          '@ | python -
+          if ($LASTEXITCODE -ne 0) { throw 'PNG validation failed' }
+      - name: Archive internal render evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_W3_WINDOWS_VISUAL_FRAMES_INTERNAL
+          path: documentation/windows_visual_previews/
+          retention-days: 14
+          if-no-files-found: warn

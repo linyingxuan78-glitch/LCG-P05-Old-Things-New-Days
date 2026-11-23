@@ -6,6 +6,10 @@ on:
   push:
     paths:
       - ".github/workflows/godot_windows_native_internal_v0170.yml"
+      - "scripts/**"
+      - "tests/**"
+      - "project.godot"
+      - "main.tscn"
   workflow_dispatch:
 
 permissions:

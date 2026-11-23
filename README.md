@@ -1,6 +1,6 @@
 # Old Things, New Days — LCG-P05
 
-A Godot **4.4.1** first-person secondhand shop-management prototype. Players manage 27 products across six categories and nine shared shelf spaces. This remains a **work in progress**, not a public or commercial game release.
+A Godot **4.4.1** first-person secondhand shop-management game with a planned **one-time-purchase, offline, no-ads/no-IAP** distribution model. Players manage 27 products across six categories and nine shared shelf spaces. This remains a **work in progress**, not a public or commercial game release.
 
 ## Latest verified milestone — 2026-11-23
 
@@ -17,9 +17,11 @@ A Godot **4.4.1** first-person secondhand shop-management prototype. Players man
 
 **Important limitations:** Cloud screenshots and headless standalone startup are **not a human-controlled physical Windows playtest**. Real user-device graphics/color fidelity, character animations, audio playback, collisions, keyboard/mouse control, save persistence, and accessibility are **NOT YET ACCEPTED**. This build is not an authorized public or commercial release. Linux Xvfb importer reports separate Vulkan initialization errors; all such evidence remains visible.
 
+**Scope freeze:** Retain the existing 27-item / nine-shelf / single-player game rather than endlessly growing version numbers. See [buy-once release sign-off and zero-upfront-cost plan](documentation/ONE_TIME_PURCHASE_RELEASE_FREEZE_AND_SIGNOFF_2026-11-23.md). The remaining release blockers are human-controlled device acceptance, exact media provenance and store/account compliance, not another version label.
+
 ## Source and licensing
 
-- The original Google Drive `LCG_P05_LATEST_Godot_Project.zip` v0.16.9 archive is unchanged (SHA-256 `c4ebf7a05b1e573b6e4af981c0b914ffb27272207f46811211e301c746752d07`). Current GitHub code includes later repairs and QA tooling.
+- **One canonical updated Google Drive source ZIP:** [LCG_P05_LATEST_Godot_Project.zip](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view), built from GitHub tracked files, with a per-file SHA-256 manifest. The 2026-11-22 source has been separately retained as `LCG_P05_SOURCE_BACKUP_2026-11-22.zip` and must not be mistaken for the current work. The corresponding [single-file INTERNAL Windows test ZIP](https://drive.google.com/file/d/1DU1toHcscDcYNDzj4szfH8afHkTuE1I8/view) is also in Drive.
 - **132 media files** are recorded in `licenses/USED_ASSET_PROVENANCE.csv`, including restored Kenney CC0 GLB external textures and seven byte-matched FBX-embedded PNG derivatives.
 - Media rights and creator-source static checks passed, but an original-source / visual comparison for Mini Shop 2.1 palettes, additional original music archive checks, trademark/title checks and actual player UX review remain open.
 - Do not commit sensitive data, private saves, tokens, or unknown-license media to this public repository.

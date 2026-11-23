@@ -1,3 +1,29 @@
+# LCG-P05 — Current release gates (2026-11-23)
+
+**Windows internal EXE: BUILT and source-free smoke-tested. Public release: NOT APPROVED.**
+
+| Gate | Evidence | Latest result |
+| --- | --- | --- |
+| Godot 4.4.1 Windows editor resource import | Original Windows Godot engine, exit 0, zero engine ERROR | **PASS** |
+| Main scene / native gameplay automation | 23/23 actual Godot GDScript suites, correct markers, exit 0 | **PASS** |
+| Asset/provenance rights static gate | 132/132 media records, seven FBX-derived PNG exact source-byte matches | **PASS for recorded static checks** |
+| Embedded-PCK Windows EXE export | Strict build PowerShell, Windows PE MZ header, 107,982,544-byte EXE | **PASS** |
+| EXE independently launching without source directory | Windows CI isolated directory, no loose PCK, `--headless --quit-after 60`, exit 0 and no ERROR | **PASS** |
+| Actual Windows 720p/1080p scene visuals and animation | Physical screen and game controls, screenshots needed | **NOT TESTED** |
+| Real sound, mouse/keyboard, collisions and player experience | Hardware and people needed | **NOT TESTED** |
+| Save persistence and restart on a normal user PC | Manual steps across full sessions | **NOT TESTED** |
+| Palette equivalence to Mini Shop 2.1 official source | Exact original archive or visual side-by-side check | **NOT VERIFIED** |
+| Four CC0 audio original archives, title/brand, age/privacy and marketplace gates | External source/UX/legal/platform review | **NOT VERIFIED / NOT APPROVED** |
+| Public game release | Requires all manual and legal gates above | **BLOCKED — no public publication** |
+
+- [Successful Windows internal test build and QA](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703)
+- [Latest Windows EXE artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703/artifacts/14780550862)
+- [Full Windows handoff and W3/W4 checklist](WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md)
+
+---
+
+## Historical v0.16.8 audit (superseded by actual 2026-11-23 engine/CI results)
+
 # LCG-P05 v0.16.8 — Release gates and evidence
 
 | Gate | Required evidence | Status |

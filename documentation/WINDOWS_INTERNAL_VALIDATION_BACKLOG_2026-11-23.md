@@ -78,3 +78,14 @@
 - [ ] 截图专用开发工具退出时仍有 Godot ANGLE/GLES3 资源释放 ERROR，**截图工作流并非完整 PASS**；独立 Windows 游戏验收 PASS 与此项应分开记录。
 - [ ] 在真实 Windows 玩家设备上验收键盘鼠标、声音、存档、人物动画与碰撞；截图不能代替人工测试。
 - [ ] 将[新版内部 EXE 暂存包](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298/artifacts/14783588031)长期备份（GitHub Artifact 预计 2026-11-30 UTC 过期）。
+
+## 无障碍专项续开发／最后一次 Windows 自动验证（2026-11-23）
+
+- [x] 从原始 v0.16.9 源码和历史审查记录检查现有设置未被删除，核对官方 Godot 4.4 与 Xbox 无障碍设计要求。详见 [`ACCESSIBILITY_ORIGINAL_PLAN_COMPARISON_OFFICIAL_GUIDELINES_2026-11-23.md`](ACCESSIBILITY_ORIGINAL_PLAN_COMPARISON_OFFICIAL_GUIDELINES_2026-11-23.md)。
+- [x] 增强标题／设置／帮助／暂停／家庭时间／隐私与删除确认的键盘初始焦点与恢复，检查 Tab 顺序；保留原有所有设置与教程。
+- [x] 修复白字在旧悬停绿色下高对比度不足的问题；高对比度按钮状态采用黑底白边，关闭可恢复旧绿底。
+- [x] 在真实 Windows Godot 720p 截图中发现健康游玩长段落溢出面板；将其改为有键盘焦点、支持滚动并裁切的完整家庭指南，保留三段原文和 Back 按钮。截图确实显示垂直滚动条。
+- [x] 新的严格 Windows Godot 4.4.1 23/23 QA、嵌入资源 EXE、隔离目录启动 [全部成功](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)。新版 EXE 107,985,824 bytes，SHA-256 `2a5846dc4f0458c902fae0e22a8d5bf72c8a674aea7cf0260f6a96fa6d73993e`。
+- [ ] 完整 200% 可缩放文字且布局适配、全键位自定义、屏幕朗读／更完整语言支持仍待另行设计与真实易用性测试；当前 112% 文本开关不满足完整目标，不得标记认证完成。
+- [ ] 真人玩家设备上的动画／声音／键鼠／碰撞／存档持续性／光敏风险仍需实际验收，不能用 CI 替代。
+- [ ] 截图专用渲染工具退出时仍有 GLES3 资源释放错误，因此截图工作流整体不是 PASS；主 Windows 原生构建成功是另一项独立测试。

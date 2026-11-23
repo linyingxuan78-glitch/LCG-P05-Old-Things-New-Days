@@ -61,8 +61,11 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Credits media registry failed' }
           python tools/check_creator_provenance_v0166.py
           if ($LASTEXITCODE -ne 0) { throw 'Creator provenance failed' }
-          python tools/selftest_acceptance_runner.py
-          if ($LASTEXITCODE -ne 0) { throw 'Acceptance runner integrity failed' }
+          # selftest_acceptance_runner.py intentionally invokes the Linux Bash runner via
+          # 'bash'; on Windows 'bash' resolves to WSL, which is not installed in hosted CI.
+          # That Linux-only mock has already been validated in the Ubuntu workflow.
+          # The Windows runner verifies its own 23-suite manifest and actually executes Godot.
+          Write-Host 'Skipping Linux Bash mock harness on native Windows runner; Windows 23-suite QA follows.'
       - name: Independently verify real Windows resource import, scene startup and 23 QA scripts
         shell: pwsh
         run: |

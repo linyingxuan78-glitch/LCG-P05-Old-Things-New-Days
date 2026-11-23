@@ -106,15 +106,15 @@ func _build_ui() -> void:
     toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
     toast_label = _label(toast, "", Vector2(16, 9), Vector2(415, 73), 18)
     toast.visible = false
-    panel = _make_panel(Vector2.ZERO, Vector2(680, 570))
+    panel = _make_panel(Vector2.ZERO, Vector2(680, 620))
     panel.anchor_left = 0.5
     panel.anchor_right = 0.5
     panel.anchor_top = 0.5
     panel.anchor_bottom = 0.5
     panel.offset_left = -340.0
     panel.offset_right = 340.0
-    panel.offset_top = -285.0
-    panel.offset_bottom = 285.0
+    panel.offset_top = -310.0
+    panel.offset_bottom = 310.0
     _label(panel, "HEALTHY PLAY  /  FAMILY GUIDE", Vector2(28, 20), Vector2(630, 47), 28)
     time_label = _label(panel, "", Vector2(30, 76), Vector2(626, 60), 20)
     _label(panel, "Gentle reminders for everyone, not a timer challenge.", Vector2(30, 145), Vector2(625, 36), 18)
@@ -122,9 +122,9 @@ func _build_ui() -> void:
     daily_button = _make_button(panel, "", Vector2(30, 252), Vector2(621, 49), _cycle_daily_interval)
     _label(panel, "FAMILY PLAY PLAN", Vector2(30, 319), Vector2(621, 36), 23)
     _label(panel,
-        "Children and caregivers can agree on a daily play plan, with time for sleep, meals, homework and offline activities.\n\nThese settings offer reminders only; they are not a password-protected lock. For enforceable limits, use device or platform parental controls.\n\nEverything is saved on this device only. No birth date, identity, account or play history is uploaded.",
-        Vector2(30, 360), Vector2(620, 141), 16)
-    _make_button(panel, "BACK  /  CONTINUE", Vector2(197, 515), Vector2(290, 42), close_panel)
+        "Children and caregivers can agree on a daily play plan,\nwith time for sleep, meals, homework and offline activities.\n\nThese settings offer reminders only; they are not a\npassword-protected lock. For enforceable limits, use\ndevice or platform parental controls.\n\nEverything is saved on this device only. No birth date,\nidentity, account or play history is uploaded.",
+        Vector2(30, 360), Vector2(620, 190), 16)
+    _make_button(panel, "BACK  /  CONTINUE", Vector2(197, 565), Vector2(290, 42), close_panel)
     panel.visible = false
     _refresh_panel()
 

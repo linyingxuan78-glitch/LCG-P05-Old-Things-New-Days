@@ -23,6 +23,20 @@ func _run() -> void:
     var problems: Array[String] = []
     var controls: Array = shop.get("accessibility_buttons")
     _check(controls.size() == 7, "Seven independently selectable accessibility controls required", problems)
+    if controls.size() == 7:
+        var contrast_button: Button = controls[1] as Button
+        shop.set("high_contrast", false)
+        shop.call("_apply_accessibility")
+        var original_hover: Color = (contrast_button.get_theme_stylebox("hover") as StyleBoxFlat).bg_color
+        shop.set("high_contrast", true)
+        shop.call("_apply_accessibility")
+        var dark_hover: StyleBoxFlat = contrast_button.get_theme_stylebox("hover") as StyleBoxFlat
+        var dark_normal: StyleBoxFlat = contrast_button.get_theme_stylebox("normal") as StyleBoxFlat
+        _check(dark_hover.bg_color == Color("0d0d0d") and dark_normal.bg_color == Color("0d0d0d"), "High-contrast buttons need dark backgrounds even on hover", problems)
+        _check(dark_hover.border_color == Color.WHITE, "High-contrast buttons need a clear white border", problems)
+        shop.set("high_contrast", false)
+        shop.call("_apply_accessibility")
+        _check((contrast_button.get_theme_stylebox("hover") as StyleBoxFlat).bg_color == original_hover, "Disabling high contrast must restore the original button palette", problems)
     shop.set("gentle_camera", true)
     shop.set("soft_lighting", true)
     shop.set("reduced_motion", true)

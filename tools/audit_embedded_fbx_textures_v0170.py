@@ -34,7 +34,7 @@ def main():
     with (ROOT/"licenses/USED_ASSET_PROVENANCE.csv").open("r",encoding="utf-8-sig",newline="") as f:
         rows=list(csv.DictReader(f))
     by={r["path"]:r for r in rows}
-    if len(rows)!=132:raise AssertionError("Expected 132 registered media paths")
+    if len(rows)!=141:raise AssertionError("Expected 141 registered media paths including original picture-first icons")
     for parent,texture in ITEMS.items():
         if parent not in by or texture not in by:raise AssertionError("Missing parent/derived register record: "+texture)
         original=extract_png((ROOT/parent).read_bytes())

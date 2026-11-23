@@ -75,3 +75,12 @@
 **未解决：** Windows 云端的独立截图工具在所有 PNG 保存成功后仍会记录 GLES3 `Texture` RID 与 `CompressedTexture2D` 退出清理错误，因此截图工作流的总体状态不能写成 PASS。严格 Windows 游戏原生 QA 和这个工具的退出错误是不同问题。
 
 **结论：** 旧版无障碍功能并没有在本轮被无依据地删掉。已完成可直接执行的键盘与高对比度源码改进；其余真实玩家体验、全面阅读可及性、原件版权及公共发行关口不能仅靠源码自动宣告完成。
+
+## 2026-11-23 追加：8 张 Windows 真画面检查发现并修复的问题
+
+- `HEALTHY PLAY / FAMILY GUIDE` 的三段家庭计划文字在旧版实际 1280×720 截图里曾越过面板边缘；原版 Label 的固定尺寸不会约束自动字体高度。
+- 保留三个原本段落（家庭制定日常计划、提醒不是强制锁、数据只在本机）的实际文字，健康面板扩展为 680×620，说明区域移入有键盘焦点的 `ScrollContainer`，明确启用 `clip_contents`，在 720p 保留完整文字与底部 Back 按钮。
+- 新增 `qa_v0160_healthy_play.gd` 断言，检查滚动容器尺寸、内容存在、底部按钮可访问、文本未删。
+- 旧版多张真实截屏已显示家庭说明超出边界；修正后的 Windows 自动截图显示可见的垂直滚动条、文字被限制在容器内（滚动到下方才能阅读最后一段）。这属于**UI 排版修复，不是完整认知/视觉无障碍认证**。
+- [扩展 8 张实际图像的运行记录](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698714)（截图生成完成，但独立工具退出时仍有 GLES3 资源释放 ERROR，工作流整体未通过）。
+- 新的 [Windows 原生 23 项／内部 EXE 验证运行](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)；以该运行最终结论和日志为准，不能预先标记成功。

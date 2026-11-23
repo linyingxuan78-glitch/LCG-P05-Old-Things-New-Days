@@ -1123,9 +1123,12 @@ func _create_picture_guides(parent: Node) -> void:
         image.position = Vector2(20 + icon_id * 83, 8)
         image.size = Vector2(42, 42)
         image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-        image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        # The source pictograms are 96x96. Scale explicitly into the 42px slot;
+        # keep-aspect rendering left their native size over the status captions.
+        image.stretch_mode = TextureRect.STRETCH_SCALE
         image.mouse_filter = Control.MOUSE_FILTER_IGNORE
         pictogram_panel.add_child(image)
+        image.size = Vector2(42, 42)
         pictogram_icons.append(image)
         var caption := _text(pictogram_panel, Vector2(8 + icon_id * 83, 54), Vector2(75, 35), 12, Color("f5ecde"))
         caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

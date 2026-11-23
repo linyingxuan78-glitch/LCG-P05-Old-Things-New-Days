@@ -138,6 +138,12 @@ func _run() -> void:
             issues.append("Sorting decision should be marked resolved before saving")
         if not (sorter.get("outcome") as Label).visible or not (sorter.get("done_button") as Button).visible:
             issues.append("Sorting consequence must be shown in a persistent, visible result panel")
+        var result_picture: TextureRect = sorter.get("outcome_picture") as TextureRect
+        var result_number: Label = sorter.get("outcome_number") as Label
+        if result_picture == null or result_number == null:
+            issues.append("Outcome must have a distinct visual symbol and readable number for players who do not read")
+        elif not result_picture.visible or result_picture.texture == null or not result_number.visible or result_number.text.is_empty():
+            issues.append("Choice result relies on a paragraph instead of a large symbol and count")
         var original_boxes: int = int(after_choice.get("boxes", 0))
         var original_goodwill: int = int(after_choice.get("goodwill", 0))
         sorter.call("_choose", 0)

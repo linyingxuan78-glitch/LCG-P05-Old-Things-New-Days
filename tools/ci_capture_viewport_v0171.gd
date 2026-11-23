@@ -65,6 +65,14 @@ func _run_capture() -> void:
     await create_timer(0.4).timeout
     var help_ok: bool = await _capture("help_keyboard_1280x720", Vector2i(1280, 720))
     shop.call("_close_help")
+    shop.call("_open_healthy_play")
+    await create_timer(0.3).timeout
+    var healthy_ok: bool = await _capture("healthy_play_1280x720", Vector2i(1280, 720))
+    (shop.get("healthy_play") as Control).call("close_panel")
+    shop.call("_open_privacy_safety")
+    await create_timer(0.3).timeout
+    var privacy_ok: bool = await _capture("privacy_safety_1280x720", Vector2i(1280, 720))
+    (shop.get("privacy_safety") as Control).call("close_panel")
     shop.set("large_text", false)
     shop.set("high_contrast", false)
     shop.call("_apply_accessibility")
@@ -84,8 +92,8 @@ func _run_capture() -> void:
     # Let deferred resource releases settle before the GLES3 renderer shuts down.
     await process_frame
     await process_frame
-    if menu_ok and settings_ok and settings_large_ok and help_ok and shop_720_ok and shop_1080_ok:
-        print("VISUAL QA CAPTURE PASSED: 6 real rendered PNGs including large text/high contrast (visual review still required)")
+    if menu_ok and settings_ok and settings_large_ok and help_ok and healthy_ok and privacy_ok and shop_720_ok and shop_1080_ok:
+        print("VISUAL QA CAPTURE PASSED: 8 real rendered PNGs including accessibility and family/privacy menus (visual review still required)")
         quit(0)
     else:
         push_error("VISUAL QA FAILED: one or more captured frames unavailable")

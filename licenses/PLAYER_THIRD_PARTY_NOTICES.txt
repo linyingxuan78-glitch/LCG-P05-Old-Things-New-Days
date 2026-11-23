@@ -11,11 +11,11 @@ Existing studio name/logo are preserved for internal testing; public mark confus
 BUNDLED THIRD-PARTY MEDIA (author / source set / declared license)
 - hernandack — Short Loops Background Music — CC0 1.0 (4 media file(s))
   https://opengameart.org/content/short-loops-background-music-pack
-- Isa Lousberg — Homely House Set — CC0 1.0 (creator listing) (4 media file(s))
+- Isa Lousberg — Homely House Set — CC0 1.0 (creator listing) (8 media file(s))
   https://poly.pizza/bundle/Homely-House-Set-zECUN0FUzz
-- Isa Lousberg — Pretty park set — CC0 1.0 (creator listing) (2 media file(s))
+- Isa Lousberg — Pretty park set — CC0 1.0 (creator listing) (4 media file(s))
   https://poly.pizza/bundle/Pretty-park-set-G2WINPAG9S
-- Kay Lousberg — Restaurant Bits — CC0 1.0 (creator listing) (1 media file(s))
+- Kay Lousberg — Restaurant Bits — CC0 1.0 (creator listing) (2 media file(s))
   https://poly.pizza/bundle/Restaurant-Bits-ejkcnWf78Q
 - Kenney — Building Kit — CC0 1.0 (1 media file(s))
   https://github.com/shorepine/kenney/blob/3694c6879e487c108f55677be7dd2ca75b07cc3b/3d/building/Textures/colormap.png
@@ -74,7 +74,7 @@ PROJECT-AUTHORED / SOURCE-DERIVED MEDIA
 Derived previews retain their underlying creator and license in the register.
 
 DETAILED RECORD
-125 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
+132 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
 Licenses and originals are retained in the project as documented; no claim that every source is copyright-exclusive.
 
 GAME ENGINE

@@ -25,7 +25,7 @@ assert_true('Old Things, New Days' in load('documentation/CREATOR_PROVENANCE_AND
 
 with (ROOT/'licenses/USED_ASSET_PROVENANCE.csv').open(encoding='utf-8-sig',newline='') as f:
     rows=list(csv.DictReader(f))
-assert_true(len(rows)==125,'media ledger count changed')
+assert_true(len(rows)==132,'media ledger count changed')
 by={r['path']:r for r in rows}
 music=json.loads(load('documentation/MUSIC_SOURCE_EVIDENCE_v0166.json'))['music']
 assert_true(len(music)==4,'4 composer BGM missing')

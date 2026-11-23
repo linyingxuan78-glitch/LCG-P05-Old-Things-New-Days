@@ -83,4 +83,4 @@
 - 新增 `qa_v0160_healthy_play.gd` 断言，检查滚动容器尺寸、内容存在、底部按钮可访问、文本未删。
 - 旧版多张真实截屏已显示家庭说明超出边界；修正后的 Windows 自动截图显示可见的垂直滚动条、文字被限制在容器内（滚动到下方才能阅读最后一段）。这属于**UI 排版修复，不是完整认知/视觉无障碍认证**。
 - [扩展 8 张实际图像的运行记录](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698714)（截图生成完成，但独立工具退出时仍有 GLES3 资源释放 ERROR，工作流整体未通过）。
-- 新的 [Windows 原生 23 项／内部 EXE 验证运行](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)；以该运行最终结论和日志为准，不能预先标记成功。
+- [Windows 原生 23/23 测试／内部 EXE／隔离目录启动最终成功](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)。严格 Godot 4.4.1 Windows import clean；23/23 native QA PASS；EXE export 和 standalone smoke PASS。最新版 EXE 107,985,824 字节、SHA-256 `2a5846dc4f0458c902fae0e22a8d5bf72c8a674aea7cf0260f6a96fa6d73993e`。内部 ZIP Artifact [14787137883](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738/artifacts/14787137883) 于 2026-11-30 UTC 到期。

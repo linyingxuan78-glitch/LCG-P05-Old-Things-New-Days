@@ -25,6 +25,23 @@ func _run() -> void:
         _check(guide.get("break_minutes") in [0,15,25,40], "invalid break options", errors)
         _check(guide.get("daily_minutes") in [0,60,90,120], "invalid family time options", errors)
         _check(guide.get("panel") != null and guide.get("toast") != null, "accessible panel and static toast absent", errors)
+        # W3 visual review found the original long family guidance escaped the panel.
+        # Check authored line breaks and space for the final Back button at 720p.
+        var family_panel: Panel = guide.get("panel") as Panel
+        if family_panel != null:
+            var family_copy: Label = null
+            var back_button: Button = null
+            for child in family_panel.get_children():
+                if child is Label and (child as Label).text.contains("Children and caregivers"):
+                    family_copy = child as Label
+                if child is Button and (child as Button).text.contains("BACK"):
+                    back_button = child as Button
+            _check(family_copy != null and back_button != null, "family content or back button missing", errors)
+            if family_copy != null and back_button != null:
+                _check(family_panel.size.y >= 620.0, "family panel too short for readable full guidance", errors)
+                _check(family_copy.position.x + family_copy.size.x <= family_panel.size.x - 16.0, "family copy exceeds panel width", errors)
+                _check(family_copy.position.y + family_copy.size.y + 8.0 < back_button.position.y, "family copy and Back button overlap", errors)
+                _check(family_copy.text.split("\n").size() >= 9, "family copy lacks explicit readable line breaks", errors)
         guide.set("stored_day", Time.get_date_string_from_system())
         guide.set("today_seconds", 0.0)
         guide.set("session_seconds", 0.0)

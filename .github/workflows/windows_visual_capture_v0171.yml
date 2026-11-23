@@ -7,6 +7,9 @@ on:
       - ".github/workflows/windows_visual_capture_v0171.yml"
       - "tools/ci_capture_viewport_v0171.gd"
       - "scripts/shop.gd"
+      - "scripts/healthy_play.gd"
+      - "scripts/privacy_safety.gd"
+      - "tests/qa_v0160_healthy_play.gd"
       - "tests/qa_v0161_privacy_and_pictograms.gd"
       - "documentation/windows_visual_previews/.gitignore"
   workflow_dispatch:

@@ -1,0 +1,40 @@
+name: Diagnostic - Godot Windows export preset parser
+
+on:
+  push:
+    paths:
+      - ".github/workflows/export_preset_diagnostic_v0170.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preset_diagnostic:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          include-templates: true
+          use-dotnet: false
+      - name: Inspect export configuration parser
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $engine = Join-Path $env:USERPROFILE 'godot\Godot_v4.4.1-stable_win64_console.exe'
+          if (-not (Test-Path $engine)) {
+            $source = 'https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip'
+            $zip = Join-Path $env:RUNNER_TEMP 'godot_4.4.1_windows.zip'
+            Invoke-WebRequest -Uri $source -OutFile $zip -TimeoutSec 180
+            Expand-Archive -LiteralPath $zip -DestinationPath (Join-Path $env:USERPROFILE 'godot') -Force
+          }
+          if (-not (Test-Path $engine)) { throw 'No console binary' }
+          Write-Host '=== Configuration file state ==='
+          Get-Item -Path 'export_presets.cfg' | Format-List Length,FullName
+          Get-Content -Path 'export_presets.cfg'
+          Write-Host '=== Native Godot config parser ==='
+          & $engine --headless --path . --script 'res://tools/inspect_export_presets_v0170.gd'
+          if ($LASTEXITCODE -ne 0) { throw 'Native ConfigFile parse failed: check preset source' }

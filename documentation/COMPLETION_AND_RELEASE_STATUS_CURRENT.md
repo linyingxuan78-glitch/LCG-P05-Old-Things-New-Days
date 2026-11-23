@@ -1,3 +1,5 @@
+> **最新状态修订（2026-11-23）：下面 v0.16.8 是归档历史，不是当前状态。** 现在完整 Godot 4.4.1 源码已保存到 [Google Drive LATEST](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view)；在 [Windows 原生 Godot 23/23 QA、内测 EXE 导出与隔离启动检查](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738) 中全部 PASS。**真实 Windows 人工试玩及正式版权/商店审批尚未完成，不能称作待售成品。** 不增加无必要版本与重复功能，实行 [买断制发行冻结与签收表](ONE_TIME_PURCHASE_RELEASE_FREEZE_AND_SIGNOFF_2026-11-23.md)。
+
 # LCG-P05 — 当前真实完成度与发行关口（v0.16.8）
 
 **这是一份 Godot 4 开发工程，不是玩家双击即玩的 Windows 发行包。**

@@ -128,3 +128,4 @@ jobs:
           retention-days: 7
 
 # Retest strict Windows QA and gated EXE after Godot config section indexing correction.
+# Retest internal EXE and source-free smoke after explicit PowerShell success exit code fix.

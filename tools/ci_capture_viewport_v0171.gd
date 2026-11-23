@@ -59,6 +59,11 @@ func _run_capture() -> void:
 
     root.remove_child(shop)
     shop.free()
+    shop = null
+    scene = null
+    # Let deferred resource releases settle before the GLES3 renderer shuts down.
+    await process_frame
+    await process_frame
     if menu_ok and shop_720_ok and shop_1080_ok:
         print("VISUAL QA CAPTURE PASSED: 3 real rendered PNGs at 720p and 1080p (visual review still required)")
         quit(0)

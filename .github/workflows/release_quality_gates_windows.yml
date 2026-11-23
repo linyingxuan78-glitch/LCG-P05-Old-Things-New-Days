@@ -1,0 +1,99 @@
+# Final-stage automated evidence only: no production upload or store actions.
+name: P05 release checks - isolated restart save, virtual displays, audio capabilities
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/release_quality_gates_windows.yml"
+      - "tools/release_cross_process_save_qa.gd"
+      - "tools/release_virtual_display_probe.gd"
+      - "tools/release_audio_voice_capability.gd"
+      - "project.godot"
+permissions:
+  contents: read
+jobs:
+  release_automated_quality:
+    runs-on: windows-2022
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.4.1"
+          use-dotnet: false
+          include-templates: false
+      - name: Get verified Godot 4.4.1 Windows console and import assets
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $console = Join-Path $env:USERPROFILE 'godot\Godot_v4.4.1-stable_win64_console.exe'
+          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) {
+            $archive=Join-Path $env:RUNNER_TEMP 'Godot_v4.4.1-stable_win64.exe.zip'
+            Invoke-WebRequest -Uri 'https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip' -OutFile $archive -TimeoutSec 180
+            Expand-Archive -LiteralPath $archive -DestinationPath (Join-Path $env:USERPROFILE 'godot') -Force
+          }
+          if (-not (Test-Path -LiteralPath $console -PathType Leaf)) { throw 'Godot console companion unavailable' }
+          "GODOT_CONSOLE=$console" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          New-Item -ItemType Directory -Force -Path 'documentation/windows_visual_previews' | Out-Null
+          & $console --version
+          if ($LASTEXITCODE -ne 0) { throw 'Godot did not start' }
+          & $console --path . --editor --import --quit --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 *>&1 |
+            Out-File -FilePath 'documentation/windows_visual_previews/release_import.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { throw 'Windows editor import failed' }
+          $log=Get-Content -Raw 'documentation/windows_visual_previews/release_import.log'
+          if ($log -match '(?im)(^|\s)(ERROR:|SCRIPT ERROR:|Parse Error:)') { throw 'Godot editor reported errors' }
+      - name: Real save and restoration across two distinct Windows Godot processes (isolated APPDATA)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $sandbox=Join-Path $env:RUNNER_TEMP 'LCG-P05-cross-process-save-private'
+          $env:APPDATA=Join-Path $sandbox 'Roaming'
+          $env:LOCALAPPDATA=Join-Path $sandbox 'Local'
+          $env:LCG_P05_QA_ROOT=$env:APPDATA
+          New-Item -ItemType Directory -Force -Path $env:APPDATA,$env:LOCALAPPDATA | Out-Null
+          & $env:GODOT_CONSOLE --headless --path . --script res://tools/release_cross_process_save_qa.gd --audio-driver Dummy -- write *>&1 |
+            Out-File 'documentation/windows_visual_previews/cross_process_save_write.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { Get-Content 'documentation/windows_visual_previews/cross_process_save_write.log'; throw 'Isolated game save-write failed' }
+          & $env:GODOT_CONSOLE --headless --path . --script res://tools/release_cross_process_save_qa.gd --audio-driver Dummy -- read *>&1 |
+            Out-File 'documentation/windows_visual_previews/cross_process_save_read.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { Get-Content 'documentation/windows_visual_previews/cross_process_save_read.log'; throw 'Isolated game save-reopen failed' }
+          $write=Get-Content -Raw 'documentation/windows_visual_previews/cross_process_save_write.log'
+          $read=Get-Content -Raw 'documentation/windows_visual_previews/cross_process_save_read.log'
+          if ($write -notmatch 'CROSS-PROCESS SAVE WRITE PASSED' -or $read -notmatch 'CROSS-PROCESS SAVE READ PASSED') { throw 'Mandatory two-process save success markers missing' }
+          if (($write+$read) -match '(?im)(^|\s)(ERROR:|SCRIPT ERROR:|Parse Error:)') { throw 'Godot reported error in restart save test' }
+          Write-Host 'ISOLATED CROSS-PROCESS GAME SAVE REOPEN PASSED'
+          Remove-Item -Recurse -Force -LiteralPath $sandbox
+      - name: Assess four cloud display sizes and actual Godot audio imports / OS voice availability
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          & $env:GODOT_CONSOLE --path . --script res://tools/release_virtual_display_probe.gd --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 *>&1 |
+            Out-File 'documentation/windows_visual_previews/virtual_resolution_probe.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { Get-Content 'documentation/windows_visual_previews/virtual_resolution_probe.log'; throw 'Virtual resolution probe failed' }
+          & $env:GODOT_CONSOLE --path . --script res://tools/release_audio_voice_capability.gd --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 *>&1 |
+            Out-File 'documentation/windows_visual_previews/audio_voice_capability.log' -Encoding utf8
+          if ($LASTEXITCODE -ne 0) { Get-Content 'documentation/windows_visual_previews/audio_voice_capability.log'; throw 'Audio import or voice capability probe failed' }
+          $perf=Get-Content -Raw 'documentation/windows_visual_previews/virtual_resolution_probe.log'
+          $voice=Get-Content -Raw 'documentation/windows_visual_previews/audio_voice_capability.log'
+          if ($perf -notmatch 'RELEASE VIRTUAL DISPLAY PROBE PASSED' -or $voice -notmatch 'RELEASE AUDIO/VOICE IMPORT PASSED') { throw 'Mandatory probe success markers absent' }
+          if (($perf+$voice) -match '(?im)(^|\s)(ERROR:|SCRIPT ERROR:|Parse Error:)') { throw 'Godot reported errors in cloud diagnostics' }
+          $metrics=Get-Content -Raw 'documentation/windows_visual_previews/virtual_resolution_probe.json' | ConvertFrom-Json
+          $audio=Get-Content -Raw 'documentation/windows_visual_previews/audio_voice_capability.json' | ConvertFrom-Json
+          if ($metrics.frames.Count -ne 4 -or $audio.audio_imports.Count -ne 8 -or -not $audio.godot_text_to_speech_enabled) { throw 'Metrics incomplete' }
+          Write-Host "VIRTUAL WINDOWS RESOLUTIONS ANALYZED: $($metrics.frames.Count). Audio streams imported: $($audio.audio_imports.Count). Installed English OS voices: $($audio.english_system_voices_available)."
+          Write-Host 'IMPORTANT: Virtual cloud frame times are NOT benchmarks on real customer hardware. Audio files imported and voice availability detected, but no human has listened to them.'
+      - name: Preserve release-stage evidence even when a check fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_RELEASE_CROSSPROCESS_RESOLUTION_AUDIO_EVIDENCE
+          path: |
+            documentation/windows_visual_previews/release_import.log
+            documentation/windows_visual_previews/cross_process_save_write.log
+            documentation/windows_visual_previews/cross_process_save_read.log
+            documentation/windows_visual_previews/virtual_resolution_probe.log
+            documentation/windows_visual_previews/virtual_resolution_probe.json
+            documentation/windows_visual_previews/audio_voice_capability.log
+            documentation/windows_visual_previews/audio_voice_capability.json
+          if-no-files-found: warn
+          retention-days: 14

@@ -50,6 +50,8 @@ var stat_labels: Array[Label] = []
 var first: Button
 var second: Button
 var done_button: Button
+var speech_button: Button
+var speech_used: bool = false
 var entry_button: Button
 
 func configure(owner: Node3D) -> void:
@@ -66,7 +68,11 @@ func _icon(name: String) -> Texture2D:
 func _build_ui() -> void:
     panel = shop.call("_panel", self, Vector2.ZERO, Vector2(750, 526), Color(0.055, 0.125, 0.115, 0.99)) as Panel
     shop.call("_center_panel", panel)
-    heading = shop.call("_text", panel, Vector2(25, 20), Vector2(698, 48), 30, Color("f7ebcf")) as Label
+    heading = shop.call("_text", panel, Vector2(25, 20), Vector2(608, 48), 30, Color("f7ebcf")) as Label
+    speech_button = shop.call("_button", panel, "", Vector2(656, 20), Vector2(66, 54), Callable(self, "_speak_event")) as Button
+    speech_button.icon = _icon("speaker")
+    speech_button.add_theme_constant_override("icon_max_width", 47)
+    speech_button.tooltip_text = "Listen to this event and both choices (English system voice)"
     item_picture = TextureRect.new()
     item_picture.position = Vector2(44, 86)
     item_picture.size = Vector2(176, 176)
@@ -121,6 +127,7 @@ func reset_state() -> void:
     goodwill = 0
     outcome_summary = ""
     panel_choice_consumed = false
+    speech_used = false
     if panel != null:
         panel.visible = false
     refresh_entry()
@@ -192,6 +199,7 @@ func open() -> void:
     desk.visible = false
     panel.visible = true
     panel_choice_consumed = false
+    speech_used = false
     shop.call("_refresh_tutorial_ui")
     _refresh_panel()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -204,6 +212,9 @@ func _refresh_panel() -> void:
         return
     heading.text = str(entry["title"])
     explanation.text = str(entry["prompt"])
+    # No subscription or online API. If an English OS voice is absent, icon
+    # controls still work and the speaker is visibly unavailable.
+    speech_button.disabled = DisplayServer.tts_get_voices_for_language("en").is_empty()
     item_picture.texture = load("res://assets/product_previews_v0162/product_%02d.png" % int(entry["sku"])) as Texture2D
     action_icon.texture = _icon(str(entry["picture"]))
     _refresh_stats()
@@ -348,6 +359,7 @@ func _choose(option: int) -> void:
     outcome.text = result
     outcome.visible = true
     done_button.text = "CONTINUE"
+    speech_button.tooltip_text = "Listen to the decision result"
     # Prevent repeat rewards across reloads; the existing safe-save path is used.
     shop.call("_save_game")
     shop.call("_refresh_ui")
@@ -358,12 +370,32 @@ func _close() -> void:
         return
     panel.visible = false
     panel_choice_consumed = false
+    if speech_used and not bool(shop.get("qa_mode")):
+        DisplayServer.tts_stop()
+    speech_used = false
     if shop != null and bool(shop.get("playing")) and not bool(shop.get("paused")):
         (shop.get("desk_ui") as Panel).visible = true
         shop.call("_refresh_ui")
         shop.call("_refresh_tutorial_ui")
         Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
         shop.call("_focus_menu_controls", shop.get("desk_ui"), "SORT")
+
+func _speak_event() -> void:
+    # Device-native speech helps players with limited reading. Do not claim
+    # all languages or all devices have voices; the button disables if absent.
+    if not is_open() or bool(shop.get("qa_mode")):
+        return
+    var voices: PackedStringArray = DisplayServer.tts_get_voices_for_language("en")
+    if voices.is_empty():
+        return
+    var spoken: String = outcome_summary if panel_choice_consumed else (
+        heading.text + ". " + explanation.text.replace("\n", " ") + ". " +
+        "First choice: " + first.text + ". " + first.tooltip_text + ". " +
+        "Second choice: " + second.text + ". " + second.tooltip_text
+    )
+    var volume: int = clampi(roundi(float(shop.get("master_volume")) * 75.0), 0, 100)
+    DisplayServer.tts_speak(spoken, voices[0], volume, 1.0, 0.85, 0, true)
+    speech_used = true
 
 func visitor_interval_factor() -> float:
     # A small, capped positive effect—not a magical guaranteed sale.

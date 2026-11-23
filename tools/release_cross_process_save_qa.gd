@@ -53,6 +53,11 @@ func _run() -> void:
             _fail("Written game state was not committed")
             return
         print("CROSS-PROCESS SAVE WRITE PASSED: real game payload, 27 SKUs, incident state")
+        # _new_game also starts normal audio/visitor timers. Shut those down
+        # before the scripted SceneTree exits to avoid false resource-leak errors.
+        shop.set("qa_mode",true)
+        shop.call("_show_title")
+        await create_timer(0.5).timeout
     else:
         # Re-instantiate actual game in this distinct Godot process.
         if not bool(shop.call("_load_game")):

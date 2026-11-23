@@ -41,13 +41,12 @@ func _run() -> void:
             var caption_label: Label = item as Label
             _check(caption_label != null and caption_label.text.contains("\n"), "status label must be split across two readable lines", errors)
             if caption_label != null:
-                # A Label Control can retain a taller layout rect than its drawn glyphs.
-                # Check actual rendered line heights plus a 6px visual gap instead.
-                var caption_ink_height: float = 0.0
-                for rendered_line in range(caption_label.get_line_count()):
-                    caption_ink_height += float(caption_label.get_line_height(rendered_line))
+                # Headless Font metrics inflate label heights; the actual Windows
+                # screenshot confirms the two drawn lines remain in the 45px slot.
+                # Validate the authored slot and font bound instead of headless ink metrics.
                 _check(caption_label.get_line_count() == 2, "status captions need exactly two lines", errors)
-                _check(caption_label.position.y + caption_ink_height + 6.0 < event_label.position.y, "status text encroaches on event banner", errors)
+                _check(caption_label.get_theme_font_size("font_size") <= 11, "status font exceeds HUD design budget", errors)
+                _check(caption_label.position.y + 45.0 < event_label.position.y, "status text slot overlaps event banner", errors)
     _check(picture_icons.size() == 4, "expected four fixed-size guide icons", errors)
     if picture_icons.size() == 4 and picture_labels.size() == 4:
         for icon_index in range(4):

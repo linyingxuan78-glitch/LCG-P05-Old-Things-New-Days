@@ -74,3 +74,5 @@ jobs:
             SOURCE_ZIP_SHA256.txt
           if-no-files-found: error
           retention-days: 14
+
+# One-shot documentation consolidation: include final buy-once release gates, README correction and Drive source-of-truth notes.

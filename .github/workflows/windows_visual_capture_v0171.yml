@@ -74,6 +74,8 @@ jobs:
               ("settings_default_1280x720.png",(1280,720)),
               ("settings_large_contrast_1280x720.png",(1280,720)),
               ("help_keyboard_1280x720.png",(1280,720)),
+              ("healthy_play_1280x720.png",(1280,720)),
+              ("privacy_safety_1280x720.png",(1280,720)),
               ("shop_1280x720.png",(1280,720)),
               ("shop_1920x1080.png",(1920,1080)),
           ]:

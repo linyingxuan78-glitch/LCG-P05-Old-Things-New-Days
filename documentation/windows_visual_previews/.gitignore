@@ -1,0 +1,3 @@
+# Captured visual evidence stays in GitHub Actions artifacts, not in the source repository.
+*.png
+*.log

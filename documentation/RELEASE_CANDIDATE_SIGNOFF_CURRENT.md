@@ -47,3 +47,16 @@
 已提供可直接填写的 [Real Windows Player Acceptance Form](REAL_WINDOWS_PLAYER_SIGNOFF_FORM.md)，包含 12 项实际操作、截图及硬件信息、失败复现、零售发行签字门槛。**所有人工测试初始均为 NOT TESTED**，不能因生成表格而改变发行状态。
 
 2026-11-23 复核：Windows 验证工作流 [45153165346](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45153165346) 成功；另一个较早提交上的 Native QA 工作流 [45153075961](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45153075961) 失败。两者是不同 SHA、不同工作流，不能混同；当前没有额外的真人电脑通过证据。
+
+## 版权与原创性复核（2026-11-23；**不等于法律无争议证书**）
+核对实际来源账本 `licenses/USED_ASSET_PROVENANCE.csv`：当前登记 **142** 项媒体，不再用早期只覆盖 115 项的 `documentation/CURRENT_RIGHTS_AUDIT.json` 判定全部素材已经过审。按账本的 author 列分组：**Kenney 98、Poly Pizza 的 Isa/Kay Lousberg 14、hernandack 音乐 4、Little Cozy Games 项目自制/AI 辅助/派生记录 26**。这些是项目声明和追踪数据，不是独立的法律权属证书。
+
+当前来源追踪级别汇总：69 条原 ZIP 文件成员精确哈希；26 条经过验证父文件的项目衍生；14 条项目内制作或溯源检查；10 条固定 CC0 镜像 Git blob 对应但未与原创 ZIP 做逐字节比较；10 条项目生成素材；7 条经原 FBX 嵌入贴图精确比较；4 条 OpenGameArt 音乐与原站精确匹配；2 条 AI 辅助品牌来源由拥有者确认、**商标审查未完成**。上述八种级别合计 142，不代表每项都具有同等级的独立原始证据。与原账本不一致的老版报告须作为历史记录处理。
+
+Kenney 素材页面授权说明：https://kenney.nl/support；Poly Pizza 样例来源：https://poly.pizza/bundle/Homely-House-Set-zECUN0FUzz；OpenGameArt 音乐：https://opengameart.org/content/short-loops-background-music-pack。CC0 主要涉及版权许可；**不自动解决品牌、商标、肖像、其他第三人权利**：https://creativecommons.org/publicdomain/zero/1.0/deed.en 。
+
+**关于“相同玩法=抄袭”**：玩法概念、程序方法本身通常不受版权垄断，具体的美术、音乐、对白、源码及足够独创性的表达可能受保护。参见 https://www.myipo.gov.my/copyright-basic/ 和 https://www.copyright.gov/register/tx-games.html 。**没有完成与具体竞品的逐镜头、素材、剧情、UI/美术与代码相似性审核**；不能声明“完全不可能涉嫌侵权”，也不能从同类型机制就断定“抄袭”。
+
+仍待核实：`Old Things, New Days` 游戏名称、`Little Cozy Games` 工作室名称和 Logo 在目标销售地相关商品服务类别的相同或近似商标。项目此前精确字符串的一般网页搜索仅是初筛；**未完成 MyIPO/WIPO/USPTO 等官方商标库的全面商标查询或法律意见**。参考：https://www.myipo.gov.my/search-trademark/ 和 https://www.wipo.int/en/web/global-brand-database/index 。未取得最终结论前零售权限依旧 **NO**。
+
+**账户/支付资料是另一条关口**：账号存在不代表卖家身份、付款处理、税务或发行资格已经全部完成；各平台应各自确认，不能用错误国家或身份字段绕过验证。任何实际付款发布应取得发行人明确同意，并遵循适用平台年龄/监护与支付条款。

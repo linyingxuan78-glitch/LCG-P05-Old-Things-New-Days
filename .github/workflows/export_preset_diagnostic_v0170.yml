@@ -38,3 +38,5 @@ jobs:
           Write-Host '=== Native Godot config parser ==='
           & $engine --headless --path . --script 'res://tools/inspect_export_presets_v0170.gd'
           if ($LASTEXITCODE -ne 0) { throw 'Native ConfigFile parse failed: check preset source' }
+
+# Retest after moving [preset.0] to the first line of the configuration.

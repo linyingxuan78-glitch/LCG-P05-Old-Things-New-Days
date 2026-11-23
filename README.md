@@ -1,10 +1,23 @@
 # Old Things, New Days — LCG-P05
 
-Godot 4.4.1 first-person secondhand shop management prototype. Current source handoff: **v0.16.9**.
+A Godot **4.4.1** first-person secondhand shop-management prototype. Players manage 27 products across six categories and nine shared shelf spaces. This remains a **work in progress**, not a public or commercial game release.
 
-- The repository is a **development project**, not a playable Windows release.
-- Source version: `v0.16.9`. **23/23 real Godot 4.4.1 native gameplay QA suites passed** (every suite exit=0, errors=0, expected PASS marker) after source texture recovery and test fixes. **The full editor-import release gate remains NOT PASSED**, because GitHub's Xvfb environment logs 4 Vulkan initialization ERROR lines despite import exit=0. Windows packaging and real-device playability are not yet validated.
-- Public repository: do not include personal saves, credentials, or unverifiable third-party media.
-- The canonical original archive remains in the project owner's Google Drive as `LCG_P05_LATEST_Godot_Project.zip`, SHA-256 `c4ebf7a05b1e573b6e4af981c0b914ffb27272207f46811211e301c746752d07`.
+## Latest verified milestone — 2026-11-23
 
-See `README_中文.md`, `documentation/TEXTURE_RECOVERY_V0169.md` and [`documentation/NATIVE_QA_TEXTURE_RECOVERY_AND_23_SUITES_2026-11-22.md`](documentation/NATIVE_QA_TEXTURE_RECOVERY_AND_23_SUITES_2026-11-22.md) for evidence, follow-up checks, and limitations.
+**Windows INTERNAL TEST ONLY EXE is built and tested in CI.** The engine imported all resources on Windows without Godot ERROR lines, the main scene started, and **all 23 original native gameplay QA suites passed**. The strict export succeeded, 132 media files have registered provenance, and the resulting single-file EXE started from a source-free temporary Windows directory with exit 0 and no runtime ERROR.
+
+- [Successful Windows GitHub Actions run](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703)
+- [Download internal Windows test artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703/artifacts/14780550862)
+- EXE: `LCG-P05_INTERNAL_TEST_ONLY.exe` (**107,982,544 bytes**, SHA-256 `cf2a15095d11cc7475a38f57c9d34ecf282f16db5c610fa322edefa2b21c0a8c`)
+- [Evidence and next human playtest steps](documentation/WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md) · [Current milestone checklist](documentation/WINDOWS_INTERNAL_VALIDATION_BACKLOG_2026-11-23.md)
+
+**Important limitations:** Headless standalone startup is not a human-controlled graphical test. Real Windows screen rendering (3D lighting, models, animations, palettes), audio playback, collisions, keyboard/mouse controls, save persistence, and accessibility are **NOT YET ACCEPTED**. This build has not been uploaded to any public storefront or authorized for commercial release. Linux Xvfb importer reports separate Vulkan initialization errors despite the clean native Windows importer; both records remain preserved.
+
+## Source and licensing
+
+- The original Google Drive `LCG_P05_LATEST_Godot_Project.zip` v0.16.9 archive is unchanged (SHA-256 `c4ebf7a05b1e573b6e4af981c0b914ffb27272207f46811211e301c746752d07`). Current GitHub code includes later repairs and QA tooling.
+- **132 media files** are recorded in `licenses/USED_ASSET_PROVENANCE.csv`, including restored Kenney CC0 GLB external textures and seven byte-matched FBX-embedded PNG derivatives.
+- Media rights and creator-source static checks passed, but an original-source / visual comparison for Mini Shop 2.1 palettes, additional original music archive checks, trademark/title checks and actual player UX review remain open.
+- Do not commit sensitive data, private saves, tokens, or unknown-license media to this public repository.
+
+For historical design notes and v0.16.9 descriptions, see [README_中文.md](README_中文.md). For the earlier diagnostic chronology, see [Native QA and texture recovery report](documentation/NATIVE_QA_TEXTURE_RECOVERY_AND_23_SUITES_2026-11-22.md).

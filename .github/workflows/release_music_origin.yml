@@ -1,0 +1,36 @@
+# Upstream OGG SHA-256 audit only. Does not publish, buy, or distribute any game.
+name: P05 upstream CC0 music original byte comparison
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/release_music_origin.yml"
+      - "tools/release_music_origin_compare.py"
+      - "documentation/MUSIC_SOURCE_EVIDENCE_v0166.json"
+permissions:
+  contents: read
+jobs:
+  music_provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch official OpenGameArt OGG originals and compare against bundled files
+        run: |
+          python3 tools/release_music_origin_compare.py
+          python3 - <<'PY'
+          import json
+          x=json.load(open("documentation/music_origin_check_latest.json",encoding="utf8"))
+          print("VERIFIED ORIGINAL MUSIC TRACKS:",x["original_bytes_verified"],"/",x["source_count"])
+          print("PUBLIC RELEASE MUSIC GATE:",x["release_music_gate"])
+          if x["release_music_gate"]!="VERIFIED_ALL_FOUR":
+              print("HOLD: download or byte identity remains unresolved; not approved for public selling.")
+          PY
+      - name: Retain truthful copyright/provenance decision and failure details
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_UPSTREAM_CC0_MUSIC_HASH_AUDIT
+          path: documentation/music_origin_check_latest.json
+          retention-days: 14
+          if-no-files-found: warn

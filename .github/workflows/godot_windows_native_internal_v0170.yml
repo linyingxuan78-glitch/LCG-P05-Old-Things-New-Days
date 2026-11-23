@@ -61,6 +61,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Credits media registry failed' }
           python tools/check_creator_provenance_v0166.py
           if ($LASTEXITCODE -ne 0) { throw 'Creator provenance failed' }
+          python tools/audit_embedded_fbx_textures_v0170.py
+          if ($LASTEXITCODE -ne 0) { throw 'Embedded FBX PNG byte-level parent audit failed' }
           # selftest_acceptance_runner.py intentionally invokes the Linux Bash runner via
           # 'bash'; on Windows 'bash' resolves to WSL, which is not installed in hosted CI.
           # That Linux-only mock has already been validated in the Ubuntu workflow.

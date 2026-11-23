@@ -1109,13 +1109,13 @@ func _refresh_context_action_hint() -> void:
 
 func _create_picture_guides(parent: Node) -> void:
     # Four static pictograms, not flashing prompts. Text is supplementary.
-    pictogram_panel = _panel(parent, Vector2(0, 14), Vector2(350, 132), Color(0.055,0.14,0.12,0.92))
+    pictogram_panel = _panel(parent, Vector2(0, 14), Vector2(350, 142), Color(0.055,0.14,0.12,0.92))
     pictogram_panel.anchor_left = 1.0
     pictogram_panel.anchor_right = 1.0
     pictogram_panel.offset_left = -366
     pictogram_panel.offset_right = -16
     pictogram_panel.offset_top = 14
-    pictogram_panel.offset_bottom = 146
+    pictogram_panel.offset_bottom = 156
     pictogram_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
     for icon_id in range(4):
         var image := TextureRect.new()
@@ -1130,13 +1130,14 @@ func _create_picture_guides(parent: Node) -> void:
         pictogram_panel.add_child(image)
         image.size = Vector2(42, 42)
         pictogram_icons.append(image)
-        var caption := _text(pictogram_panel, Vector2(8 + icon_id * 83, 54), Vector2(75, 35), 12, Color("f5ecde"))
+        var caption := _text(pictogram_panel, Vector2(8 + icon_id * 83, 54), Vector2(75, 32), 11, Color("f5ecde"))
         caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
         caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+        caption.autowrap_mode = TextServer.AUTOWRAP_OFF
         # Two-line captions stay within each 83px cell at both 720p and 1080p.
         caption.text = ["BUY\nOK", "PLACE\nWAIT", "SELL\nWAIT", "DAY\nOK"][icon_id]
         pictogram_labels.append(caption)
-    pictogram_event = _text(pictogram_panel, Vector2(11, 104), Vector2(328, 22), 12, Color("f6e3ba"))
+    pictogram_event = _text(pictogram_panel, Vector2(11, 115), Vector2(328, 22), 12, Color("f6e3ba"))
     pictogram_event.text = "QUIET SHOP DAY"
 
 func _refresh_picture_guides() -> void:

@@ -30,6 +30,26 @@ func _run() -> void:
     if rows.size() == 9:
         for row in rows:
             _check(row.has("icon") and (row["icon"] as TextureRect) != null, "catalog pictogram node missing", errors)
+    # Visual regression: four captions must stay below their icon row and above event text.
+    var picture_labels: Array = shop.get("pictogram_labels")
+    var event_label: Label = shop.get("pictogram_event") as Label
+    _check(picture_labels.size() == 4, "expected four status caption labels", errors)
+    _check(event_label != null, "pictogram event label missing", errors)
+    if picture_labels.size() == 4 and event_label != null:
+        for item in picture_labels:
+            var caption_label: Label = item as Label
+            _check(caption_label != null and caption_label.text.contains("\\n"), "status label must be split across two readable lines", errors)
+            if caption_label != null:
+                _check(caption_label.position.y + caption_label.size.y < event_label.position.y, "status label overlaps event banner", errors)
+    var title_panel: Panel = shop.get("title_ui") as Panel
+    var exit_button: Button = null
+    if title_panel != null:
+        for child in title_panel.get_children():
+            if child is Button and (child as Button).text == "QUIT GAME":
+                exit_button = child as Button
+    _check(exit_button != null, "compact title quit button missing", errors)
+    if exit_button != null and title_panel != null:
+        _check(exit_button.position.x + exit_button.size.x <= title_panel.size.x - 3.0, "title quit button overflows panel", errors)
     shop.call("_show_title")
     if privacy != null:
         shop.call("_open_privacy_safety")

@@ -23,5 +23,10 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=false
 
+[audio]
+; Optional local Windows/macOS OS speech for players who prefer to listen.
+; No online TTS provider, microphone or telemetry.
+general/text_to_speech=true
+
 [physics]
 3d/default_gravity=9.8

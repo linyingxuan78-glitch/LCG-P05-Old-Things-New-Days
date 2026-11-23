@@ -39,6 +39,7 @@ var handled: bool = false
 var backroom_boxes: int = 0
 var goodwill: int = 0
 var outcome_summary: String = ""
+var panel_choice_consumed: bool = false
 var panel: Panel
 var item_picture: TextureRect
 var action_icon: TextureRect
@@ -116,6 +117,7 @@ func reset_state() -> void:
     backroom_boxes = 0
     goodwill = 0
     outcome_summary = ""
+    panel_choice_consumed = false
     if panel != null:
         panel.visible = false
     refresh_entry()
@@ -126,7 +128,7 @@ func new_day(day_number: int, sales: int) -> void:
     handled = false
     outcome_summary = ""
     if day_number >= 3 and day_number % 3 == 0:
-        var sequence_index: int = (day_number / 3 - 1) % CASES.size()
+        var sequence_index: int = (int(day_number / 3) - 1) % CASES.size()
         active_id = str(CASES[sequence_index]["id"])
         if active_id == "textile_surplus":
             backroom_boxes = mini(MAX_BACKROOM, backroom_boxes + 2)
@@ -186,6 +188,7 @@ func open() -> void:
         return
     desk.visible = false
     panel.visible = true
+    panel_choice_consumed = false
     _refresh_panel()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     shop.call("_focus_menu_controls", panel)
@@ -248,7 +251,9 @@ func _try_free_rack() -> int:
     return count
 
 func _choose(option: int) -> void:
-    if not is_open():
+    # The result screen is a hard one-shot guard, even if backroom cleanup
+    # becomes available immediately after resolving today\u0027s main incident.
+    if panel_choice_consumed or not is_open():
         return
     var entry: Dictionary = _current_case()
     if entry.is_empty() or not _can_choose(str(entry["id"]), option):
@@ -323,6 +328,7 @@ func _choose(option: int) -> void:
     if kind != "backroom_cleanup":
         handled = true
     outcome_summary = result
+    panel_choice_consumed = true
     stats.text = "$%d          %d/%d          %d/%d" % [int(shop.get("cash")),backroom_boxes,MAX_BACKROOM,goodwill,MAX_GOODWILL]
     first.visible = false
     second.visible = false
@@ -340,6 +346,7 @@ func _close() -> void:
     if panel == null:
         return
     panel.visible = false
+    panel_choice_consumed = false
     if shop != null and bool(shop.get("playing")) and not bool(shop.get("paused")):
         (shop.get("desk_ui") as Panel).visible = true
         shop.call("_refresh_ui")

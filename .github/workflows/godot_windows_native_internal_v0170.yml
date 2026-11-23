@@ -15,6 +15,9 @@ on:
       - "assets/ui_story_icons/**"
       - "licenses/USED_ASSET_PROVENANCE.csv"
       - "licenses/PLAYER_THIRD_PARTY_NOTICES.txt"
+      - "tools/static_preflight.py"
+      - "tools/sync_release_notices.py"
+      - "tools/check_creator_provenance_v0166.py"
   workflow_dispatch:
 
 permissions:

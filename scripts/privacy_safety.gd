@@ -120,6 +120,7 @@ func open_panel() -> void:
     panel.visible = true
     confirm_panel.visible = false
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    shop.call("_focus_menu_controls", panel)
 
 func is_open() -> bool:
     return (panel != null and panel.visible) or (confirm_panel != null and confirm_panel.visible)
@@ -145,6 +146,10 @@ func close_panel() -> void:
         Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     else:
         shop.call("_show_title")
+    if source_menu == "pause":
+        shop.call("_focus_menu_controls", shop.get("pause_ui"), "PRIVACY / SAFETY")
+    else:
+        shop.call("_focus_menu_controls", shop.get("title_ui"), "SAFETY")
 
 func _clear_history() -> void:
     if shop == null:
@@ -161,10 +166,13 @@ func request_erase() -> void:
         return
     panel.visible = false
     confirm_panel.visible = true
+    shop.call("_focus_menu_controls", confirm_panel)
 
 func cancel_erase() -> void:
     confirm_panel.visible = false
     panel.visible = true
+    if shop != null:
+        shop.call("_focus_menu_controls", panel)
 
 func confirm_erase() -> void:
     # No destructive tests may ever remove real player data.

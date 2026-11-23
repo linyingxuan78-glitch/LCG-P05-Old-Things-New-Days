@@ -42,3 +42,8 @@
 - 保留 27 件商品、六种类别、九货架、已有存档与经营决策；七种真实生活事件属于现有游戏的一部分，不再为了增加版本号扩建系统。
 - 修 bug 必须有复现步骤和回归测试；任何改变二进制的代码需重新跑 23/23 Windows 和截图，然后更新 Drive **同一个 LATEST ZIP/EXE**。历史备份保留，不重复购买素材。
 - 未获得至少一台真实玩家 Windows 完整验收与素材/名称/商店确认之前：**RELEASE READY = NO**。
+
+## 实机验收执行表（新增入口）
+已提供可直接填写的 [Real Windows Player Acceptance Form](REAL_WINDOWS_PLAYER_SIGNOFF_FORM.md)，包含 12 项实际操作、截图及硬件信息、失败复现、零售发行签字门槛。**所有人工测试初始均为 NOT TESTED**，不能因生成表格而改变发行状态。
+
+2026-11-23 复核：Windows 验证工作流 [45153165346](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45153165346) 成功；另一个较早提交上的 Native QA 工作流 [45153075961](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45153075961) 失败。两者是不同 SHA、不同工作流，不能混同；当前没有额外的真人电脑通过证据。

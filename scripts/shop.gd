@@ -1231,6 +1231,39 @@ func _button(parent: Node, label_text: String, at: Vector2, size_2d: Vector2, on
     b.pressed.connect(on_press)
     return b
 
+func _focus_menu_controls(menu: Control, preferred_text: String = "") -> void:
+    # Explicit Godot keyboard focus avoids relying on unstable automatic guessing.
+    # The visible panel owns Tab / Shift+Tab; this never remaps gameplay keys.
+    if menu == null or not menu.visible or not menu.is_inside_tree():
+        return
+    var focusables: Array[Control] = []
+    for item in menu.get_children():
+        if item is Control:
+            var control: Control = item as Control
+            if not control.visible or control.focus_mode == Control.FOCUS_NONE:
+                continue
+            if control is BaseButton and (control as BaseButton).disabled:
+                continue
+            focusables.append(control)
+    if focusables.is_empty():
+        return
+    focusables.sort_custom(func(a: Control, b: Control) -> bool:
+        if absf(a.position.y - b.position.y) <= 8.0:
+            return a.position.x < b.position.x
+        return a.position.y < b.position.y
+    )
+    for index in range(focusables.size()):
+        var control: Control = focusables[index]
+        control.focus_next = control.get_path_to(focusables[(index + 1) % focusables.size()])
+        control.focus_previous = control.get_path_to(focusables[(index - 1 + focusables.size()) % focusables.size()])
+    var target: Control = focusables[0]
+    if not preferred_text.is_empty():
+        for candidate in focusables:
+            if candidate is Button and (candidate as Button).text == preferred_text:
+                target = candidate
+                break
+    target.grab_focus()
+
 func _center_panel(panel: Panel) -> void:
     # Center modal menus independently from screen resolution or aspect ratio.
     # Child buttons retain their coordinates relative to the centered panel.
@@ -1692,6 +1725,7 @@ func _open_ledger() -> void:
     _refresh_ledger()
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    _focus_menu_controls(ledger_ui)
 
 func _close_ledger() -> void:
     ledger_ui.visible = false
@@ -1700,6 +1734,8 @@ func _close_ledger() -> void:
         _refresh_ui()
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    if playing and not paused:
+        _focus_menu_controls(desk_ui)
 
 func _refresh_ledger() -> void:
     if ledger_text == null:
@@ -1735,6 +1771,7 @@ func _open_pause() -> void:
         pause_status_label.text = "Trading stops while the game is paused."
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    _focus_menu_controls(pause_ui, "RESUME")
 
 func _resume_pause() -> void:
     paused = false
@@ -1943,6 +1980,7 @@ func _open_settings_menu() -> void:
         volume_labels[i].text = "%s  ·  %d%%" % [labels[i], roundi(volume*100.0)]
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    _focus_menu_controls(settings_ui)
 
 func _close_settings() -> void:
     settings_ui.visible = false
@@ -1955,6 +1993,12 @@ func _close_settings() -> void:
         _show_title()
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    if settings_source == "pause":
+        _focus_menu_controls(pause_ui, "AUDIO + ACCESSIBILITY")
+    elif settings_source == "desk" and playing:
+        _focus_menu_controls(desk_ui)
+    else:
+        _focus_menu_controls(title_ui, "AUDIO + ACCESSIBILITY")
 
 func _create_new_game_confirm_ui(parent: Node) -> void:
     new_game_confirm_ui = _panel(parent, Vector2(355, 216), Vector2(570, 278), Color(0.055,0.09,0.09,0.99))
@@ -1971,11 +2015,13 @@ func _request_new_game() -> void:
     if FileAccess.file_exists(SAVE_PATH) or FileAccess.file_exists(SAVE_PATH + ".bak"):
         new_game_confirm_ui.visible = true
         Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+        _focus_menu_controls(new_game_confirm_ui, "CANCEL")
     else:
         _new_game()
 
 func _cancel_new_game() -> void:
     new_game_confirm_ui.visible = false
+    _focus_menu_controls(title_ui, "NEW GAME")
 
 func _confirm_new_game() -> void:
     new_game_confirm_ui.visible = false
@@ -2075,6 +2121,7 @@ func _open_help() -> void:
     pause_ui.visible = false
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     _refresh_tutorial_ui()
+    _focus_menu_controls(help_ui)
 
 func _close_help() -> void:
     help_ui.visible = false
@@ -2089,6 +2136,12 @@ func _close_help() -> void:
     else:
         _show_title()
     _refresh_ui()
+    if help_source == "pause":
+        _focus_menu_controls(pause_ui, "CONTROLS / TUTORIAL")
+    elif help_source == "desk":
+        _focus_menu_controls(desk_ui, "HELP")
+    elif help_source == "title":
+        _focus_menu_controls(title_ui, "CONTROLS / HOW TO PLAY")
 
 func _restart_tutorial() -> void:
     if not playing:
@@ -2179,6 +2232,7 @@ func _show_title() -> void:
     _refresh_tutorial_ui()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     audio_music.stop()
+    _focus_menu_controls(title_ui, "NEW GAME")
 
 func _new_game() -> void:
     new_game_confirm_ui.visible = false

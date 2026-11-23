@@ -1,0 +1,76 @@
+# Canonical SOURCE archive, not retail distribution. Runs ONLY when this workflow changes
+# or when explicitly requested. No periodic builds or version-number churn.
+name: P05 canonical source snapshot (tested Windows gameplay SHA)
+on:
+  push:
+    paths:
+      - ".github/workflows/canonical_source_snapshot.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  archive_verified_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify that game code matches previously successful Windows QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          TESTED_SHA="b2958e05119fc13054e72112282dab16ccfcd607"
+          git cat-file -e "$TESTED_SHA^{commit}"
+          # Documentation and this backup workflow may differ, but tested gameplay must not.
+          changes="$(git diff --name-only "$TESTED_SHA" HEAD -- main.tscn project.godot export_presets.cfg scripts tests assets licenses tools)"
+          if [ -n "$changes" ]; then
+            echo "::error::Gameplay files changed since the last successful Windows 23/23 run:"
+            echo "$changes"
+            exit 1
+          fi
+          echo "Verified gameplay content matches successful Windows run: $TESTED_SHA"
+      - name: Produce COMPLETE tracked-source ZIP and SHA-256 manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, subprocess, zipfile
+          from pathlib import Path
+          files=[p.decode('utf8') for p in subprocess.check_output(['git','ls-files','-z']).split(b'\x00') if p]
+          must={'project.godot','main.tscn','scripts/shop.gd','scripts/healthy_play.gd','scripts/privacy_safety.gd','export_presets.cfg','licenses/USED_ASSET_PROVENANCE.csv','README_中文.md'}
+          assert must.issubset(set(files)),f"Missing critical files: {must-set(files)}"
+          assets=[p for p in files if p.startswith('assets/')]
+          assert len(assets)>=130, f"Expected 130+ tracked media files, got {len(assets)}"
+          tests=[p for p in files if p.startswith('tests/qa_') and p.endswith('.gd')]
+          assert len(tests)==23, f"Expected exactly 23 native QA scripts; got {len(tests)}"
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          manifest={'project':'LCG-P05 Old Things, New Days','type':'COMPLETE_GODOT_DEVELOPER_SOURCE_NOT_RETAIL','source_commit':sha,'last_successful_windows_23_suites':'b2958e05119fc13054e72112282dab16ccfcd607','source_files':len(files),'asset_files':len(assets),'native_qa_scripts':len(tests),'files':{}}
+          for name in files:
+              p=Path(name)
+              assert p.is_file(),f"Tracked source is missing: {name}"
+              manifest['files'][name]=hashlib.sha256(p.read_bytes()).hexdigest()
+          Path('SOURCE_INTEGRITY_MANIFEST.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
+          zpath=Path('LCG_P05_COMPLETE_GODOT_SOURCE_VERIFIED.zip')
+          with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED,compresslevel=8,allowZip64=True) as z:
+              for name in files:
+                  z.write(name,name)
+              z.write('SOURCE_INTEGRITY_MANIFEST.json','SOURCE_INTEGRITY_MANIFEST.json')
+              z.writestr('SOURCE_ARCHIVE_README.txt','Source-only Godot 4.4.1 project. NOT approved for public/retail distribution.\nWindows 23/23 QA was verified at the commit recorded in the manifest.\nOpen project.godot in the Godot editor; do not distribute the source ZIP to players.\n')
+          with zipfile.ZipFile(zpath) as z:
+              assert z.testzip() is None
+              for name,expected in manifest['files'].items():
+                  assert hashlib.sha256(z.read(name)).hexdigest()==expected, name
+          Path('SOURCE_ZIP_SHA256.txt').write_text(f'{hashlib.sha256(zpath.read_bytes()).hexdigest()}  {zpath.name}\n',encoding='utf8')
+          print(f"COMPLETE SOURCE ARCHIVE VERIFIED: {len(files)} files, {len(assets)} media assets, {len(tests)} QA suites, SHA {sha}")
+          PY
+      - name: Upload canonical source and integrity evidence for Drive sync
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCG-P05_COMPLETE_SOURCE_SNAPSHOT_FOR_DRIVE
+          path: |
+            LCG_P05_COMPLETE_GODOT_SOURCE_VERIFIED.zip
+            SOURCE_ZIP_SHA256.txt
+          if-no-files-found: error
+          retention-days: 14

@@ -5,28 +5,39 @@
 ## 已完成的先决工作（以 GitHub 实际日志为证）
 
 - 源码和 10 个缺失外部 PNG 路径已进入 GitHub，50 个 GLB 的外部纹理 URI 均能解析。
-- 来源登记表已更新为 125 条，五种独立纹理的 Git blob 与 Kenney CC0 固定镜像匹配。
+- 来源登记表现为 132 条：原先 10 个 Kenney GLB 外部 PNG 路径 + 7 个由合法 FBX 自动提取的 PNG 均已核对来源与文件哈希。
 - Godot 4.4.1 在 Linux Xvfb 实际执行过 23 组 QA，23/23 均具备退出码 0、零引擎错误和明确 PASS marker。
 - 严格的 Linux 编辑器导入尚有 4 条 Vulkan 初始化 ERROR；Windows 验证不应直接继承“通过”结论。
 - 证据：[`NATIVE_QA_TEXTURE_RECOVERY_AND_23_SUITES_2026-11-22.md`](NATIVE_QA_TEXTURE_RECOVERY_AND_23_SUITES_2026-11-22.md)。
 
-## 原计划剩余里程碑（严格顺序）
+## 原计划研发里程碑（按最新实际进度标记）
+
+## 当前状态更新（2026-11-23）
+
+- **W1 Windows 真正 Godot 4.4.1 原生引擎导入、主场景和 23/23 QA：PASS。**
+- **W2 Windows INTERNAL TEST ONLY 单文件 EXE 已构建并通过隔离目录 headless 启动检查：PASS。**
+- EXE 文件大小 **107,982,544 bytes**；SHA-256 `cf2a15095d11cc7475a38f57c9d34ecf282f16db5c610fa322edefa2b21c0a8c`。
+- [GitHub Actions 成功运行](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703) · [Windows EXE Artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703/artifacts/14780550862)。
+- 下一阶段实际待办是 **W3 Windows 真人可视化/声音/操作试玩**及 W4 上架前来源与商标、隐私复核。并没有发布商业版本。
+- 详细交接：[WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md](WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md)。
+
+
 
 ### W1 — Windows 原生引擎验证（自动化）
 
-- [ ] 在 Windows-2022 上运行 Godot 4.4.1 **Console** 编辑器；使用真正图形驱动完成全部 PNG/GLB 首次导入，记录全部 Godot ERROR。
-- [ ] Windows 主场景启动：退出码 0、零 Godot ERROR。
-- [ ] Windows 23 组本地原生测试：逐项校验其预期 PASS 标记、退出码、引擎错误行；不能只依据 Linux 23/23 判定。
-- [ ] 素材登记、许可、SHA-256、原生 QA 套件数量及入口仍须严格验证。
-- [ ] 不因 CI 环境缺 GPU 而假装编辑器完全无错误；收集真实失败日志并单独标记环境限制。
+- [x] 在 Windows-2022 上运行 Godot 4.4.1 **Console** 编辑器；使用真正图形驱动完成全部 PNG/GLB 首次导入，记录全部 Godot ERROR。
+- [x] Windows 主场景启动：退出码 0、零 Godot ERROR。
+- [x] Windows 23 组本地原生测试：逐项校验其预期 PASS 标记、退出码、引擎错误行；不能只依据 Linux 23/23 判定。
+- [x] 素材登记、许可、SHA-256、原生 QA 套件数量及入口仍须严格验证。
+- [x] 不因 CI 环境缺 GPU 而假装编辑器完全无错误；收集真实失败日志并单独标记环境限制。
 
 ### W2 — Windows 内部 EXE（仅 W1 全 PASS 后）
 
-- [ ] 使用原有 `tools/build_windows_release.ps1` 的严格验收链，生成对应 Godot 引擎组件许可快照。
-- [ ] 使用已配置的 `Windows Desktop` 导出预设，启用 Embed PCK。
-- [ ] 验证 EXE 有 Windows PE `MZ` 头、尺寸合理、没有旁边单独的 `.pck`。
-- [ ] 文件名固定 `LCG-P05_INTERNAL_TEST_ONLY.exe`；内部测试构建≠上架/营销/商用审查已通过。
-- [ ] 在干净 Windows 环境中验证实际双击启动，脱离原始 ZIP 和 Godot 编辑器也能读入 3D 模型。
+- [x] 使用原有 `tools/build_windows_release.ps1` 的严格验收链，生成对应 Godot 引擎组件许可快照。
+- [x] 使用已配置的 `Windows Desktop` 导出预设，启用 Embed PCK。
+- [x] 验证 EXE 有 Windows PE `MZ` 头、尺寸合理、没有旁边单独的 `.pck`。
+- [x] 文件名固定 `LCG-P05_INTERNAL_TEST_ONLY.exe`；内部测试构建≠上架/营销/商用审查已通过。
+- [ ] 在干净 Windows 环境中验证实际双击启动，脱离原始 ZIP 和 Godot 编辑器也能读入 3D 模型。（已完成 Windows 云端隔离目录、无源代码、无独立 PCK 的 headless EXE 启动：退出码 0；真人双击及可见 3D 场景仍 NOT TESTED）
 
 ### W3 — 真实玩家设备视觉与操作（需人工截图、录屏和反馈）
 

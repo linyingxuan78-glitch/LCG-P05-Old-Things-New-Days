@@ -51,3 +51,13 @@
 Never mark “complete”, “accessible to every player”, “rights-cleared”, “photosensitivity safe”, or “commercial release approved” without evidence.
 
 Game owner should not have to pay for redundant re-builds: retain the verified primary Drive source and one internal Windows EXE; label earlier content historical, and repackage only after a proven defect is fixed.
+
+## Gameplay enrichment and accessibility follow-up (2026-11-23)
+
+The player requested realistic second-hand shop situations without requiring literacy, and approved implementing as many as can safely fit existing mechanics. We integrated **one optional, reusable picture-first sorting/event station**, not dozens of expensive bespoke stories or 3D packs. Seven types now cover clothing recycling uncertainty (ABC's Anglican Belltower Op Shop free rack), appliance testing, private keepsakes, missing price labels, sorting mixed donations, clearing walking access and furniture repair. The existing 27 products, 9 shelves, save system and buy-once offline business model remain in place.
+
+There are **ten original vector symbols**, two large choice buttons, independently aligned pictogram/currency/storage/goodwill values, a large icon+number result, explicit keyboard focus, and a speaker button using the device's built-in English OS text-to-speech where available. No paid voice API or external service was added. Not all players have OS voices; the rest of the game is still partly text-led, so do **not** claim complete non-reading or universal child accessibility. No guaranteed full warehouse clearing is awarded simply because clothing was placed out for free.
+
+The exact implementation notes, real-world evidence, accessible UI details and caveats are in [PICTURE_FIRST_REAL_WORLD_THRIFT_EVENTS_2026-11-23.md](PICTURE_FIRST_REAL_WORLD_THRIFT_EVENTS_2026-11-23.md). This update uses existing art and is part of the **same** canonical game rather than a new versioned title.
+
+Strict Windows Godot 4.4.1 source/asset import, 23/23 native gameplay suites, embedded internal EXE export and source-free smoke test completed successfully in [run 45126152356](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45126152356). Interactive physical-device audio/TTS, customer routes and user accessibility still require genuine player testing.

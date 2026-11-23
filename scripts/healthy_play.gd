@@ -121,9 +121,21 @@ func _build_ui() -> void:
     break_button = _make_button(panel, "", Vector2(30, 193), Vector2(621, 49), _cycle_break_interval)
     daily_button = _make_button(panel, "", Vector2(30, 252), Vector2(621, 49), _cycle_daily_interval)
     _label(panel, "FAMILY PLAY PLAN", Vector2(30, 319), Vector2(621, 36), 23)
-    _label(panel,
+    # Explicit scroll clipping prevents long family instructions from expanding
+    # outside their panel, even when the system font has larger line metrics.
+    var family_scroll := ScrollContainer.new()
+    family_scroll.name = "FamilyGuidanceScroll"
+    family_scroll.position = Vector2(30, 360)
+    family_scroll.size = Vector2(620, 190)
+    family_scroll.custom_minimum_size = Vector2(620, 190)
+    family_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+    family_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+    family_scroll.focus_mode = Control.FOCUS_ALL
+    panel.add_child(family_scroll)
+    var family_copy := _label(family_scroll,
         "Children and caregivers can agree on a daily play plan,\nwith time for sleep, meals, homework and offline activities.\n\nThese settings offer reminders only; they are not a\npassword-protected lock. For enforceable limits, use\ndevice or platform parental controls.\n\nEverything is saved on this device only. No birth date,\nidentity, account or play history is uploaded.",
-        Vector2(30, 360), Vector2(620, 190), 16)
+        Vector2.ZERO, Vector2(587, 310), 16)
+    family_copy.custom_minimum_size = Vector2(587, 310)
     _make_button(panel, "BACK  /  CONTINUE", Vector2(197, 565), Vector2(290, 42), close_panel)
     panel.visible = false
     _refresh_panel()

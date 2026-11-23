@@ -6,6 +6,8 @@ on:
     paths:
       - ".github/workflows/windows_visual_capture_v0171.yml"
       - "tools/ci_capture_viewport_v0171.gd"
+      - "scripts/shop.gd"
+      - "tests/qa_v0161_privacy_and_pictograms.gd"
   workflow_dispatch:
 
 permissions:

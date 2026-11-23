@@ -7,6 +7,8 @@ on:
       - ".github/workflows/windows_visual_capture_v0171.yml"
       - "tools/ci_capture_viewport_v0171.gd"
       - "scripts/shop.gd"
+      - "scripts/secondhand_events.gd"
+      - "assets/ui_story_icons/**"
       - "scripts/healthy_play.gd"
       - "scripts/privacy_safety.gd"
       - "tests/qa_v0160_healthy_play.gd"
@@ -81,6 +83,8 @@ jobs:
               ("privacy_safety_1280x720.png",(1280,720)),
               ("shop_1280x720.png",(1280,720)),
               ("shop_1920x1080.png",(1920,1080)),
+              ("picture_first_sorting_1280x720.png",(1280,720)),
+              ("picture_first_sorting_result_1280x720.png",(1280,720)),
           ]:
               path=root/name
               raw=path.read_bytes()

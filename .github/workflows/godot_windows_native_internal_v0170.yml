@@ -9,6 +9,7 @@ on:
       - "scripts/**"
       - "tests/**"
       - "project.godot"
+      - "documentation/windows_visual_previews/.gitignore"
       - "main.tscn"
   workflow_dispatch:
 

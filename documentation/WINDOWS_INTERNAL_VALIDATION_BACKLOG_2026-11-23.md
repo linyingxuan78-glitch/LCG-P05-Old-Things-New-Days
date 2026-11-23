@@ -63,3 +63,9 @@
 每个手动测试应记录日期、Windows 版本、硬件配置、Godot / EXE 版本、执行者、操作步骤、预期结果、实际结果（PASS / FAIL / NOT TESTED）、截图/录像/日志路径；未执行时一律填 NOT TESTED。
 
 **边界：** 不创建 GitHub Release、不上传 itch.io、不声称已完成商标注册或 Windows 玩家体验验收。Google Drive 原始最新版源码 ZIP 保持不变。
+
+## W3 执行准备更新（2026-11-23）
+
+- [x] 15 项真人 Windows 试玩验收步骤、证据格式、故障严重度及 PASS/FAIL/NOT TESTED 规则已整理为 [`W3_WINDOWS_HUMAN_PLAYTEST_EXECUTION_KIT_2026-11-23.md`](W3_WINDOWS_HUMAN_PLAYTEST_EXECUTION_KIT_2026-11-23.md)。**这是执行准备完成，不代表 W3 真人验收完成。**
+- [ ] 真人 Windows 设备执行上述 15 项并提供可复核的截图/录屏/日志；在取得证据前保留 NOT TESTED。
+- [ ] 2026-11-30 UTC 之前将 GitHub Actions 内测 EXE Artifact 保存至长期备份位置；自动跨连接器上传尝试未成功，不能标记已备份。

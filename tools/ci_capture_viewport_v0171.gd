@@ -49,6 +49,26 @@ func _run_capture() -> void:
     await create_timer(3.0).timeout
     var menu_ok: bool = await _capture("menu_1280x720", Vector2i(1280, 720))
 
+    # Capture accessibility options before playing, including font/contrast toggles.
+    # qa_mode ensures this screenshot test never persists simulated settings.
+    shop.call("_open_settings_menu")
+    await create_timer(0.4).timeout
+    var settings_ok: bool = await _capture("settings_default_1280x720", Vector2i(1280, 720))
+    shop.set("large_text", true)
+    shop.set("high_contrast", true)
+    shop.call("_apply_accessibility")
+    shop.call("_refresh_accessibility_buttons")
+    await create_timer(0.4).timeout
+    var settings_large_ok: bool = await _capture("settings_large_contrast_1280x720", Vector2i(1280, 720))
+    shop.call("_close_settings")
+    shop.call("_open_help")
+    await create_timer(0.4).timeout
+    var help_ok: bool = await _capture("help_keyboard_1280x720", Vector2i(1280, 720))
+    shop.call("_close_help")
+    shop.set("large_text", false)
+    shop.set("high_contrast", false)
+    shop.call("_apply_accessibility")
+
     # Enter the game through the same method used in native smoke tests.
     shop.call("_new_game")
     await create_timer(2.0).timeout
@@ -64,8 +84,8 @@ func _run_capture() -> void:
     # Let deferred resource releases settle before the GLES3 renderer shuts down.
     await process_frame
     await process_frame
-    if menu_ok and shop_720_ok and shop_1080_ok:
-        print("VISUAL QA CAPTURE PASSED: 3 real rendered PNGs at 720p and 1080p (visual review still required)")
+    if menu_ok and settings_ok and settings_large_ok and help_ok and shop_720_ok and shop_1080_ok:
+        print("VISUAL QA CAPTURE PASSED: 6 real rendered PNGs including large text/high contrast (visual review still required)")
         quit(0)
     else:
         push_error("VISUAL QA FAILED: one or more captured frames unavailable")

@@ -131,6 +131,7 @@ func _build_ui() -> void:
     family_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     family_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
     family_scroll.focus_mode = Control.FOCUS_ALL
+    family_scroll.clip_contents = true
     panel.add_child(family_scroll)
     var family_copy := _label(family_scroll,
         "Children and caregivers can agree on a daily play plan,\nwith time for sleep, meals, homework and offline activities.\n\nThese settings offer reminders only; they are not a\npassword-protected lock. For enforceable limits, use\ndevice or platform parental controls.\n\nEverything is saved on this device only. No birth date,\nidentity, account or play history is uploaded.",

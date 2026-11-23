@@ -1120,18 +1120,20 @@ func _create_picture_guides(parent: Node) -> void:
     for icon_id in range(4):
         var image := TextureRect.new()
         image.texture = load("res://assets/ui_guides/guide_%d.png" % icon_id)
-        image.position = Vector2(14 + icon_id * 83, 9)
-        image.size = Vector2(54, 54)
+        image.position = Vector2(20 + icon_id * 83, 8)
+        image.size = Vector2(42, 42)
         image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
         image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
         image.mouse_filter = Control.MOUSE_FILTER_IGNORE
         pictogram_panel.add_child(image)
         pictogram_icons.append(image)
-        var caption := _text(pictogram_panel, Vector2(8 + icon_id * 83, 65), Vector2(75, 25), 13, Color("f5ecde"))
+        var caption := _text(pictogram_panel, Vector2(8 + icon_id * 83, 54), Vector2(75, 35), 12, Color("f5ecde"))
         caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-        caption.text = ["BUY", "PLACE", "SELL", "DAY"][icon_id]
+        caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+        # Two-line captions stay within each 83px cell at both 720p and 1080p.
+        caption.text = ["BUY\nOK", "PLACE\nWAIT", "SELL\nWAIT", "DAY\nOK"][icon_id]
         pictogram_labels.append(caption)
-    pictogram_event = _text(pictogram_panel, Vector2(11, 96), Vector2(328, 27), 13, Color("f6e3ba"))
+    pictogram_event = _text(pictogram_panel, Vector2(11, 104), Vector2(328, 22), 12, Color("f6e3ba"))
     pictogram_event.text = "QUIET SHOP DAY"
 
 func _refresh_picture_guides() -> void:
@@ -1146,7 +1148,7 @@ func _refresh_picture_guides() -> void:
         # Ready/WAIT words accompany icon opacity; no gameplay cue relies on
         # green-versus-red or a color-only change.
         var action: String = ["BUY", "PLACE", "SELL", "DAY"][index]
-        pictogram_labels[index].text = action + (" OK" if enabled[index] else " WAIT")
+        pictogram_labels[index].text = action + ("\nOK" if enabled[index] else "\nWAIT")
     var small_labels: Dictionary = {"none":"CALM DAY", "rain":"RAIN · SLOWER VISITS", "delivery_delay":"DELIVERY LATE", "neighbour_tip":"LOCAL RECOMMENDATION", "donation_day":"DONATIONS TODAY"}
     pictogram_event.text = str(small_labels.get(day_event_id, "CALM DAY"))
 
@@ -1252,7 +1254,7 @@ func _create_title_ui(parent: Node) -> void:
     headline.text = "A COZY SECONDHAND SHOP"
     var subtitle := _text(title_ui, Vector2(80, 268), Vector2(420, 32), 16, Color("d1be8e"))
     subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    subtitle.text = "Little Cozy Games · prototype v0.16.8"
+    subtitle.text = "Little Cozy Games · development preview"
     var start_icon := TextureRect.new()
     start_icon.texture = load("res://assets/selected_v015/ui/icon_checkmark.png")
     start_icon.position = Vector2(105, 331)
@@ -1274,7 +1276,8 @@ func _create_title_ui(parent: Node) -> void:
     _button(title_ui, "PLAY TIME", Vector2(20, 537), Vector2(120, 35), _open_healthy_play)
     var safety_entry: Button = _button(title_ui, "SAFETY", Vector2(20, 490), Vector2(120, 37), _open_privacy_safety)
     safety_entry.tooltip_text = "Privacy, family safety and local save controls"
-    _button(title_ui, "QUIT TO DESKTOP", Vector2(431, 538), Vector2(130, 33), _quit_desktop)
+    var exit_button: Button = _button(title_ui, "QUIT GAME", Vector2(431, 538), Vector2(130, 33), _quit_desktop)
+    exit_button.tooltip_text = "Save and quit to desktop"
 
 func _create_desk_ui(parent: Node) -> void:
     desk_ui = _panel(parent, Vector2(168, 28), Vector2(942, 662), Color(0.06,0.125,0.115,0.98))

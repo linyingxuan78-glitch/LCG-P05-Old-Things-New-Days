@@ -345,6 +345,11 @@ func _ready() -> void:
 func _notification(what: int) -> void:
     if what == NOTIFICATION_WM_CLOSE_REQUEST and not exit_committed and is_inside_tree():
         _quit_desktop()
+    elif what == NOTIFICATION_EXIT_TREE:
+        # The custom pointer is stored in the global Input singleton, not this
+        # scene. Release its reference before the Windows rendering server
+        # shuts down, including QA scene teardown and normal application exit.
+        Input.set_custom_mouse_cursor(null)
 
 func _reset_model() -> void:
     cash = 80

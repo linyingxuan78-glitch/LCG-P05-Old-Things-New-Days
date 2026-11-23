@@ -20,7 +20,7 @@ The scenarios are **original educational adaptations**, not verbatim scripts or 
 
 ## Low-literacy and accessibility design
 
-- **Nine original SVG pictograms** (shirt/free rack, box, check/inspection, return arrow, repair, sorting bins, broom/clear path, care/heart, money). Sourced within this project, all registered with individual SHA-256 in `licenses/USED_ASSET_PROVENANCE.csv`.
+- **Ten original SVG pictograms** (shirt/free rack, box, check/inspection, return arrow, repair, sorting bins, broom/clear path, care/heart, money, speaker). Sourced within this project, all registered with individual SHA-256 in `licenses/USED_ASSET_PROVENANCE.csv`.
 - One **large familiar item picture** from the existing 27 product preview textures per incident.
 - Two **large icon-first decision buttons**, each with 1–2 brief words plus an optional longer hover explanation; no multi-page reading requirement for the decision menu.
 - **Immediate visible currency / backroom / neighbour-goodwill counters**, each alongside a distinct symbol (not communicated only through colour). The outcome remains visible until the player selects CONTINUE.
@@ -42,3 +42,9 @@ The scenarios are **original educational adaptations**, not verbatim scripts or 
 - This is the same **one-time-purchase/offline** game. The user's bigger library of dozens of real-life anecdotes remains research material, not dozens of mandatory cutscenes or a new shop game series.
 - The original strict **23 Godot QA script count is preserved**; new regression checks are in `tests/qa_v0156_events_and_usability.gd`. The last clean Windows run must be checked before replacing the single canonical Drive source and internal EXE.
 - Not a distribution-ready release: real hardware control, readable visual checks with non-readers, original licensed music comparison and business/storefront compliance remain open release gates.
+
+## Accessible result and optional device speech update
+
+The seven event types and 23-suite game-test structure are unchanged. The event screen now separates the three pictogram-aligned counters (money, storage and goodwill) and presents its completed action as a **large symbol with a large number**, with short optional explanatory text below. A speaker-icon button requests the installed **English operating-system text-to-speech voice** through Godot 4.4, without any external API, account or paid service. If an English system voice is unavailable, the speaker is disabled and all picture-led controls still work. This does not provide whole-game audio, multilingual narration or certified non-reading support; playback on physical hardware needs testing.
+
+Official device-TTS reference: https://docs.godotengine.org/en/4.4/tutorials/audio/text_to_speech.html

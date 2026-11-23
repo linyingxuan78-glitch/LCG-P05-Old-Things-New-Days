@@ -38,7 +38,7 @@ func _run() -> void:
     if picture_labels.size() == 4 and event_label != null:
         for item in picture_labels:
             var caption_label: Label = item as Label
-            _check(caption_label != null and caption_label.text.contains("\\n"), "status label must be split across two readable lines", errors)
+            _check(caption_label != null and caption_label.text.contains("\n"), "status label must be split across two readable lines", errors)
             if caption_label != null:
                 _check(caption_label.position.y + caption_label.size.y < event_label.position.y, "status label overlaps event banner", errors)
     var title_panel: Panel = shop.get("title_ui") as Panel

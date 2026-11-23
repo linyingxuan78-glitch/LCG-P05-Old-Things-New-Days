@@ -69,7 +69,14 @@ jobs:
           from pathlib import Path
           import struct
           root=Path("documentation/windows_visual_previews")
-          for name,wh in [("menu_1280x720.png",(1280,720)),("shop_1280x720.png",(1280,720)),("shop_1920x1080.png",(1920,1080))]:
+          for name,wh in [
+              ("menu_1280x720.png",(1280,720)),
+              ("settings_default_1280x720.png",(1280,720)),
+              ("settings_large_contrast_1280x720.png",(1280,720)),
+              ("help_keyboard_1280x720.png",(1280,720)),
+              ("shop_1280x720.png",(1280,720)),
+              ("shop_1920x1080.png",(1920,1080)),
+          ]:
               path=root/name
               raw=path.read_bytes()
               if len(raw)<5000:raise SystemExit(f"{name}: PNG too small: {len(raw)} bytes")

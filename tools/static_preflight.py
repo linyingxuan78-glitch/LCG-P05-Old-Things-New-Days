@@ -3,8 +3,8 @@ from pathlib import Path
 BASE=Path(__file__).resolve().parents[1]
 errors=[]
 info={}
-script=(BASE/'scripts/shop.gd').read_text()
-project=(BASE/'project.godot').read_text()
+script=(BASE/'scripts/shop.gd').read_text(encoding="utf-8")
+project=(BASE/'project.godot').read_text(encoding="utf-8")
 
 # Simple lexical preflight - not a GDScript engine/parser.
 def check_balance(text,name):
@@ -36,11 +36,11 @@ def check_balance(text,name):
     if stack:errors.append(f'{name}: unclosed {stack[-1]}')
 
 for file in BASE.rglob('*.gd'):
-    check_balance(file.read_text(),str(file.relative_to(BASE)))
+    check_balance(file.read_text(encoding="utf-8"),str(file.relative_to(BASE)))
 
 # Check resource names and files.
-refs=set(re.findall(r'res://([^"\n]+)', '\n'.join(x.read_text() for x in BASE.rglob('*.gd'))))
-refs.update(re.findall(r'path="res://([^"\n]+)"',(BASE/'main.tscn').read_text()))
+refs=set(re.findall(r'res://([^"\n]+)', '\n'.join(x.read_text(encoding="utf-8") for x in BASE.rglob('*.gd'))))
+refs.update(re.findall(r'path="res://([^"\n]+)"',(BASE/'main.tscn').read_text(encoding="utf-8")))
 missing=[]
 for ref in refs:
     if '%' in ref:continue
@@ -101,6 +101,6 @@ info={
  'sha256_gameplay_script':hashlib.sha256(script.encode()).hexdigest(),
 }
 path=BASE/'documentation/STATIC_QA_CURRENT.json'
-path.write_text(json.dumps(info,indent=2,ensure_ascii=False))
+path.write_text(json.dumps(info,indent=2,ensure_ascii=False),encoding="utf-8")
 print(json.dumps(info,indent=2,ensure_ascii=False))
 sys.exit(1 if errors else 0)

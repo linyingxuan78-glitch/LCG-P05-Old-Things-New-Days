@@ -38,7 +38,34 @@ func _run() -> void:
     _check(not bool(shop.get("gentle_camera")) and is_equal_approx(camera.fov, 74.0), "Camera toggle ineffective", problems)
     shop.call("_toggle_accessibility", 6)
     _check(not bool(shop.get("soft_lighting")) and is_equal_approx(sun.light_energy, 0.95), "Lighting toggle ineffective", problems)
+    # Godot 4.4 keyboard focus must be explicit, including settings before play.
+    shop.call("_show_title")
+    var main_menu: Panel = shop.get("title_ui") as Panel
+    var focus_owner: Control = root.gui_get_focus_owner()
+    _check(focus_owner is Button and (focus_owner as Button).text == "NEW GAME", "Title menu must focus NEW GAME for keyboard users", problems)
+    if focus_owner != null:
+        _check(not focus_owner.focus_next.is_empty() and not focus_owner.focus_previous.is_empty(), "Title menu needs explicit Tab and Shift+Tab focus order", problems)
+    shop.call("_open_settings_menu")
+    var settings_panel: Panel = shop.get("settings_ui") as Panel
+    focus_owner = root.gui_get_focus_owner()
+    _check(focus_owner != null and focus_owner.get_parent() == settings_panel, "Settings must focus a visible control", problems)
+    shop.call("_close_settings")
+    focus_owner = root.gui_get_focus_owner()
+    _check(focus_owner is Button and (focus_owner as Button).text == "AUDIO + ACCESSIBILITY", "Returning to title must restore settings button focus", problems)
+    shop.call("_open_help")
+    var guide_panel: Panel = shop.get("help_ui") as Panel
+    focus_owner = root.gui_get_focus_owner()
+    _check(focus_owner != null and focus_owner.get_parent() == guide_panel, "Help panel needs a keyboard focus target", problems)
+    shop.call("_close_help")
+    focus_owner = root.gui_get_focus_owner()
+    _check(focus_owner is Button and (focus_owner as Button).text == "CONTROLS / HOW TO PLAY", "Closing help must restore title controls focus", problems)
     shop.call("_new_game")
+    shop.call("_open_pause")
+    var paused_panel: Panel = shop.get("pause_ui") as Panel
+    focus_owner = root.gui_get_focus_owner()
+    _check(focus_owner is Button and focus_owner.get_parent() == paused_panel and (focus_owner as Button).text == "RESUME", "Pause screen needs keyboard RESUME focus", problems)
+    shop.call("_resume_pause")
+
     var tutorial: Panel = shop.get("tutorial_panel") as Panel
     var picture: Panel = shop.get("pictogram_panel") as Panel
     var illustration: TextureRect = shop.get("tutorial_icon") as TextureRect

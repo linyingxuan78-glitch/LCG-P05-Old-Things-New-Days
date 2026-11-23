@@ -89,6 +89,62 @@ func _run() -> void:
             issues.append("Identical visitor model spawned back-to-back")
         prev_appearance = current_appearance
         shop.call("_dismiss_customer")
+    # New picture-first store decisions share the old economy and safe-save path.
+    # A scenario is optional; no forced modal or long story text interrupts day 1.
+    shop.call("_new_game")
+    var sorter: Control = shop.get("secondhand_events") as Control
+    if sorter == null:
+        issues.append("Optional sorting and free-rack module missing")
+    else:
+        var start_state: Dictionary = sorter.call("export_state")
+        if str(start_state.get("active_id", "")) != "" or int(start_state.get("boxes", 0)) != 0:
+            issues.append("Tutorial must begin without donation events")
+        shop.call("_advance_day")  # Day 2: remain calm.
+        if str((sorter.call("export_state") as Dictionary).get("active_id", "")) != "":
+            issues.append("First two days must not force a sorting event")
+        shop.call("_advance_day")  # Day 3: first optional scenario.
+        var event_state: Dictionary = sorter.call("export_state")
+        if str(event_state.get("active_id", "")) != "textile_surplus" or int(event_state.get("boxes", 0)) != 2:
+            issues.append("Day 3 must offer the optional overflow/free-rack problem")
+        shop.call("_toggle_desk")
+        sorter.call("open")
+        if not bool(sorter.call("is_open")):
+            issues.append("Picture-first sorting panel cannot open from shop desk")
+        else:
+            if (sorter.get("item_picture") as TextureRect).texture == null or (sorter.get("action_icon") as TextureRect).texture == null:
+                issues.append("Sorting panel lacks recognizable item and action pictures")
+            if (sorter.get("first") as Button).icon == null or (sorter.get("second") as Button).icon == null:
+                issues.append("Decision buttons need original, action-specific pictograms")
+            if root.gui_get_focus_owner() == null:
+                issues.append("Sorting panel needs keyboard focus for non-mouse users")
+        sorter.call("_choose", 0)
+        var after_choice: Dictionary = sorter.call("export_state")
+        if not bool(after_choice.get("handled", false)):
+            issues.append("Sorting decision should be marked resolved before saving")
+        if not (sorter.get("outcome") as Label).visible or not (sorter.get("done_button") as Button).visible:
+            issues.append("Sorting consequence must be shown in a persistent, visible result panel")
+        var original_boxes: int = int(after_choice.get("boxes", 0))
+        var original_goodwill: int = int(after_choice.get("goodwill", 0))
+        sorter.call("_choose", 0)
+        var twice: Dictionary = sorter.call("export_state")
+        if int(twice.get("boxes", 0)) != original_boxes or int(twice.get("goodwill", 0)) != original_goodwill:
+            issues.append("One event must not reward the same choice twice")
+        sorter.call("import_state", after_choice, int(shop.get("day")), int(shop.get("total_sales")))
+        var restored: Dictionary = sorter.call("export_state")
+        if restored != after_choice:
+            issues.append("Sorting outcome was not restored by save-data import")
+        sorter.call("_close")
+        if not (shop.get("desk_ui") as Panel).visible:
+            issues.append("Closing optional incident should return to the shop desk")
+        # Unpriced and keepsake cases should never sell a privately owned or unchecked item.
+        for index in range(1, 7):
+            shop.call("_advance_day")
+        var current_event: Dictionary = sorter.call("export_state")
+        if int(current_event.get("goodwill", 0)) < 0 or int(current_event.get("goodwill", 0)) > 12:
+            issues.append("Goodwill should be bounded")
+        if int(current_event.get("boxes", 0)) < 0 or int(current_event.get("boxes", 0)) > 8:
+            issues.append("Backroom must never exceed physical storage limit")
+    # Existing 23 native QA suites remain unchanged in number.
     if issues.is_empty():
         print("QA 0156 PASSED: picture HUD preferences, low-frequency events, visitor negotiation and stock accounting, and varied adjacent character appearances")
         quit(0)

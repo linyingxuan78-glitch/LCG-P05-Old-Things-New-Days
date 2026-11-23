@@ -11,6 +11,10 @@ on:
       - "project.godot"
       - "documentation/windows_visual_previews/.gitignore"
       - "main.tscn"
+      - ".gitattributes"
+      - "assets/ui_story_icons/**"
+      - "licenses/USED_ASSET_PROVENANCE.csv"
+      - "licenses/PLAYER_THIRD_PARTY_NOTICES.txt"
   workflow_dispatch:
 
 permissions:

@@ -6,12 +6,14 @@ A Godot **4.4.1** first-person secondhand shop-management prototype. Players man
 
 **Windows INTERNAL TEST ONLY EXE is built and tested in CI.** The engine imported all resources on Windows without Godot ERROR lines, the main scene started, and **all 23 original native gameplay QA suites passed**. The strict export succeeded, 132 media files have registered provenance, and the resulting single-file EXE started from a source-free temporary Windows directory with exit 0 and no runtime ERROR.
 
-- [Successful Windows GitHub Actions run](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703)
-- [Download internal Windows test artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45088442703/artifacts/14780550862)
-- EXE: `LCG-P05_INTERNAL_TEST_ONLY.exe` (**107,982,544 bytes**, SHA-256 `cf2a15095d11cc7475a38f57c9d34ecf282f16db5c610fa322edefa2b21c0a8c`)
+- [Successful Windows GitHub Actions run](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298)
+- [Download internal Windows test artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298/artifacts/14783588031)
+- EXE: `LCG-P05_INTERNAL_TEST_ONLY.exe` (**107,982,928 bytes**, SHA-256 `31a7596d0a1d2fcf01895026871ec68724b72240db2903fda870eba3bf9ab02c`)
 - [Evidence and next human playtest steps](documentation/WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md) · [Current milestone checklist](documentation/WINDOWS_INTERNAL_VALIDATION_BACKLOG_2026-11-23.md)
 
-**Important limitations:** Headless standalone startup is not a human-controlled graphical test. Real Windows screen rendering (3D lighting, models, animations, palettes), audio playback, collisions, keyboard/mouse controls, save persistence, and accessibility are **NOT YET ACCEPTED**. This build has not been uploaded to any public storefront or authorized for commercial release. Linux Xvfb importer reports separate Vulkan initialization errors despite the clean native Windows importer; both records remain preserved.
+**New W3 visual milestone:** Real Godot 4.4.1 Windows software-rendered **720p/1080p screenshots** exposed overlapping top-right icons and an overflowing menu button; both have been fixed and visually rechecked. The [W3 visual audit](documentation/W3_AUTOMATED_VISUAL_AUDIT_2026-11-23.md) explains the remaining screenshot-harness **renderer-shutdown errors**. The independent strict Windows import/23-suite/build/standalone chain above **passed**.
+
+**Important limitations:** Cloud screenshots and headless standalone startup are **not a human-controlled physical Windows playtest**. Real user-device graphics/color fidelity, character animations, audio playback, collisions, keyboard/mouse control, save persistence, and accessibility are **NOT YET ACCEPTED**. This build is not an authorized public or commercial release. Linux Xvfb importer reports separate Vulkan initialization errors; all such evidence remains visible.
 
 ## Source and licensing
 

@@ -70,11 +70,11 @@ BUNDLED THIRD-PARTY MEDIA (author / source set / declared license)
   https://kenney.nl/assets/ui-pack
 
 PROJECT-AUTHORED / SOURCE-DERIVED MEDIA
-25 project-authored or third-party-derived media files are itemized in the provenance register.
+26 project-authored or third-party-derived media files are itemized in the provenance register.
 Derived previews retain their underlying creator and license in the register.
 
 DETAILED RECORD
-141 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
+142 media files listed in licenses/USED_ASSET_PROVENANCE.csv with SHA-256.
 Licenses and originals are retained in the project as documented; no claim that every source is copyright-exclusive.
 
 GAME ENGINE

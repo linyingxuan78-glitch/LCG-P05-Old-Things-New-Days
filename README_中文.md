@@ -1,3 +1,7 @@
+> **经营事件与低阅读门槛升级（2026-11-23，已通过 Windows 原生测试）：** 已将七种真实经营情境的原创改编加入同一份二手店游戏：免费衣架、旧电器检查、私人物品归还、无价签商品、捐赠整理、通道障碍、家具修复。经营桌通过图标 SORT 自愿进入，**不强迫玩家读长文本**；两张大型图示按钮、独立状态符号、处理后大图标＋数字，以及可选的 Windows 英语系统朗读（无需联网收费服务）用于辅助理解。第一二营业日仍是安静教学；旧存档兼容。语音仅覆盖新增事件，尚非全游戏无字玩法。
+>
+> **本次真实 Windows 4.4.1 Godot 23/23 原生测试、单文件内测 EXE 导出和独立启动均通过**：[测试记录](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45126152356)。原来的 27 种商品、9 个货架、无障碍设置、安全存档和买断制／离线方向未删除。最新源码与 EXE 正在统一回写现有 Google Drive LATEST 文件 ID，不另加新版本号。研究资料不代表全部 48 件事都已在游戏里实现，具体见 [经营事件完成清单](documentation/PICTURE_FIRST_REAL_WORLD_THRIFT_EVENTS_2026-11-23.md)。
+>
 > **统一主工程说明（2026-11-23）：此项目只维护一个连续的游戏，不再为了修修补补不断增加版本号。** 最新源代码已从 GitHub 全量整理并回写到 [Google Drive 唯一 LATEST 源码 ZIP](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view)。原 11月22日版本已改名备份，不会覆盖；开发留档和修改均以 Git commit 记录。
 >
 > **最新经过验证的 Windows 内测 EXE**：[Google Drive 内测 ZIP](https://drive.google.com/file/d/1DU1toHcscDcYNDzj4szfH8afHkTuE1I8/view)；[Godot 4.4.1 Windows 23/23 QA、EXE 导出与隔离启动全部 PASS](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)。**注意：只是内部测试，绝不代表正式发售或真人试玩已验收。**

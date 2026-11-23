@@ -69,3 +69,12 @@
 - [x] 15 项真人 Windows 试玩验收步骤、证据格式、故障严重度及 PASS/FAIL/NOT TESTED 规则已整理为 [`W3_WINDOWS_HUMAN_PLAYTEST_EXECUTION_KIT_2026-11-23.md`](W3_WINDOWS_HUMAN_PLAYTEST_EXECUTION_KIT_2026-11-23.md)。**这是执行准备完成，不代表 W3 真人验收完成。**
 - [ ] 真人 Windows 设备执行上述 15 项并提供可复核的截图/录屏/日志；在取得证据前保留 NOT TESTED。
 - [ ] 2026-11-30 UTC 之前将 GitHub Actions 内测 EXE Artifact 保存至长期备份位置；自动跨连接器上传尝试未成功，不能标记已备份。
+
+## W3 实际自动画面验证及新版内部构建（2026-11-23）
+
+- [x] 在 GitHub Windows 2022 的 Godot 4.4.1 软件渲染环境实际截取 720p 菜单、720p 店铺和 1080p 店铺 PNG，证实有可见游戏画面（不是人类试玩）。
+- [x] 根据画面修复四个顶部状态图标与文字相互遮挡、主菜单退出按钮超出面板，以及旧版版本副标题。添加布局回归断言。详见 [`W3_AUTOMATED_VISUAL_AUDIT_2026-11-23.md`](W3_AUTOMATED_VISUAL_AUDIT_2026-11-23.md)。
+- [x] 修改后的工程在 **Windows 原生 Godot 4.4.1 23/23 QA、内测 EXE 严格导出、独立无源码启动**全部通过：[run 45096952298](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298)。新 EXE 107,982,928 字节，SHA-256 `31a7596d0a1d2fcf01895026871ec68724b72240db2903fda870eba3bf9ab02c`。
+- [ ] 截图专用开发工具退出时仍有 Godot ANGLE/GLES3 资源释放 ERROR，**截图工作流并非完整 PASS**；独立 Windows 游戏验收 PASS 与此项应分开记录。
+- [ ] 在真实 Windows 玩家设备上验收键盘鼠标、声音、存档、人物动画与碰撞；截图不能代替人工测试。
+- [ ] 将[新版内部 EXE 暂存包](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298/artifacts/14783588031)长期备份（GitHub Artifact 预计 2026-11-30 UTC 过期）。

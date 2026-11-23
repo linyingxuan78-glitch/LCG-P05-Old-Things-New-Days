@@ -1,3 +1,5 @@
+> **2026-11-23 ACTIVE RELEASE STATUS:** This page's previous table is preserved as historical evidence. The canonical source is [Google Drive LATEST](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view), 357 tracked files, 132 media, 23 native QA suites, byte-verified after upload. The most recent clean Windows Godot 4.4.1 run is [45105698738](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738), with 23/23 suites, internal EXE export, isolated startup PASS. Current EXE SHA-256 `2a5846dc4f0458c902fae0e22a8d5bf72c8a674aea7cf0260f6a96fa6d73993e`. **Public sale remains BLOCKED** until human PC controls/audio/save/animation check, original-music bytes, game/studio-name rights and marketplace rules are cleared. Use [one-time-purchase sign-off](ONE_TIME_PURCHASE_RELEASE_FREEZE_AND_SIGNOFF_2026-11-23.md) for active requirements. No further gameplay features until P0 issues are proven.
+
 # LCG-P05 — Current release gates (2026-11-23)
 
 **Windows internal EXE: BUILT and source-free smoke-tested. Public release: NOT APPROVED.**

@@ -162,6 +162,7 @@ func open_panel() -> void:
     panel.visible = true
     toast.visible = false
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    shop.call("_focus_menu_controls", panel)
 
 func close_panel() -> void:
     panel.visible = false
@@ -173,6 +174,10 @@ func close_panel() -> void:
     else:
         shop.call("_show_title")
     _save_local_preferences()
+    if source_menu == "pause":
+        shop.call("_focus_menu_controls", shop.get("pause_ui"), "HEALTHY PLAY / FAMILY")
+    else:
+        shop.call("_focus_menu_controls", shop.get("title_ui"), "PLAY TIME")
 
 func is_open() -> bool:
     return panel != null and panel.visible

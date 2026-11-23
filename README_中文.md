@@ -1,3 +1,9 @@
+> **当前发行验收事实（2026-11-23，最新）：** Windows Godot 4.4.1 原生导入、原定 **23/23** 套游戏测试、内部 EXE 导出和独立启动在 [最新版严格 Windows 流程](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45153165346) 均成功；旧的 10 张 Windows 真实截图和纹理退出清理在 [视觉流程](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45132214612) 通过。**游戏还不能对外发售，仍需要真人设备操作／听觉／显卡性能／图示理解，以及名称与商店账户审查。**
+>
+> **新增发行实际测试：** [独立进程真实保存与重新打开、四分辨率虚拟云端渲染、音频载入及英文系统语音能力](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45152027895) 已执行。保存恢复 PASS；八首 OGG 全部可载入；Windows runner 有两个英文系统语音。但**云端 Microsoft Basic Render Driver 1080p 软件渲染约 7.4 FPS，并不能当成用户实际显卡结果；实际音频也未被真人试听**。
+>
+> **音乐授权已补齐原文件证明：** [四首 hernandack CC0 OGG 原站逐字节 SHA-256 4/4 全匹配](documentation/MUSIC_ORIGINAL_BYTES_VERIFIED_2026-11-23.md)，不是只看网站写 CC0。发行最新依据：[当前验收表](documentation/RELEASE_CANDIDATE_SIGNOFF_CURRENT.md)及[尚未公开的买断制店铺文案](documentation/STORE_PAGE_DRAFT_UNPUBLISHED.md)。原有 Google Drive [LATEST 完整源码](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view)和[Windows 内测 EXE](https://drive.google.com/file/d/1DU1toHcscDcYNDzj4szfH8afHkTuE1I8/view)仍使用同一个文件 ID；下面较旧日期/版本号和测试证据仅作历史记录。
+
 > **经营事件与低阅读门槛升级（2026-11-23，已通过 Windows 原生测试）：** 已将七种真实经营情境的原创改编加入同一份二手店游戏：免费衣架、旧电器检查、私人物品归还、无价签商品、捐赠整理、通道障碍、家具修复。经营桌通过图标 SORT 自愿进入，**不强迫玩家读长文本**；两张大型图示按钮、独立状态符号、处理后大图标＋数字，以及可选的 Windows 英语系统朗读（无需联网收费服务）用于辅助理解。第一二营业日仍是安静教学；旧存档兼容。语音仅覆盖新增事件，尚非全游戏无字玩法。
 >
 > **本次真实 Windows 4.4.1 Godot 23/23 原生测试、单文件内测 EXE 导出和独立启动均通过**：[测试记录](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45126152356)。原来的 27 种商品、9 个货架、无障碍设置、安全存档和买断制／离线方向未删除。最新源码与 EXE 正在统一回写现有 Google Drive LATEST 文件 ID，不另加新版本号。研究资料不代表全部 48 件事都已在游戏里实现，具体见 [经营事件完成清单](documentation/PICTURE_FIRST_REAL_WORLD_THRIFT_EVENTS_2026-11-23.md)。

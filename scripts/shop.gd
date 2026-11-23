@@ -1226,6 +1226,13 @@ func _button(parent: Node, label_text: String, at: Vector2, size_2d: Vector2, on
     focus_style.border_color = Color("f4d186")
     focus_style.set_corner_radius_all(10)
     b.add_theme_stylebox_override("focus", focus_style)
+    # Preserve original soft green styles so the high-contrast toggle is reversible.
+    b.set_meta("ui_original_button_styles", {
+        "normal": normal_style.duplicate(),
+        "hover": hover_style.duplicate(),
+        "pressed": pressed_style.duplicate(),
+        "disabled": disabled_style.duplicate()
+    })
     b.focus_mode = Control.FOCUS_ALL
     parent.add_child(b)
     b.pressed.connect(on_press)
@@ -1942,6 +1949,19 @@ func _apply_accessibility_node(node: Node) -> void:
     elif node is Button and node.has_meta("ui_original_font_size"):
         var btn: Button = node as Button
         btn.add_theme_font_size_override("font_size", roundi(float(node.get_meta("ui_original_font_size")) * (1.12 if large_text else 1.0)))
+        # XAG 102 recommends at least 7:1 in high-contrast mode. White text
+        # over the old green hover style was only about 4:1; use black surfaces
+        # while the mode is enabled and restore exact originals on exit.
+        if node.has_meta("ui_original_button_styles"):
+            var originals: Dictionary = node.get_meta("ui_original_button_styles")
+            for state in ["normal", "hover", "pressed", "disabled"]:
+                if not originals.has(state):
+                    continue
+                var current_style: StyleBoxFlat = (originals[state] as StyleBoxFlat).duplicate() as StyleBoxFlat
+                if high_contrast:
+                    current_style.bg_color = Color("0d0d0d") if state != "disabled" else Color("212121")
+                    current_style.border_color = Color.WHITE if state != "disabled" else Color("b6b6b6")
+                btn.add_theme_stylebox_override(state, current_style)
     elif node is Panel and node.has_meta("ui_original_background"):
         var panel: Panel = node as Panel
         var flat: StyleBoxFlat = (panel.get_theme_stylebox("panel") as StyleBoxFlat).duplicate() as StyleBoxFlat

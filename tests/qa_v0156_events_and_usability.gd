@@ -115,6 +115,21 @@ func _run() -> void:
                 issues.append("Sorting panel lacks recognizable item and action pictures")
             if (sorter.get("first") as Button).icon == null or (sorter.get("second") as Button).icon == null:
                 issues.append("Decision buttons need original, action-specific pictograms")
+            var speaker: Button = sorter.get("speech_button") as Button
+            if speaker == null or speaker.icon == null:
+                issues.append("Optional listening icon must be visible for players who prefer voice")
+            if speaker != null and speaker.disabled != DisplayServer.tts_get_voices_for_language("en").is_empty():
+                issues.append("Optional English system speech must disable when no voice is installed")
+            var stat_boxes: Array = sorter.get("stat_labels")
+            if stat_boxes.size() != 3:
+                issues.append("Money, storage, and goodwill need three separate symbol-aligned counters")
+            else:
+                for stat_index in range(3):
+                    var field: Label = stat_boxes[stat_index] as Label
+                    if field == null or field.position.x < 270 or field.position.x > 630:
+                        issues.append("Decision counters are not aligned with their distinct pictograms")
+                    elif field.size.x > 120:
+                        issues.append("A long counter could overlap the next pictogram")
             if root.gui_get_focus_owner() == null:
                 issues.append("Sorting panel needs keyboard focus for non-mouse users")
         sorter.call("_choose", 0)

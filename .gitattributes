@@ -1,0 +1,3 @@
+# Keep source assets byte-stable across Windows/Linux checkouts.
+# SHA-256 provenance is calculated on original LF SVG bytes.
+*.svg text eol=lf

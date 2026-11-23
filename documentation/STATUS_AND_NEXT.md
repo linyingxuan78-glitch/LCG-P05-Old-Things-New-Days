@@ -1,3 +1,5 @@
+> **2026-11-23 current status — IMPORTANT:** The historical v0.16.2 section below is preserved for development provenance and is now **superseded**. The current Godot 4.4.1 Windows workflow [45105698738](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738) passed actual editor import, all 23 native suites, internal EXE export and source-free startup. Accessibility focus, reversible high-contrast buttons, and a scrollable family-guide page have been repaired. Read [official accessibility and original-plan comparison](ACCESSIBILITY_ORIGINAL_PLAN_COMPARISON_OFFICIAL_GUIDELINES_2026-11-23.md) and [W3 updated checklist](WINDOWS_INTERNAL_VALIDATION_BACKLOG_2026-11-23.md). Physical player-device input, sounds, animation, persistence and public release are **NOT YET VERIFIED**.
+
 # Current delivery status · v0.16.2
 
 **Source updated:** YES. **Static asset/source verification:** PASS. **Native Godot import/start:** NOT RUN (Godot not installed in this environment). **Windows EXE:** NOT BUILT. **Playable/release-ready:** NOT CERTIFIED.

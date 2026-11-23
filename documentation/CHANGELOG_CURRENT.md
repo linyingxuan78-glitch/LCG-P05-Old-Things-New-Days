@@ -1,3 +1,5 @@
+> **2026-11-23 CURRENT STATUS / FREEZE:** One canonical buy-once offline Godot game. Original bug fixes and accessibility features incorporated into the [Drive LATEST complete source](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view); [23/23 Windows Godot 4.4.1 + internal EXE QA PASS](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738). Older numbered changelog below is **historical only**. Stop changing minor version numbers without evidenced defects. [Active paid-release sign-off](ONE_TIME_PURCHASE_RELEASE_FREEZE_AND_SIGNOFF_2026-11-23.md) tracks manual, IP and marketplace blockers.
+
 # CURRENT — LCG-P05 v0.16.8 (2026-11-22)
 
 See `CHANGELOG_v0168.md` for the latest fix: Windows X/Alt+F4 and Quit Desktop use the same save-success exit gate, plus a testable 1.8-second studio fade. 23 native QA suites included, not run due to missing engine.

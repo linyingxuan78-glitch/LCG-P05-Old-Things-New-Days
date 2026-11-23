@@ -41,7 +41,13 @@ func _run() -> void:
             var caption_label: Label = item as Label
             _check(caption_label != null and caption_label.text.contains("\n"), "status label must be split across two readable lines", errors)
             if caption_label != null:
-                # A Label Control can retain a taller layout rect than its drawn glyphs.\n                # Check actual rendered line heights plus a 6px visual gap instead.\n                var caption_ink_height: float = 0.0\n                for rendered_line in range(caption_label.get_line_count()):\n                    caption_ink_height += float(caption_label.get_line_height(rendered_line))\n                _check(caption_label.get_line_count() == 2, "status captions need exactly two lines", errors)\n                _check(caption_label.position.y + caption_ink_height + 6.0 < event_label.position.y, "status text encroaches on event banner", errors)
+                # A Label Control can retain a taller layout rect than its drawn glyphs.
+                # Check actual rendered line heights plus a 6px visual gap instead.
+                var caption_ink_height: float = 0.0
+                for rendered_line in range(caption_label.get_line_count()):
+                    caption_ink_height += float(caption_label.get_line_height(rendered_line))
+                _check(caption_label.get_line_count() == 2, "status captions need exactly two lines", errors)
+                _check(caption_label.position.y + caption_ink_height + 6.0 < event_label.position.y, "status text encroaches on event banner", errors)
     _check(picture_icons.size() == 4, "expected four fixed-size guide icons", errors)
     if picture_icons.size() == 4 and picture_labels.size() == 4:
         for icon_index in range(4):

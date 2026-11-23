@@ -51,3 +51,5 @@ try {
     Write-Host ("BLOCKED: "+$msg)
     exit 1
 }
+# Explicitly communicate successful PowerShell script status to its calling CI step.
+exit 0

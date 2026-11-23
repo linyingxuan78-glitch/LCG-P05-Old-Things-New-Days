@@ -1,3 +1,9 @@
+> **统一主工程说明（2026-11-23）：此项目只维护一个连续的游戏，不再为了修修补补不断增加版本号。** 最新源代码已从 GitHub 全量整理并回写到 [Google Drive 唯一 LATEST 源码 ZIP](https://drive.google.com/file/d/1OVX5BUi6OOUwlErkhS0mMToqOYBfgJUE/view)。原 11月22日版本已改名备份，不会覆盖；开发留档和修改均以 Git commit 记录。
+>
+> **最新经过验证的 Windows 内测 EXE**：[Google Drive 内测 ZIP](https://drive.google.com/file/d/1DU1toHcscDcYNDzj4szfH8afHkTuE1I8/view)；[Godot 4.4.1 Windows 23/23 QA、EXE 导出与隔离启动全部 PASS](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)。**注意：只是内部测试，绝不代表正式发售或真人试玩已验收。**
+>
+> **既定商业模式：一次买断、单机离线，不增加广告、订阅、道具付费或强制账号。** 下一阶段停止无目标增加商品／场景，集中处理真实 Windows 人工试玩、音乐原始文件证明、最终商品名称和上架合规。见 [发行冻结与签收表](documentation/ONE_TIME_PURCHASE_RELEASE_FREEZE_AND_SIGNOFF_2026-11-23.md)。以下旧版本小节只保留作历史，旧日期／链接／状态不再代表当前工程。
+
 # Little Cozy Games · Old Things, New Days · LCG-P05 v0.16.9 — 当前唯一最新版
 
 > **最新状态（2026-11-23）：Godot 4.4.1 Windows INTERNAL TEST ONLY EXE 已成功构建。** Windows 原生资源导入、主场景启动、23/23 QA 与来源登记（132 项）均通过。

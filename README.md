@@ -6,10 +6,12 @@ A Godot **4.4.1** first-person secondhand shop-management prototype. Players man
 
 **Windows INTERNAL TEST ONLY EXE is built and tested in CI.** The engine imported all resources on Windows without Godot ERROR lines, the main scene started, and **all 23 original native gameplay QA suites passed**. The strict export succeeded, 132 media files have registered provenance, and the resulting single-file EXE started from a source-free temporary Windows directory with exit 0 and no runtime ERROR.
 
-- [Successful Windows GitHub Actions run](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298)
-- [Download internal Windows test artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45096952298/artifacts/14783588031)
-- EXE: `LCG-P05_INTERNAL_TEST_ONLY.exe` (**107,982,928 bytes**, SHA-256 `31a7596d0a1d2fcf01895026871ec68724b72240db2903fda870eba3bf9ab02c`)
+- [Successful Windows GitHub Actions run](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738)
+- [Download internal Windows test artifact](https://github.com/linyingxuan78-glitch/LCG-P05-Old-Things-New-Days/actions/runs/45105698738/artifacts/14787137883)
+- EXE: `LCG-P05_INTERNAL_TEST_ONLY.exe` (**107,985,824 bytes**, SHA-256 `2a5846dc4f0458c902fae0e22a8d5bf72c8a674aea7cf0260f6a96fa6d73993e`)
 - [Evidence and next human playtest steps](documentation/WINDOWS_INTERNAL_BUILD_AND_PLAYTEST_HANDOFF_2026-11-23.md) · [Current milestone checklist](documentation/WINDOWS_INTERNAL_VALIDATION_BACKLOG_2026-11-23.md)
+
+**Accessibility continuation:** Historical accessibility, safety, tutorial, camera and privacy requirements were cross-checked against the original v0.16.9 project. Keyboard focus and Tab order, reversible high-contrast button themes, and a clipped scrollable 720p family guidance page were added and the **Windows 23/23 native suite, internal EXE and standalone boot passed**. See the [original-plan and official accessibility guideline audit](documentation/ACCESSIBILITY_ORIGINAL_PLAN_COMPARISON_OFFICIAL_GUIDELINES_2026-11-23.md). Real screen-reader, 200% text scalability, rebindable all-key input, and physical user testing remain open, not certified.
 
 **New W3 visual milestone:** Real Godot 4.4.1 Windows software-rendered **720p/1080p screenshots** exposed overlapping top-right icons and an overflowing menu button; both have been fixed and visually rechecked. The [W3 visual audit](documentation/W3_AUTOMATED_VISUAL_AUDIT_2026-11-23.md) explains the remaining screenshot-harness **renderer-shutdown errors**. The independent strict Windows import/23-suite/build/standalone chain above **passed**.
 

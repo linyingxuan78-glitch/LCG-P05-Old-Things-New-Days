@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          TESTED_SHA="d872b70cb0c6b6329cd98a39a20f6c5a3d4c05bf"
+          TESTED_SHA="91bf23ae10745398a2abea4576093781e4cdc874"
           git cat-file -e "$TESTED_SHA^{commit}"
           # Documentation and this backup workflow may differ, but tested gameplay must not.
           changes="$(git diff --name-only "$TESTED_SHA" HEAD -- main.tscn project.godot export_presets.cfg scripts tests assets licenses tools)"
@@ -46,7 +46,7 @@ jobs:
           tests=[p for p in files if p.startswith('tests/qa_') and p.endswith('.gd')]
           assert len(tests)==23, f"Expected exactly 23 native QA scripts; got {len(tests)}"
           sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-          manifest={'project':'LCG-P05 Old Things, New Days','type':'COMPLETE_GODOT_DEVELOPER_SOURCE_NOT_RETAIL','source_commit':sha,'last_successful_windows_23_suites':'d872b70cb0c6b6329cd98a39a20f6c5a3d4c05bf','source_files':len(files),'asset_files':len(assets),'native_qa_scripts':len(tests),'files':{}}
+          manifest={'project':'LCG-P05 Old Things, New Days','type':'COMPLETE_GODOT_DEVELOPER_SOURCE_NOT_RETAIL','source_commit':sha,'last_successful_windows_23_suites':'91bf23ae10745398a2abea4576093781e4cdc874','source_files':len(files),'asset_files':len(assets),'native_qa_scripts':len(tests),'files':{}}
           for name in files:
               p=Path(name)
               assert p.is_file(),f"Tracked source is missing: {name}"

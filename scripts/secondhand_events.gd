@@ -46,6 +46,8 @@ var action_icon: TextureRect
 var heading: Label
 var explanation: Label
 var outcome: Label
+var outcome_picture: TextureRect
+var outcome_number: Label
 var stat_labels: Array[Label] = []
 var first: Button
 var second: Button
@@ -111,7 +113,20 @@ func _build_ui() -> void:
         control.add_theme_constant_override("h_separation", 12)
         control.add_theme_font_size_override("font_size", 22)
         control.set_meta("ui_original_font_size", 22)
-    outcome = shop.call("_text", panel, Vector2(50, 298), Vector2(655, 116), 22, Color("f5e0ac")) as Label
+    # Consequences are shown as a LARGE ACTION PICTURE + LARGE NUMBER first.
+    # Explanatory text is optional supporting context for readers.
+    outcome_picture = TextureRect.new()
+    outcome_picture.position = Vector2(293, 287)
+    outcome_picture.size = Vector2(60, 60)
+    outcome_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    outcome_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    outcome_picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    panel.add_child(outcome_picture)
+    outcome_picture.visible = false
+    outcome_number = shop.call("_text", panel, Vector2(365, 290), Vector2(130, 60), 39, Color("f5e0ac")) as Label
+    outcome_number.autowrap_mode = TextServer.AUTOWRAP_OFF
+    outcome_number.visible = false
+    outcome = shop.call("_text", panel, Vector2(50, 358), Vector2(655, 78), 19, Color("f5e0ac")) as Label
     outcome.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     outcome.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
     outcome.visible = false
@@ -221,6 +236,8 @@ func _refresh_panel() -> void:
     first.visible = true
     second.visible = true
     outcome.visible = false
+    outcome_picture.visible = false
+    outcome_number.visible = false
     var buttons: Array[Button] = [first, second]
     for i in range(2):
         var data: Dictionary = (entry["options"] as Array)[i]
@@ -282,6 +299,9 @@ func _choose(option: int) -> void:
         return
     var kind: String = str(entry["id"])
     var result: String = ""
+    var old_cash: int = int(shop.get("cash"))
+    var old_boxes: int = backroom_boxes
+    var old_goodwill: int = goodwill
     match kind:
         "textile_surplus","backroom_cleanup":
             if option == 0:
@@ -358,6 +378,22 @@ func _choose(option: int) -> void:
     action_icon.texture = _icon("care" if goodwill > 0 else "check")
     outcome.text = result
     outcome.visible = true
+    var change: int = 0
+    var result_icon: String = str((entry["options"] as Array)[option]["icon"])
+    if kind == "textile_surplus" or kind == "backroom_cleanup":
+        change = abs(backroom_boxes - old_boxes)
+        result_icon = "box"
+    elif kind == "appliance_check" or kind == "mixed_donation" or kind == "furniture_repair":
+        change = abs(int(shop.get("cash")) - old_cash)
+        result_icon = "cash" if change > 0 else result_icon
+    elif kind == "private_keepsake" or kind == "missing_price" or kind == "blocked_aisle":
+        change = abs(goodwill - old_goodwill)
+        result_icon = "care" if change > 0 else result_icon
+    outcome_picture.texture = _icon(result_icon)
+    outcome_number.text = str(change)
+    outcome_number.tooltip_text = "This is the change in stored boxes, coins spent, or neighbour goodwill shown by the picture"
+    outcome_picture.visible = true
+    outcome_number.visible = true
     done_button.text = "CONTINUE"
     speech_button.tooltip_text = "Listen to the decision result"
     # Prevent repeat rewards across reloads; the existing safe-save path is used.

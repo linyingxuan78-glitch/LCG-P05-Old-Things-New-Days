@@ -2134,7 +2134,7 @@ func _tutorial_event(action: String) -> void:
 func _refresh_tutorial_ui() -> void:
     if tutorial_panel == null:
         return
-    var show_tip: bool = playing and tutorial_active and not desk_ui.visible and not paused and not help_ui.visible and not report_ui.visible and not settings_ui.visible and not ledger_ui.visible and not community_finale_ui.visible and not customer_bargain_ui.visible and not close_day_confirm_ui.visible
+    var show_tip: bool = playing and tutorial_active and not desk_ui.visible and not paused and not help_ui.visible and not report_ui.visible and not settings_ui.visible and not ledger_ui.visible and not community_finale_ui.visible and not customer_bargain_ui.visible and not close_day_confirm_ui.visible and not (secondhand_events != null and bool(secondhand_events.call("is_open")))
     tutorial_panel.visible = show_tip
     if tutorial_active and tutorial_step < TUTORIAL_ACTIONS.size():
         var heading: String = "STEP %d / %d · %s" % [tutorial_step + 1,TUTORIAL_ACTIONS.size(),str(TUTORIAL_TITLES[tutorial_step])]

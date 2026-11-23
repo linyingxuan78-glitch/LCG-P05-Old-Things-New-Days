@@ -85,6 +85,25 @@ func _run_capture() -> void:
     await create_timer(0.75).timeout
     var shop_1080_ok: bool = await _capture("shop_1920x1080", Vector2i(1920, 1080))
 
+    # Human-readable asset/choice audit from actual Godot-rendered pixels.
+    # Same QA sandbox: no changes to real saves or external accounts.
+    root.size = Vector2i(1280, 720)
+    await create_timer(0.4).timeout
+    shop.call("_advance_day")
+    shop.call("_advance_day")
+    shop.call("_toggle_desk")
+    var sorter: Control = shop.get("secondhand_events") as Control
+    var sorting_ok: bool = false
+    var sorting_result_ok: bool = false
+    if sorter != null:
+        sorter.call("open")
+        await create_timer(0.35).timeout
+        sorting_ok = await _capture("picture_first_sorting_1280x720", Vector2i(1280, 720))
+        sorter.call("_choose", 0)
+        await create_timer(0.35).timeout
+        sorting_result_ok = await _capture("picture_first_sorting_result_1280x720", Vector2i(1280, 720))
+        sorter.call("_close")
+
     root.remove_child(shop)
     shop.free()
     shop = null
@@ -92,8 +111,8 @@ func _run_capture() -> void:
     # Let deferred resource releases settle before the GLES3 renderer shuts down.
     await process_frame
     await process_frame
-    if menu_ok and settings_ok and settings_large_ok and help_ok and healthy_ok and privacy_ok and shop_720_ok and shop_1080_ok:
-        print("VISUAL QA CAPTURE PASSED: 8 real rendered PNGs including accessibility and family/privacy menus (visual review still required)")
+    if menu_ok and settings_ok and settings_large_ok and help_ok and healthy_ok and privacy_ok and shop_720_ok and shop_1080_ok and sorting_ok and sorting_result_ok:
+        print("VISUAL QA CAPTURE PASSED: 10 actual Godot PNGs including icon-first thrift decisions (visual review still required)")
         quit(0)
     else:
         push_error("VISUAL QA FAILED: one or more captured frames unavailable")
